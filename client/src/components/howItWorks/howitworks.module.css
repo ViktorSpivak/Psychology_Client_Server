@@ -1,0 +1,30 @@
+.how {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 0;
+  height: 100%;
+  align-items: center;
+  animation: Show 1s linear;
+}
+.text {
+  font-size: 100px;
+}
+.footer {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: block;
+}
+@keyframes Show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+p {
+  margin: 0;
+}

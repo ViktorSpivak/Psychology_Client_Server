@@ -1,0 +1,103 @@
+.outerContainer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+}
+.container {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.circle {
+  background-color: rgba(235, 127, 33, 191);
+  /* background-color: aquamarine; */
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  opacity: 0;
+  animation: scaleIn 3s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+  z-index: -10;
+}
+
+/* .item {
+  z-index: 100;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgb(234, 236, 228);
+} */
+
+/* .item img {
+  width: 150px;
+} */
+/* .layout::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: aqua;
+  opacity: 0.5;
+}
+.modalWindow_close {
+  position: absolute;
+  right: -5%;
+  top: -5%;
+  font-size: 40px;
+  cursor: pointer;
+} */
+.enter {
+  opacity: 0;
+}
+.enterActive {
+  opacity: 1;
+  transition: opacity 2000ms;
+}
+.exit {
+  opacity: 1;
+}
+.exitActive {
+  opacity: 0;
+  transition: opacity 2000ms;
+}
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8, 0.8);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.5, 1.5);
+    opacity: 0;
+  }
+}
+/* .modalWindow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 2px black;
+  border-radius: 50px;
+  width: 40%;
+  height: 40%;
+  text-align: center;
+  background-color: blueviolet;
+  z-index: 100;
+}
+.modalWindow__title {
+  margin-top: 10vh;
+  margin-bottom: auto;
+
+  font-size: 1.5rem;
+}
+.modalWindow_btnClose {
+  margin-top: 10vh;
+  cursor: pointer;
+} */

@@ -1,0 +1,67 @@
+.link {
+  writing-mode: vertical-lr;
+  text-align: center;
+  transform: rotate(180deg);
+  /* flex-basis: 25px; */
+  /* flex-grow: 1; */
+  /* flex-shrink: 1; */
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  /* outline: 1px solid #666; */
+  /* border: solid 1px green; */
+
+  border-left: solid 0.1px rgba(0, 0, 0, 0.1);
+  border-right: solid 0.1px rgba(0, 0, 0, 0.1);
+  display: none;
+  /* position: fixed; */
+}
+@media (min-width: 768px) {
+  .link {
+    display: block;
+  }
+}
+
+.linkText {
+  margin: 0;
+  font-size: 20px;
+  /* line-height: 56px; */
+  overflow: hidden;
+}
+.enter {
+  /* display: none; */
+  /* opacity: 0; */
+  /* width: 0; */
+  /* flex-basis: 50%; */
+  /* width: calc (100vw - 104px); */
+}
+.enterActive {
+  /* display: none; */
+  /* flex-basis: 40px; */
+  /* opacity: 1; */
+  /* display: block; */
+  /* width: 26px; */
+  /* flex-grow: 10;
+  transition: flex-grow 500ms linear; */
+  /* opacity 3500ms ease-out; */
+}
+.enterDone {
+  /* opacity: 1; */
+  /* display: none; */
+}
+.exit {
+  /* flex-basis: calc(100% - 160px); */
+  display: none;
+  /* opacity: 1; */
+}
+.exitActive {
+  /* flex-basis: 30px; */
+  /* width: 0;
+  opacity: 0;
+  transition: */
+  /* opacity 500ms ease-out; */
+  /* width 1500ms linear; */
+}
+.exitDone {
+  /* display: none; */
+}

@@ -1,0 +1,86 @@
+.container {
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: inline-flex;
+  }
+}
+
+.link {
+  writing-mode: vertical-lr;
+  text-align: center;
+  transform: rotate(180deg);
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  border-left: solid 0.1px rgba(0, 0, 0, 0.1);
+  border-right: solid 0.1px rgba(0, 0, 0, 0.1);
+  display: none;
+  font-size: 20px;
+  /* font-size: 20; */
+  width: 26px;
+}
+
+@media (min-width: 768px) {
+  .link {
+    display: block;
+  }
+}
+
+.componentWrapper {
+  /* position: fixed; */
+  /* width: calc(100vw - 150px); */
+  /* height: 99%; */
+
+  flex-basis: calc(100% - 104px);
+  /* flex-grow: 1;
+  flex-shrink: 1; */
+  /* border: solid 1px rgb(223, 8, 8); */
+  /* background-color: #5f3636; */
+  /* overflow-y: scroll; */
+}
+
+.appearDone {
+  /* flex-basis: calc(100% - 100px); */
+  /* width: 100%; */
+  /* width: calc(100vw - 102px); */
+}
+
+.enter {
+  /* flex-basis: 50%; */
+
+  /* width: 0; */
+}
+
+.enterActive {
+  /* flex-basis: 70%; */
+  /* width: 100%; */
+  /* transition: flex-basis 500ms linear; */
+}
+
+.enterDone {
+  /* flex-basis: calc(100% - 160px); */
+  /* width: 100%; */
+  /* width: 500px; */
+}
+
+.exit {
+  /* flex-basis: calc(100% - 160px); */
+  /* display: none; */
+  /* overflow: hidden; */
+}
+
+.exitActive {
+  /* display: none; */
+  /* overflow: hidden; */
+}
+
+.exitDone {
+  /* display: none; */
+  /* overflow: hidden; */
+}

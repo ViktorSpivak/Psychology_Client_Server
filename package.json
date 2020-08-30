@@ -1,0 +1,20 @@
+{
+  "name": "psychology_client_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Viktor Spivak",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react-redux": "^7.1.9",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/yup": "^0.29.6"
+  }
+}

@@ -1,0 +1,14 @@
+.line {
+  height: 1px;
+  background: #eae6e6;
+}
+.scoreLine {
+  display: flex;
+  height: 33%;
+  font-size: 30px;
+  align-items: center;
+}
+.icon,
+.round {
+  flex-basis: 33%;
+}
