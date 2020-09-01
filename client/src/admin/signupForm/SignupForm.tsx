@@ -52,6 +52,7 @@ export const SignupForm = () => {
             onSubmit={submit}
           >
             <Form className={style.form}>
+              <div className={style.line}></div>{" "}
               <Field
                 name="name"
                 type="text"

@@ -6,7 +6,7 @@ import { SocialLinks } from "../socialLinks/SocialLinks";
 import Wave from "../wave/Wave";
 import style from "./homepage.module.css";
 
-export const HomePage:FunctionComponent = () => {
+export const HomePage: FunctionComponent = () => {
   return (
     <div className={style.container}>
       <header className={style.header}>
@@ -29,7 +29,7 @@ export const HomePage:FunctionComponent = () => {
         </nav>
         <Navigation />
         <div className={style.wave}>
-          <Wave></Wave>
+          <Wave />
         </div>
         <Link to="/game" className={style.gameClick}>
           Don`t click it :)

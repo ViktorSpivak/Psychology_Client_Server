@@ -1,6 +1,7 @@
 .container {
-  margin-left: 78px;
-  margin-right: 26px;
+  position: relative;
+  left: 78px;
+  width: calc(100% - 104px);
   font-size: 14px;
   display: flex;
   justify-content: center;
@@ -24,7 +25,6 @@
   display: flex;
   height: 12vh;
   align-items: flex-end;
-  /* font-size: 25px; */
 }
 
 .address__title,
@@ -65,44 +65,6 @@
     font-size: 20px;
     flex-basis: 25%;
   }
-
-  /* .address__data {
-    font-size: 45px;
-    font-weight: 100;
-  } */
-}
-
-/* .phone {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  height: 10vh;
-} */
-.phone__title {}
-
-.phone__data {
-  /* font-style: 20px; */
-}
-
-/* .mail {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  height: 10vh;
-} */
-.mail__title {}
-
-.mail__data {
-  /* font-style: 20px; */
-}
-
-/* .socials {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  height: 10vh;
-} */
-.socials__title {}
-
-.socials__data {
-  /* font-style: 20px; */
 }
 
 @media (max-height: 400px) {

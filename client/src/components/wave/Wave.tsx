@@ -20,8 +20,11 @@ type TParticle = {
   startTime: number;
   color: string;
 };
-let particles: TParticle[] = [];
-export class Wave extends Component {
+const particles: TParticle[] = [];
+export class Wave extends Component<{
+  canvasWidth?: number | undefined;
+  canvasHeight?: number | undefined;
+}> {
   randomNormal = (o: TParam): number => {
     let r,
       a,
@@ -123,10 +126,15 @@ export class Wave extends Component {
       requestAnimationFrame((time) => this.draw(time, canvas, ctx));
     } else return;
   };
-  initializeCanvas = (): [HTMLCanvasElement, CanvasRenderingContext2D] => {
-    let canvas = this.canvasRef.current!;
-    canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-    canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+  initializeCanvas = (
+    width: number | undefined,
+    height: number | undefined = 250
+  ): [HTMLCanvasElement, CanvasRenderingContext2D] => {
+    const canvas = this.canvasRef.current!;
+    width = width || canvas.offsetWidth;
+
+    canvas.width = width * window.devicePixelRatio;
+    canvas.height = height * window.devicePixelRatio;
     let ctx = canvas.getContext("2d")!;
     window.addEventListener("resize", () => {
       canvas.width = canvas.offsetWidth * window.devicePixelRatio;
@@ -136,7 +144,10 @@ export class Wave extends Component {
     return [canvas, ctx];
   };
   startAnimation = () => {
-    const [canvas, ctx] = this.initializeCanvas();
+    const [canvas, ctx] = this.initializeCanvas(
+      this.props.canvasWidth,
+      this.props.canvasHeight
+    );
     for (let i = 0; i < NUM_PARTICLES; i++) {
       particles.push(this.createParticle());
     }

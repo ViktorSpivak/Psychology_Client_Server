@@ -82,7 +82,7 @@ export const Game: FunctionComponent = () => {
             <h3 className={style.title}>победа</h3>
             <p className={style.result}>{score.player}</p>
           </li>
-          <li className={style.listTie}>
+          <li className={style.list}>
             <h3 className={style.title}>ничья</h3>
             <p className={style.result}>{score.ties}</p>
           </li>

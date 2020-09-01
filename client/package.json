@@ -16,6 +16,7 @@
     "@types/react-transition-group": "^4.4.0",
     "@types/yup": "^0.29.6",
     "axios": "^0.20.0",
+    "cursor-dot": "^1.0.5",
     "formik": "^2.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -32,7 +33,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p"
   },
   "proxy": "http://server:3080",
   "eslintConfig": {

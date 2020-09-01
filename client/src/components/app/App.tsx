@@ -13,10 +13,15 @@ import { Specialization } from "../specialization/Specialization";
 import { Contacts } from "../contacts/Contacts";
 import HowItWorks from "../howItWorks/HowItWorks";
 import { Watch } from "../watch/Watch";
+import "../../fonts/fonts.css";
+import { Cursor } from "../cursor/Cursor";
+import { SendButton } from "../sendButton/SendButton";
 
 export const App: React.FC = () => {
   return (
     <div className={style.container}>
+      <SendButton />
+
       <Switch>
         {/* <Route path="/" exact>
           <HomePage />
@@ -31,6 +36,7 @@ export const App: React.FC = () => {
           <Game />
         </Route>
         <Route path={"/mystory"}>
+          {/* <MiddlePage post={<SendButton />} /> */}
           <MiddlePage />
           <MyStory />
         </Route>
@@ -60,8 +66,9 @@ export const App: React.FC = () => {
             "/watch",
           ]}
         >
-          <MiddlePage post={<SendButton />} />
-        </Route> */}
+          <MiddlePage />
+          {/* <MiddlePage post={<SendButton />} /> */}
+        {/* </Route> */}
         <Route path="/askMe">
           <AskMe />
         </Route>
@@ -81,6 +88,7 @@ export const App: React.FC = () => {
           <HomePage />
         </Route>
       </Switch>
+      <Cursor />
     </div>
   );
 };

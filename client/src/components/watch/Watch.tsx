@@ -10,35 +10,6 @@ axios.defaults.baseURL = "https://api.themoviedb.org/3/movie/";
 
 export const Watch: FunctionComponent = () => {
   const loader = useRef<HTMLElement>(null);
-  // const loadMore = useCallback(
-  //   (entries) => {
-  //     const target = entries[0];
-  //     if (target.isIntersecting && nextStars) {
-  //       !isFetching && fetchStars(nextStars);
-  //     }
-  //   },
-  //   [isFetching, nextStars, fetchStars]
-  // );
-
-  // useEffect(() => {
-  //   const options = {
-  //     root: null, // window by default
-  //     rootMargin: "0px",
-  //     threshold: 0.25,
-  //   };
-
-  //   // Create observer
-  //   const observer = new IntersectionObserver(loadMore, options);
-
-  //   // observer the loader
-  //   if (loader && loader.current) {
-  //     observer.observe(loader.current);
-  //   }
-
-  //   // clean up on willUnMount
-  //   return () => observer.unobserve(loader.current);
-  // }, [loader, loadMore]);
-
   const [list, setList] = useState<IPosterList[]>([]);
   const [count, setCount] = useState<number>(1);
   const loadMore = (entries: any) => {
@@ -70,12 +41,7 @@ export const Watch: FunctionComponent = () => {
       // .then((res) => console.log("Data", res))
       .catch((er) => console.log(er));
   };
-  // console.log(
-  //   list.length,
-  //   list[0]
 
-  // );
-  // fetchTrendMovies();
   return (
     <div className={style.container}>
       <header className={style.header}>

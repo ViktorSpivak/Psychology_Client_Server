@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 import { Massage } from "../../svgcomponents/massage";
 import style from "./SendButton.module.css";
 
 export const SendButton: FunctionComponent = () => {
   // const [show, setShow] = useState(true);
-
+  // const matchHome = useRouteMatch("/");
   // console.log(homepage);
   // useEffect(() => {
   //   const interval = setInterval(() => {
@@ -15,6 +15,7 @@ export const SendButton: FunctionComponent = () => {
   // }, []);
   return (
     <>
+      {/* {matchHome || ( */}
       <Link to="/askMe" className={style.outerContainer}>
         {/* <CSSTransition
         in={homepage}
@@ -28,6 +29,7 @@ export const SendButton: FunctionComponent = () => {
         </div>
         {/* </CSSTransition> */}
       </Link>
+      {/* )} */}
       {/* )} */}
     </>
   );
