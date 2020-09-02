@@ -13,8 +13,6 @@
   "author": "Viktor Spivak",
   "license": "ISC",
   "dependencies": {
-    "@types/react-redux": "^7.1.9",
-    "@types/react-router-dom": "^5.1.5",
-    "@types/yup": "^0.29.6"
+
   }
 }
