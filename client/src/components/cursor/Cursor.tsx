@@ -1,16 +1,21 @@
 import React, { useState, useEffect, FunctionComponent } from "react";
 import style from "./cursor.module.css";
+import { useLocation } from "react-router-dom";
 
 export const Cursor: FunctionComponent = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: -100, y: -100 });
   const [linkHovered, setLinkHovered] = useState<boolean>(false);
   const [hidden, setHidden] = useState<boolean>(false);
 
+  let location = useLocation();
+  let cursorStyle = linkHovered ? style.linkHovered : style.cursor;
+  // let cursorFollower = linkHovered ? style.linkHovered : style.cursor;
   useEffect(() => {
     addEventListeners();
     handleLinkHoverEvents();
+    setLinkHovered(false);
     return () => removeEventListeners();
-  }, []);
+  }, [location]);
 
   const addEventListeners = () => {
     document.addEventListener("mousemove", onMouseMove);
@@ -40,18 +45,13 @@ export const Cursor: FunctionComponent = () => {
       el.addEventListener("mouseout", () => setLinkHovered(false));
     });
   };
-  const cursorStyle = linkHovered ? style.linkHovered : style.cursor;
+  const cursorCoordinates = {
+    left: `${position.x}px`,
+    top: `${position.y}px`,
+  };
   return (
     <div className={style.wrapper}>
-      {hidden || (
-        <div
-          className={cursorStyle}
-          style={{
-            left: `${position.x}px`,
-            top: `${position.y}px`,
-          }}
-        ></div>
-      )}
+      {hidden || <div className={cursorStyle} style={cursorCoordinates}></div>}
     </div>
   );
 };

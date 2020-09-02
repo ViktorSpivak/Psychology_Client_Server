@@ -1,24 +1,25 @@
 html {
   box-sizing: border-box;
-  /* cursor: none; */
+  cursor: none;
 }
 
 *,
 *::after,
 *::before {
   box-sizing: inherit;
-  /* cursor: none; */
+  cursor: none;
 }
 
 body {
   margin: 0;
   font-family: "Champagne&Limousines";
   color: #000000;
-  /* cursor: none; */
+  cursor: none;
 }
 
 a {
   text-decoration: none;
+  cursor: none;
 }
 
 img {

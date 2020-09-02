@@ -21,7 +21,7 @@ export const App: React.FC = () => {
   return (
     <div className={style.container}>
       <SendButton />
-
+      <Cursor />
       <Switch>
         {/* <Route path="/" exact>
           <HomePage />
@@ -36,7 +36,6 @@ export const App: React.FC = () => {
           <Game />
         </Route>
         <Route path={"/mystory"}>
-          {/* <MiddlePage post={<SendButton />} /> */}
           <MiddlePage />
           <MyStory />
         </Route>
@@ -54,7 +53,6 @@ export const App: React.FC = () => {
         </Route>
         <Route path={"/watch"}>
           <MiddlePage />
-          {/* <MiddlePage post={<SendButton />} /> */}
           <Watch />
         </Route>
         {/* <Route
@@ -88,7 +86,6 @@ export const App: React.FC = () => {
           <HomePage />
         </Route>
       </Switch>
-      <Cursor />
     </div>
   );
 };

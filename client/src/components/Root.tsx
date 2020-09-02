@@ -12,7 +12,6 @@ export const Root: FunctionComponent = () => {
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
           <Route component={App} />
-          {/* <Cursor /> */}
         </BrowserRouter>
       </PersistGate>
     </Provider>
