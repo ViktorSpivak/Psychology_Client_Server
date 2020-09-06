@@ -11,10 +11,17 @@ export const Cursor: FunctionComponent = () => {
   let cursorStyle = linkHovered ? style.linkHovered : style.cursor;
   // let cursorFollower = linkHovered ? style.linkHovered : style.cursor;
   useEffect(() => {
+    const pageElementsCollection = document
+      .getElementById("root")
+      ?.getElementsByTagName("*");
+    const pageElementsArr = Array.prototype.slice.call(pageElementsCollection);
     addEventListeners();
-    handleLinkHoverEvents();
+    handleLinkHoverEvents(pageElementsArr);
     setLinkHovered(false);
-    return () => removeEventListeners();
+    return () => {
+      removeEventListeners();
+      removeHandleLinkHoverEvents(pageElementsArr);
+    };
   }, [location]);
 
   const addEventListeners = () => {
@@ -39,10 +46,20 @@ export const Cursor: FunctionComponent = () => {
   const onMouseEnter = () => {
     setHidden(false);
   };
-  const handleLinkHoverEvents = () => {
-    document.querySelectorAll("a").forEach((el) => {
-      el.addEventListener("mouseover", () => setLinkHovered(true));
-      el.addEventListener("mouseout", () => setLinkHovered(false));
+  const handleLinkHoverEvents = (pageElements: Array<HTMLElement>) => {
+    pageElements.forEach((el) => {
+      if (el.hasAttribute("data-cursor-active")) {
+        el.addEventListener("mouseover", () => setLinkHovered(true));
+        el.addEventListener("mouseout", () => setLinkHovered(false));
+      }
+    });
+  };
+  const removeHandleLinkHoverEvents = (pageElements: Array<HTMLElement>) => {
+    pageElements.forEach((el) => {
+      if (el.hasAttribute("data-cursor-active")) {
+        el.removeEventListener("mouseover", () => setLinkHovered(true));
+        el.removeEventListener("mouseout", () => setLinkHovered(false));
+      }
     });
   };
   const cursorCoordinates = {

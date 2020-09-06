@@ -25,9 +25,30 @@ export const SocialLinks = () => {
         <AiOutlineLinkedin onClick={face} />
         <AiOutlineInstagram onClick={face} />
       </IconContext.Provider> */}
-      <img src={Facebook} alt="facebook" className={style.img} onClick={face} />
-      <img src={Insta} alt="insta" className={style.img} onClick={face} />
-      <img src={Youtube} alt="youtube" className={style.img} onClick={face} />
+
+      <img
+        src={Facebook}
+        alt="facebook"
+        className={style.img}
+        onClick={face}
+        data-cursor-active
+      />
+
+      <img
+        src={Insta}
+        alt="insta"
+        className={style.img}
+        onClick={face}
+        data-cursor-active
+      />
+
+      <img
+        src={Youtube}
+        alt="youtube"
+        className={style.img}
+        onClick={face}
+        data-cursor-active
+      />
     </div>
   );
 };

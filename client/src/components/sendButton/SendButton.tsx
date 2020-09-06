@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Massage } from "../../svgcomponents/massage";
 import style from "./SendButton.module.css";
 
@@ -16,7 +16,7 @@ export const SendButton: FunctionComponent = () => {
   return (
     <>
       {/* {matchHome || ( */}
-      <Link to="/askMe" className={style.outerContainer}>
+      <Link to="/askMe" className={style.outerContainer} data-cursor-active>
         {/* <CSSTransition
         in={homepage}
         timeout={{ enter: 2000, exit: 2000 }}

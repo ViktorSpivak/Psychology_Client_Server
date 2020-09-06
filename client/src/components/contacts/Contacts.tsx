@@ -1,8 +1,8 @@
 import React from "react";
 import style from "./contacts.module.css";
 import { SocialLinks } from "../socialLinks/SocialLinks";
-// import { Logo } from "../logo/Logo";
-import { Logo } from "../../svgcomponents/Logo";
+import { Logo } from "../logo/Logo";
+// import { Logo } from "../../svgcomponents/Logo";
 // import Menu from "../menu/Menu";
 
 export const Contacts: React.FC = () => {
@@ -28,7 +28,7 @@ export const Contacts: React.FC = () => {
         <div className={style.socials}>
           <span className={style.socials__title}>Socials</span>
           <span className={style.socials__data}>
-            <SocialLinks></SocialLinks>
+            <SocialLinks />
           </span>
         </div>
         <div className={style.line}></div>

@@ -19,6 +19,7 @@
   width: 90%;
   margin: 0 auto;
 }
+
 .input {
   padding-left: 15px;
   width: 100%;
@@ -26,11 +27,13 @@
   border: none;
   outline: none;
   font-size: 30px;
-  font-family: "Poiret One", cursive;
+  margin-top: 1px;
 }
+
 .acceptBlock {
   height: 70px;
 }
+
 .text {
   margin: 0;
   padding-left: 20px;
@@ -40,6 +43,7 @@
   transform: scale(1.5);
   margin: 0;
 }
+
 .acceptInput:checked:after {
   position: absolute;
   content: "";
@@ -51,6 +55,7 @@
   border-radius: 50%;
   opacity: 0.5;
 }
+
 .acceptText {
   color: red;
   composes: text;
@@ -60,6 +65,7 @@
   color: black;
   composes: text;
 }
+
 .acceptCheckBox {
   display: inline-flex;
   width: 100%;
@@ -69,6 +75,7 @@
   padding-left: 2vh;
   padding-right: 2vh;
 }
+
 .btn {
   display: block;
   margin: 0 auto;
@@ -80,40 +87,49 @@
   font-size: 1.5rem;
   font-family: "Poiret One", cursive;
 }
+
 .submitBtn {
   visibility: hidden;
   composes: btn;
 }
+
 .submitBtnActive {
   visibility: visible;
   composes: btn;
 }
+
 .acceptLink {
   font-size: 1rem;
   text-transform: uppercase;
   color: inherit;
 }
+
 .errorStyle {
   position: absolute;
   right: 10px;
   transform: translateY(-100%);
-  color: red;
+  color: #b55400;
   font-size: 18px;
 }
+
 .footer {
   display: none;
 }
+
 @media (min-width: 768px) {
   .acceptCheckBox {
     width: 400px;
   }
+
   .btn {
     margin: 0;
     margin-left: auto;
   }
+
   .acceptBlock {
     display: flex;
   }
+
   .footer {
     position: fixed;
     left: 50%;
@@ -122,10 +138,12 @@
     display: block;
   }
 }
+
 @media (min-width: 1024px) {
   .form {
     width: 700px;
   }
+
   .acceptBlock {
     width: 700px;
   }

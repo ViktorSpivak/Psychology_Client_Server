@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   position: fixed;
+  font-size: 0;
 }
 
 .link {
@@ -12,7 +13,8 @@
   border-left: solid 0.1px rgba(0, 0, 0, 0.1);
   display: none;
   font-size: 20px;
-  width: 26px;
+  width: 40px;
+  line-height: 40px;
   color: black;
   font-weight: 600;
   background: white;
@@ -23,7 +25,7 @@
 }
 
 .openLink {
-  width: calc(100% - 104px);
+  width: calc(100% - 160px);
   border-right: solid 0.1px rgba(0, 0, 0, 0.1);
   background: white;
 }

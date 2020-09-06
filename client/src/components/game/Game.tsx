@@ -107,6 +107,7 @@ export const Game: FunctionComponent = () => {
                   className={style.player__selectBtn}
                   name="stone"
                   onClick={startRound}
+                  data-cursor-active
                 >
                   <Stone isButton={true} color={"#FAF9F8"} />
                 </button>
@@ -117,6 +118,7 @@ export const Game: FunctionComponent = () => {
                   className={style.player__selectBtn}
                   name="paper"
                   onClick={startRound}
+                  data-cursor-active
                 >
                   <Paper isButton={true} color={"#FAF9F8"} />
                 </button>
@@ -127,6 +129,7 @@ export const Game: FunctionComponent = () => {
                   className={style.player__selectBtn}
                   name="scissors"
                   onClick={startRound}
+                  data-cursor-active
                 >
                   <Scissors isButton={true} color={"#FAF9F8"} />
                 </button>

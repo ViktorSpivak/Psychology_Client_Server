@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, FunctionComponent, useEffect } from "react";
 import style from "./wave.module.css";
 
 const NUM_PARTICLES: number = 170;
@@ -20,12 +20,14 @@ type TParticle = {
   startTime: number;
   color: string;
 };
-const particles: TParticle[] = [];
-export class Wave extends Component<{
-  canvasWidth?: number | undefined;
-  canvasHeight?: number | undefined;
-}> {
-  randomNormal = (o: TParam): number => {
+
+export const Wave: FunctionComponent<{
+  canvasWidth?: number;
+  canvasHeight?: number;
+}> = ({ canvasWidth, canvasHeight }) => {
+  const canvasRef = React.createRef<HTMLCanvasElement>();
+  const particles: TParticle[] = [];
+  const randomNormal = (o: TParam): number => {
     let r,
       a,
       n,
@@ -40,10 +42,10 @@ export class Wave extends Component<{
     e = a * Math.sqrt((-2 * Math.log(r)) / r);
     return t * e + l;
   };
-  rand = (low: number, high: number): number => {
+  const rand = (low: number, high: number): number => {
     return Math.random() * (high - low) + low;
   };
-  createParticle = (): TParticle => {
+  const createParticle = (): TParticle => {
     const color = {
       r: 235,
       g: 127,
@@ -60,13 +62,13 @@ export class Wave extends Component<{
       y: -2,
       diameter: Math.max(
         0,
-        this.randomNormal({ mean: PARTICLE_SIZE, dev: PARTICLE_SIZE / 2 })
+        randomNormal({ mean: PARTICLE_SIZE, dev: PARTICLE_SIZE / 2 })
       ),
-      duration: this.randomNormal({ mean: SPEED, dev: SPEED * 0.1 }),
-      amplitude: this.randomNormal({ mean: 16, dev: 2 }),
-      offsetY: this.randomNormal({ mean: 0, dev: 10 }),
+      duration: randomNormal({ mean: SPEED, dev: SPEED * 0.1 }),
+      amplitude: randomNormal({ mean: 16, dev: 2 }),
+      offsetY: randomNormal({ mean: 0, dev: 10 }),
       arc: Math.PI * 2,
-      startTime: performance.now() - this.rand(0, SPEED),
+      startTime: performance.now() - rand(0, SPEED),
       color:
         "rgba(" +
         color.r +
@@ -79,7 +81,7 @@ export class Wave extends Component<{
         ")",
     };
   };
-  moveParticle = (particle: TParticle, time: number) => {
+  const moveParticle = (particle: TParticle, time: number) => {
     const progress =
       ((time - particle.startTime) % particle.duration) / particle.duration;
     return {
@@ -90,12 +92,12 @@ export class Wave extends Component<{
         particle.offsetY,
     };
   };
-  drawParticle = (
+  const drawParticle = (
     particle: TParticle,
     canvas: HTMLCanvasElement,
     ctx: CanvasRenderingContext2D
   ) => {
-    canvas = this.canvasRef.current!;
+    canvas = canvasRef.current!;
     const vh = canvas.height / 100;
 
     ctx.fillStyle = particle.color;
@@ -110,27 +112,27 @@ export class Wave extends Component<{
     ctx.fill();
     // ctx.stroke();
   };
-  draw = (
+  const draw = (
     time: number,
     canvas: HTMLCanvasElement,
     ctx: CanvasRenderingContext2D
   ) => {
-    if (this.canvasRef.current) {
+    if (canvasRef.current) {
       particles.forEach((particle, index) => {
-        particles[index] = this.moveParticle(particle, time);
+        particles[index] = moveParticle(particle, time);
       });
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((particle) => {
-        this.drawParticle(particle, canvas, ctx);
+        drawParticle(particle, canvas, ctx);
       });
-      requestAnimationFrame((time) => this.draw(time, canvas, ctx));
-    } else return;
+      requestAnimationFrame((time) => draw(time, canvas, ctx));
+    }
   };
-  initializeCanvas = (
+  const initializeCanvas = (
     width: number | undefined,
     height: number | undefined = 250
   ): [HTMLCanvasElement, CanvasRenderingContext2D] => {
-    const canvas = this.canvasRef.current!;
+    const canvas = canvasRef.current!;
     width = width || canvas.offsetWidth;
 
     canvas.width = width * window.devicePixelRatio;
@@ -143,24 +145,21 @@ export class Wave extends Component<{
     });
     return [canvas, ctx];
   };
-  startAnimation = () => {
-    const [canvas, ctx] = this.initializeCanvas(
-      this.props.canvasWidth,
-      this.props.canvasHeight
-    );
+  const startAnimation = () => {
+    const [canvas, ctx] = initializeCanvas(canvasWidth, canvasHeight);
     for (let i = 0; i < NUM_PARTICLES; i++) {
-      particles.push(this.createParticle());
+      particles.push(createParticle());
     }
-    requestAnimationFrame((time) => this.draw(time, canvas, ctx));
+
+    requestAnimationFrame((time) => draw(time, canvas, ctx));
   };
-  canvasRef = React.createRef<HTMLCanvasElement>();
-  componentDidMount() {
-    this.startAnimation();
-  }
+  useEffect(() => {
+    startAnimation();
+  });
 
-  render() {
-    return <canvas ref={this.canvasRef} className={style.canvasArea} />;
-  }
-}
-
-export default Wave;
+  return (
+    <div className={style.container}>
+      <canvas ref={canvasRef} className={style.canvasArea} />
+    </div>
+  );
+};

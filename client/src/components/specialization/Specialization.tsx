@@ -27,32 +27,32 @@ export const Specialization = () => {
         <li className={style.scene}>
           <CSSTransition in={turn1} timeout={1000} classNames={style}>
             <div className={style.card}>
-              <div className={style.card__face}>front</div>
-              <div className={style.card__face_back}>back</div>
+              <div className={style.card__face} data-cursor-active>front</div>
+              <div className={style.card__face_back} data-cursor-active>back</div>
             </div>
           </CSSTransition>
         </li>
         <li className={style.scene}>
           <CSSTransition in={turn2} timeout={1000} classNames={style}>
             <div className={style.card}>
-              <div className={style.card__face}>front</div>
-              <div className={style.card__face_back}>back</div>
+              <div className={style.card__face} data-cursor-active>front</div>
+              <div className={style.card__face_back} data-cursor-active>back</div>
             </div>
           </CSSTransition>
         </li>
         <li className={style.scene}>
           <CSSTransition in={turn3} timeout={1000} classNames={style}>
             <div className={style.card}>
-              <div className={style.card__face}>front</div>
-              <div className={style.card__face_back}>back</div>
+              <div className={style.card__face} data-cursor-active>front</div>
+              <div className={style.card__face_back} data-cursor-active>back</div>
             </div>
           </CSSTransition>
         </li>
         <li className={style.scene}>
           <CSSTransition in={turn4} timeout={1000} classNames={style}>
             <div className={style.card}>
-              <div className={style.card__face}>front</div>
-              <div className={style.card__face_back}>back</div>
+              <div className={style.card__face} data-cursor-active>front</div>
+              <div className={style.card__face_back} data-cursor-active>back</div>
             </div>
           </CSSTransition>
         </li>

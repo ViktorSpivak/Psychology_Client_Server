@@ -1,3 +1,10 @@
-.canvasArea {
+.container {
   width: 100%;
+  overflow: hidden;
+}
+
+.canvasArea {
+  width: 110%;
+  margin-left: -5%;
+  margin-right: -5%;
 }

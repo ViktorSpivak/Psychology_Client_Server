@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import { Logo } from "../../svgcomponents/Logo";
+
+// import { Logo } from "../../svgcomponents/Logo";
+import { Logo } from "../logo/Logo";
 import { Navigation } from "../navigation/Navigation";
 import { SocialLinks } from "../socialLinks/SocialLinks";
-import Wave from "../wave/Wave";
+import { Wave } from "../wave/Wave";
 import style from "./homepage.module.css";
 
 export const HomePage: FunctionComponent = () => {
@@ -16,7 +18,7 @@ export const HomePage: FunctionComponent = () => {
       <main className={style.main}>
         <h1 className={style.title}>Юлия Сохач</h1>
 
-        <nav className={style.prophesy}>
+        <nav className={style.prophesy} data-cursor-active>
           <Link to="/spacialization/mentoring" className={style.link}>
             Коуч.
           </Link>
@@ -31,7 +33,7 @@ export const HomePage: FunctionComponent = () => {
         <div className={style.wave}>
           <Wave />
         </div>
-        <Link to="/game" className={style.gameClick}>
+        <Link to="/game" className={style.gameClick} data-cursor-active>
           Don`t click it :)
         </Link>
         <Link to="/signup" className={style.login}>

@@ -2,6 +2,7 @@
   height: 100vh;
   position: relative;
 
+
 }
 
 .logo_modify {
@@ -22,18 +23,16 @@
 } */
 .specialization {
   list-style: none;
-  padding: 20px;
+  padding: 0;
+  padding: 100px;
   animation: Show 1s;
 }
 
 .scene {
   padding: 0;
-  margin: 0;
   perspective: 100vw;
-  /* border: solid 5px rgba(0, 0, 0, 0.1); */
-  border: solid 5px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
   height: 200px;
+  box-shadow: 0 0 20px rgba(235, 127, 33, 191)
 }
 
 .card {
@@ -42,7 +41,7 @@
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
-  font-size: 35px;
+  font-size: 120px;
 }
 
 .enterActive {
@@ -58,7 +57,7 @@
   height: 100%;
   width: 100%;
   backface-visibility: hidden;
-  background-color: bisque;
+  background-color: white;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -68,13 +67,17 @@
 .card__face_back {
   transform: rotateY(180deg);
   height: 100%;
-  background-color: cadetblue;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-radius: 30px; */
 }
 
 @media (min-width: 768px) {
   .container {
-    left: 27px;
-    width: calc(100% - 108px);
+    left: 40px;
+    width: calc(100% - 160px);
   }
 
   .scene {
@@ -85,7 +88,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
-    padding: 6vh;
+    /* padding: 6vh; */
     grid-gap: 75px;
     overflow: hidden;
     height: 100%;

@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  width: calc(100% - 108px);
+  width: calc(100% - 160px);
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -10,7 +10,6 @@
 
 .story {
   font-size: 100px;
-  cursor: pointer;
 }
 
 .footer {

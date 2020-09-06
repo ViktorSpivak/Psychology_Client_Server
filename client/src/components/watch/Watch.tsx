@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef, FunctionComponent } from "react";
+import { Link } from "react-router-dom";
 import { Logo } from "../../svgcomponents/Logo";
 import axios from "axios";
 import style from "./watch.module.css";
 import { Loader } from "../loader/Loader";
 import { IPosterList } from "../../../../common/interfaces";
+// import { Logo } from "../logo/Logo";
 
 const apiKey = "3f3d3dc7a4319cc8bb935aa9323bdeea";
 axios.defaults.baseURL = "https://api.themoviedb.org/3/movie/";
@@ -54,24 +56,29 @@ export const Watch: FunctionComponent = () => {
           {list &&
             list.map((el, idx) => (
               <li key={idx} className={style.card}>
+                {/* <Link to="/"> */}
                 <img
                   className={style.img}
                   src={`https://image.tmdb.org/t/p/w500${el.poster_path}`}
                   alt="poster"
+                  data-cursor-active
                 />
                 <div className={style.cardDescription}>
                   <div>
                     <span>Date</span>
                     <span>Theme</span>
                   </div>
-                  <h3>Headline</h3>
-                  <p className={style.cardText}>
+                  <h3 data-cursor-active>Headline</h3>
+                  <p className={style.cardText} data-cursor-active>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Praesentium, nisi illo sequi soluta officia saepe quis rerum
                     molestiae quaerat aliquid.
                   </p>
-                  <p>Continue Reading</p>
+                  <Link to="/" data-cursor-active>
+                    <p>Continue Reading</p>
+                  </Link>
                 </div>
+                {/* </Link> */}
               </li>
             ))}
         </ul>

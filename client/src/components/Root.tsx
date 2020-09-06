@@ -4,7 +4,6 @@ import { store, persistor } from "../redux/store";
 import { BrowserRouter, Route } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { App } from "./app/App";
-import { Cursor } from "./cursor/Cursor";
 
 export const Root: FunctionComponent = () => {
   return (

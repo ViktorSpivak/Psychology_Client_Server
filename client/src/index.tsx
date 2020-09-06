@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Root } from "./components/Root";
 import * as serviceWorker from "./serviceWorker";
-import { Cursor } from "./components/cursor/Cursor";
 
 ReactDOM.render(
   <React.StrictMode>

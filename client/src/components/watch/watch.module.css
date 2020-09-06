@@ -9,15 +9,22 @@
 
   width: 100%;
   text-align: center;
-  background-color: rgb(126, 77, 77);
+  /* background-color: rgb(126, 77, 77); */
 }
 
 .text {
   width: inherit;
   text-align: center;
   font-size: 100px;
-  height: 200px;
-  background-color: blanchedalmond;
+  height: 300px;
+  /* border-top: solid 1px rgba(235, 127, 33, 191);
+  border-bottom: solid 1px rgba(235, 127, 33, 191); */
+  /* background:  */
+  background-image: url('../../images/handsPhoto/баннер\ сайт\ блог.png');
+  ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: blanchedalmond; */
 }
 
 .list {
@@ -37,7 +44,7 @@
 
 .card:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
+
 }
 
 .img {
@@ -52,6 +59,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   height: 55%;
+
 }
 
 .cardText {
@@ -69,8 +77,8 @@
 
 @media (min-width: 768px) {
   .container {
-    left: 104px;
-    width: calc(100% - 104px);
+    left: 160px;
+    width: calc(100% - 160px);
   }
 
   .list {

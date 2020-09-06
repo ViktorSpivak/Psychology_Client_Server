@@ -1,7 +1,7 @@
 .container {
   position: relative;
-  left: 78px;
-  width: calc(100% - 104px);
+  left: 120px;
+  width: calc(100% - 160px);
   font-size: 14px;
   display: flex;
   justify-content: center;
