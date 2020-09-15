@@ -32,7 +32,9 @@
   padding: 0;
   perspective: 100vw;
   height: 200px;
-  box-shadow: 0 0 20px rgba(235, 127, 33, 191)
+  border: solid 2px rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  /* box-shadow: 0 0 20px rgba(235, 127, 33, 191) */
 }
 
 .card {
@@ -62,6 +64,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
 }
 
 .card__face_back {
@@ -71,6 +74,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
   /* border-radius: 30px; */
 }
 

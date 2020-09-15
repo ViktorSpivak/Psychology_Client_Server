@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
   height: 10vh;
 }
 
@@ -19,11 +20,12 @@
 }
 
 .title {
-  font-size: 60px;
-  font-weight: bold;
+  font-size: 100px;
+  font-weight: lighter;
+  /* font-weight: bold; */
   text-align: center;
   margin: 0;
-  color: #4d4040;
+  /* color: #4d4040; */
 }
 
 .prophesy {
@@ -78,6 +80,10 @@
 
   .gameClick_link {
     color: black;
+  }
+
+  .gameClick {
+    margin-bottom: 20px;
   }
 
   /* .footer {

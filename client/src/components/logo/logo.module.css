@@ -1,10 +1,5 @@
-.logo__text {
-  display: block;
-  width: 200px;
-  height: 200px;
-  background: rgb(218, 179, 179);
-  margin-top: 30px;
-  /* text-align: center;
-  color: black;
-  font-size: 30px; */
+.img {
+  width: 85px;
+  height: 60px;
+
 }

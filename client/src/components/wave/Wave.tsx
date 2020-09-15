@@ -1,4 +1,4 @@
-import React, { Component, FunctionComponent, useEffect } from "react";
+import React, { FunctionComponent, useEffect } from "react";
 import style from "./wave.module.css";
 
 const NUM_PARTICLES: number = 170;

@@ -6,7 +6,7 @@ export const Navigation = () => {
   return (
     <div>
       <nav className={style.nav}>
-        <Link to="/mystory" className={style.link} data-cursor-active>
+        <Link to="/mystory" className={style.link1} data-cursor-active>
           Обо мне
         </Link>
         <Link to="/specialization" className={style.link} data-cursor-active>

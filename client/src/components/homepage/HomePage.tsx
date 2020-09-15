@@ -36,9 +36,9 @@ export const HomePage: FunctionComponent = () => {
         <Link to="/game" className={style.gameClick} data-cursor-active>
           Don`t click it :)
         </Link>
-        <Link to="/signup" className={style.login}>
+        {/* <Link to="/signup" className={style.login}>
           <button>Sign up</button>
-        </Link>
+        </Link> */}
       </main>
     </div>
   );

@@ -14,8 +14,8 @@ import { Paper } from "../../svgcomponents/paper";
 import { Stone } from "../../svgcomponents/stone";
 import { Scissors } from "../../svgcomponents/scissors";
 import { ScoreHistory } from "./ScoreHistory";
-// import { Logo } from "../logo/Logo";
-import { Logo } from "../../svgcomponents/Logo";
+import { Logo } from "../logo/Logo";
+// import { Logo } from "../../svgcomponents/Logo";
 // type TPhoto = { [key: string]: string };
 
 export const Game: FunctionComponent = () => {

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef, FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import { Logo } from "../../svgcomponents/Logo";
+// import { Logo } from "../../svgcomponents/Logo";
 import axios from "axios";
 import style from "./watch.module.css";
 import { Loader } from "../loader/Loader";
 import { IPosterList } from "../../../../common/interfaces";
-// import { Logo } from "../logo/Logo";
+import { Logo } from "../logo/Logo";
 
 const apiKey = "3f3d3dc7a4319cc8bb935aa9323bdeea";
 axios.defaults.baseURL = "https://api.themoviedb.org/3/movie/";

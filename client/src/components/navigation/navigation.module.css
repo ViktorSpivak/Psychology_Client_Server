@@ -1,7 +1,7 @@
 .nav {
   display: flex;
   flex-direction: column;
-  font-size: 22px;
+  font-size: 28px;
   list-style: none;
   text-align: center;
   align-items: center;
@@ -9,32 +9,45 @@
   padding-left: 0;
   padding-top: 4vh;
 }
+
 .link {
   color: black;
   align-content: center;
   padding-top: 20px;
 }
+
+
+
 @media (min-width: 768px) {
   .nav {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .link {
     flex-basis: 33%;
   }
+
+  .link1 {
+    composes: link;
+    flex-basis: 20%;
+  }
 }
+
 @media (min-width: 1024px) {
   .nav {
     flex-wrap: nowrap;
   }
 }
+
 @media (orientation: landscape) and (max-height: 520px) {
   .nav {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
   }
+
   .link {
     flex-basis: 33%;
   }

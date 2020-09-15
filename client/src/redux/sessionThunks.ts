@@ -27,12 +27,15 @@ export const signupRequest = createAsyncThunk<
   {
     state: RootState;
   }
->("signup/reqStatus", async (credentials, { getState, requestId }) => {
-  const { currentRequestId, isLoading } = getState();
-  // console.log(currentRequestId, isLoading);
-  if (isLoading !== true || requestId !== currentRequestId) {
-    return;
+>(
+  "signup/reqStatus",
+  async (credentials, { getState, requestId }): Promise<any> => {
+    const { currentRequestId, isLoading } = getState();
+    // console.log(currentRequestId, isLoading);
+    if (isLoading !== true || requestId !== currentRequestId) {
+      return;
+    }
+    const response = await api.signupRequest(credentials);
+    return response;
   }
-  const response = await api.signupRequest(credentials);
-  return response;
-});
+);
