@@ -1,22 +1,19 @@
-import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-// import { User_Request } from '../services/userRequest.schema';
-import { ILoginResponse, IUserRequest } from '../../../common/interfaces';
+import { IUser } from '../../../common/interfaces';
+import { dbServices } from '../dbServices/dbServices.service';
+import * as bcrypt from 'bcryptjs';
+import * as shortid from 'shortid';
+require('dotenv').config();
+const COUNT_FACTOR = process.env.COUNT_FACTOR;
 
 @Injectable()
 export class AdminService {
-  // constructor(
-  //   @InjectModel(User_Request.name) private model: Model<User_Request>,
-  // ) {}
-  // async create(createUserRequest: IUserRequest): Promise<any> {
-  //   const createdRequest = new this.model(createUserRequest);
-  //   return createdRequest.save();
-  // }
-  // async findAll(): Promise<IUserRequest[]> {
-  //   return this.model.find().exec();
-  // }
-  // async findOne(username: string): Promise<ILoginResponse> {
-  //   return this.model.find();
-  // }
+  constructor(private services: dbServices) {}
+  async createUser(user: IUser): Promise<any> {
+    user.password = await bcrypt.hash(shortid.generate(), +COUNT_FACTOR);
+    return this.services.createUser(user);
+  }
+  async findAllUsers(): Promise<any> {
+    return this.services.findAllUsers();
+  }
 }

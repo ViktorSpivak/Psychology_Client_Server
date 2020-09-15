@@ -6,6 +6,6 @@ import { dbServices } from '../dbServices/dbServices.service';
 export class UserRequestsService {
   constructor(private services: dbServices) {}
   async createRequest(userRequest: IUserRequest): Promise<any> {
-    this.services.create(userRequest);
+    this.services.createRequest(userRequest);
   }
 }

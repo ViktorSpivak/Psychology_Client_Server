@@ -1,24 +1,25 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+require('dotenv').config();
 
 @Schema()
 export class User extends Document {
-  @Prop()
+  @Prop({ required: true })
   name: string;
 
   @Prop()
-  phone?: string;
+  phone: string;
 
-  @Prop()
+  @Prop({ required: true })
   password: string;
 
-  @Prop({ default: null })
+  @Prop({ default: false })
   token: string;
 
-  @Prop()
+  @Prop({ required: true })
   email: string;
 
-  @Prop({ default: null })
+  @Prop({ default: 'user' })
   role: string;
 }
 

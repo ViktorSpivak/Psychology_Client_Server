@@ -1,8 +1,7 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { UserRequestsService } from './userRequests.service';
 import { IUserRequest } from '../../../common/interfaces';
 import { sendEmail } from 'src/helpers/sendGrid';
-// import { UserRequest } from './userRequest.schema';
 
 @Controller('userRequest')
 export class UserRequestsController {

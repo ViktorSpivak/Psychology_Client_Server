@@ -1,24 +1,26 @@
 import { Module } from '@nestjs/common';
-// import { MongooseModule } from '@nestjs/mongoose';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
-// import { User_Requests, UserRequestSchema } from '../models/userRequest.schema';
 import { PassportModule } from '@nestjs/passport';
-import { LocalStrategy } from './local.strategy';
+import { LocalStrategy } from './strategies/local.strategy';
 import { DbServicesModule } from 'src/dbServices/dbServices.module';
-// import { DbServicesModule } from 'src/dbServices/dbServices.module';
-// import { AdminModule } from 'src/admin/admin.module';
-// import { ServicesModule } from '../dbServices/dbServices.module';
+import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './strategies/jwt.strategy';
+require('dotenv').config();
+const JWT_SECRET = process.env.JWT_SECRET;
 
 @Module({
   imports: [
-    // MongooseModule.forFeature([
-    //   { name: User_Requests.name, schema: UserRequestSchema },
-    // ]),
-    PassportModule,
+    PassportModule.register({ defaultStrategy: 'jwt' }),
     DbServicesModule,
+    // JwtStrategy,
+    JwtModule.register({
+      secret: JWT_SECRET,
+      signOptions: { expiresIn: '600s' },
+    }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, LocalStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
+  exports: [JwtStrategy],
 })
 export class AuthModule {}
