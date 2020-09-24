@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { IUser } from '../../../common/interfaces';
+import { IPost, IUser } from '../../../common/interfaces';
 import { dbServices } from '../dbServices/dbServices.service';
 import * as bcrypt from 'bcryptjs';
 import * as shortid from 'shortid';
@@ -15,5 +15,23 @@ export class AdminService {
   }
   async findAllUsers(): Promise<any> {
     return this.services.findAllUsers();
+  }
+  async findUserById(id: string): Promise<any> {
+    return this.services.findUserById(id);
+  }
+  //async findAndUpdateUser(id: string): Promise<any> {
+  //   return this.services.findAndUpdateUser(id);
+  // }
+
+  async findUserRequestById(id: string): Promise<any> {
+    return this.services.findRequestById(id);
+  }
+
+  async findAllRequests(): Promise<any> {
+    return this.services.findAllRequests();
+  }
+
+  async createPost(post: IPost): Promise<any> {
+    return this.services.createPost(post);
   }
 }

@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AdminModule } from './admin/admin.module';
+import { AppControllers } from './app.controller';
+import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
+import { DbServicesModule } from './dbServices/dbServices.module';
 import { UserRequestsModule } from './userRequests/userRequests.module';
 require('dotenv').config();
 const URLdb = process.env.URLdb;
@@ -15,6 +18,12 @@ const URLusersdb = process.env.URLusersdb;
       useUnifiedTopology: true,
       useFindAndModify: false,
     }),
+    MongooseModule.forRoot(URLdb, {
+      connectionName: 'posts',
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    }),
     MongooseModule.forRoot(URLusersdb, {
       connectionName: 'users',
       useNewUrlParser: true,
@@ -24,9 +33,10 @@ const URLusersdb = process.env.URLusersdb;
     UserRequestsModule,
     AdminModule,
     AuthModule,
+    DbServicesModule,
   ],
   // exports: [DbServicesModule],
-  // controllers: [AppControllers],
-  // providers: [AuthModule],
+  controllers: [AppControllers],
+  providers: [AppService],
 })
 export class AppModule {}

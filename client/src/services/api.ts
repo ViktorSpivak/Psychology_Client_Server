@@ -1,9 +1,9 @@
 import Axios from "axios";
-import { ILoginData, ISignInData } from "../../../common/interfaces";
+import { ILoginRequest, ISignInData } from "../../../common/interfaces";
 
 Axios.defaults.baseURL = "https://psychology-server.herokuapp.com";
 
-export const loginRequest = async (values: ILoginData) =>
+export const loginRequest = async (values: ILoginRequest) =>
   await Axios({
     method: "post",
     url: "auth/login",

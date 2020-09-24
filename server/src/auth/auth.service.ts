@@ -13,7 +13,7 @@ export class AuthService {
   constructor(private services: dbServices, private jwtService: JwtService) {}
 
   async validateUser(username: string, pass: string): Promise<any> {
-    const user = await this.services.findOneUser(username);
+    const user = await this.services.findUserByName(username);
     // console.log(user);
     const validPass = bcrypt.compare(pass, user.password);
     if (validPass) {
@@ -25,12 +25,15 @@ export class AuthService {
     return null;
   }
   async login(user: IUser): Promise<any> {
-    const payload = { username: user.name, sub: user._id };
+    const payload = { username: user.name, sub: user.id };
     // console.log(payload);
     const token = this.jwtService.sign(payload);
-    await this.services.findAndUpdate(user._id, { token });
+    await this.services.findAndUpdateUser(user.id, { token });
     return {
       token,
     };
+  }
+  async logout(user: IUser): Promise<any> {
+    await this.services.findAndUpdateUser(user.id, { token: null });
   }
 }

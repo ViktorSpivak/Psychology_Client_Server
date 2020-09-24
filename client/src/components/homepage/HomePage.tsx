@@ -19,13 +19,13 @@ export const HomePage: FunctionComponent = () => {
         <h1 className={style.title}>Юлия Сохач</h1>
 
         <nav className={style.prophesy} data-cursor-active>
-          <Link to="/spacialization/mentoring" className={style.link}>
+          <Link to="/specialization" className={style.link}>
             Коуч.
           </Link>
-          <Link to="/spacialization/coaching" className={style.link}>
+          <Link to="/specialization" className={style.link}>
             Ментор.
           </Link>
-          <Link to="/spacialization/psychology" className={style.link}>
+          <Link to="/specialization" className={style.link}>
             Психолог.
           </Link>
         </nav>

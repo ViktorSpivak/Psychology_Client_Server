@@ -1,22 +1,24 @@
-// import { Model } from 'mongoose';
-// import { Injectable } from '@nestjs/common';
-// import { InjectModel } from '@nestjs/mongoose';
-// import { User_Request } from './models/userRequest.schema';
-// import { ILoginResponse, IUserRequest } from '../../common/interfaces';
+import { Injectable } from '@nestjs/common';
+import { dbServices } from './dbServices/dbServices.service';
 
-// @Injectable()
-// export class AppService {
-//   constructor(
-//     @InjectModel(User_Request.name) private model: Model<User_Request>,
-//   ) {}
-//   async create(createUserRequest: IUserRequest): Promise<any> {
-//     const createdRequest = new this.model(createUserRequest);
-//     return createdRequest.save();
-//   }
-//   async findAll(): Promise<IUserRequest[]> {
-//     return this.model.find().exec();
-//   }
-//   // async findOne(username: string): Promise<ILoginResponse> {
-//   //   return this.model.find();
-//   // }
-// }
+@Injectable()
+export class AppService {
+  constructor(private services: dbServices) {}
+
+  async findAllPosts(): Promise<any> {
+    return this.services.findAllPosts();
+  }
+  async findPostById(id: string): Promise<any> {
+    return this.services.findPostById(id);
+  }
+  // async create(createUserRequest: IUserRequest): Promise<any> {
+  //   const createdRequest = new this.model(createUserRequest);
+  //   return createdRequest.save();
+  // }
+  // async findAll(): Promise<IUserRequest[]> {
+  //   return this.model.find().exec();
+  // }
+  // async findOne(username: string): Promise<ILoginResponse> {
+  //   return this.model.find();
+  // }
+}

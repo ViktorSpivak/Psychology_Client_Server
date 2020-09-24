@@ -28,6 +28,25 @@
   z-index: -10;
 }
 
+.textWrapper {
+  width: 80px;
+  height: 80px;
+  border: solid 2px var(--customOrange);
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  color: var(--customOrange);
+  font-size: 18px;
+  line-height: 16px;
+  font-weight: bolder;
+
+  text-align: center;
+  /* line-height: 70px; */
+}
 
 .enter {
   opacity: 0;

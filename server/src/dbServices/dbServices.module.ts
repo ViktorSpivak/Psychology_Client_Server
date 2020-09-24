@@ -1,11 +1,9 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { dbServices } from './dbServices.service';
-import { User, UserSchema } from './user.shema';
-// import { Services1 } from './dbServices.service';
-import { User_Request, UserRequestSchema } from './userRequest.schema';
-// require('dotenv').config();
-// const URLdb = process.env.URLdb;
+import { User, UserSchema } from './models/user.schema';
+import { User_Request, UserRequestSchema } from './models/userRequest.schema';
+import { Post, PostSchema } from './models/post.schema';
 
 @Module({
   imports: [
@@ -16,6 +14,10 @@ import { User_Request, UserRequestSchema } from './userRequest.schema';
     MongooseModule.forFeature(
       [{ name: User.name, schema: UserSchema }],
       'users',
+    ),
+    MongooseModule.forFeature(
+      [{ name: Post.name, schema: PostSchema }],
+      'posts',
     ),
   ],
   providers: [dbServices],

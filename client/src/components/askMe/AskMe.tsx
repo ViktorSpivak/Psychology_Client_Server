@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import Axios from "axios";
 import * as Yup from "yup";
-import { Logo } from "../../svgcomponents/Logo";
+// import { Logo } from "../../svgcomponents/Logo";
+import { Logo } from "../logo/Logo";
 import style from "./askme.module.css";
 import { IFormValues } from "../../../../common/interfaces";
+import { Link } from "react-router-dom";
 
 export const AskMe: React.FC = () => {
   const [accept, setAccept] = useState<boolean>(false);
@@ -102,7 +104,7 @@ export const AskMe: React.FC = () => {
             />
             <div className={style.line}></div>
             <div className={style.acceptBlock}>
-              <div className={style.acceptCheckBox}>
+              <div className={style.acceptCheckBox} data-cursor-active>
                 <input
                   type="radio"
                   checked={accept}
@@ -112,22 +114,24 @@ export const AskMe: React.FC = () => {
                 ></input>
                 <p
                   className={accept ? style.acceptTextActive : style.acceptText}
+                  // data-cursor-active
                 >
-                  <a
-                    href="/"
-                    target="blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/"
+                    // target="blank"
+                    // rel="noopener noreferrer"
                     className={style.acceptLink}
                   >
                     I accept the terms as laid out in the privacy policy
-                  </a>
+                  </Link>
                 </p>
               </div>
               <button
                 type="submit"
                 className={accept ? style.submitBtnActive : style.submitBtn}
+                data-cursor-active
               >
-                Submit<span>&#10230;</span>
+                Подтверждаю<span>&#10230;</span>
               </button>
             </div>
           </Form>
