@@ -14,7 +14,11 @@ export class AdminService {
     return this.services.createUser(user);
   }
   async findAllUsers(): Promise<any> {
-    return this.services.findAllUsers();
+    const users = await this.services.findAllUsers();
+    // console.log(...users);
+    const usersForAdminList = users.map(el => ({ ...el, id: el._id }));
+
+    return usersForAdminList;
   }
   async findUserById(id: string): Promise<any> {
     return this.services.findUserById(id);

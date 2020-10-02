@@ -6,7 +6,14 @@ export class AppService {
   constructor(private services: dbServices) {}
 
   async findAllPosts(): Promise<any> {
-    return this.services.findAllPosts();
+    const posts = await this.services.findAllPosts();
+    const postsForAdminList = posts.map(el => ({ ...el, id: el._id }));
+    //  {
+    // const { date, headline, topic, _id } = el;
+    // const post = { date, headline, topic, id: _id };
+    // return post;
+    // });
+    return postsForAdminList;
   }
   async findPostById(id: string): Promise<any> {
     return this.services.findPostById(id);

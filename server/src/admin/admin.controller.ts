@@ -4,10 +4,11 @@ import {
   Get,
   Post,
   UseGuards,
-  Request,
   Param,
+  Res,
 } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/auth-guards/jwt-auth.guard';
+import { Response } from 'express';
 import {
   IPost,
   IUser,
@@ -25,10 +26,15 @@ export class AdminController {
     return await this.adminService.createUser(user);
   }
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Get('/users')
-  async findAllUsers(): Promise<IUserRequest[]> {
-    return this.adminService.findAllUsers();
+  async findAllUsers(@Res() res: Response): Promise<any> {
+    const users = await this.adminService.findAllUsers();
+
+    res.setHeader('Content-Range', 'admin/users 0-3/10');
+    res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
+
+    res.json(users);
   }
 
   @UseGuards(JwtAuthGuard)
@@ -50,7 +56,7 @@ export class AdminController {
     return this.adminService.findAllRequests();
   }
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Post('/create_post')
   async createPost(@Body() post: IPost): Promise<any> {
     return await this.adminService.createPost(post);

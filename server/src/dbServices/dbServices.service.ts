@@ -20,7 +20,6 @@ export class dbServices {
     @InjectModel(User.name) private modelUser: Model<User>,
     @InjectModel(Post.name) private modelPost: Model<Post>,
   ) {}
-
   async createUser(user: IUser): Promise<any> {
     const createdUser = new this.modelUser(user);
     return createdUser.save();
@@ -34,7 +33,10 @@ export class dbServices {
   }
 
   async findAllUsers(): Promise<any> {
-    return this.modelUser.find().exec();
+    return this.modelUser
+      .find()
+      .lean()
+      .exec();
   }
 
   async findAndUpdateUser(
@@ -81,7 +83,10 @@ export class dbServices {
     return createdRequest.save();
   }
   async findAllPosts(): Promise<any> {
-    return this.modelPost.find().exec();
+    return this.modelPost
+      .find()
+      .lean()
+      .exec();
   }
 
   async findPostById(id: string): Promise<any> {

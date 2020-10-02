@@ -33,6 +33,11 @@
     composes: link;
     flex-basis: 20%;
   }
+
+  .link5 {
+    composes: link;
+    flex-basis: 20%;
+  }
 }
 
 @media (min-width: 1024px) {

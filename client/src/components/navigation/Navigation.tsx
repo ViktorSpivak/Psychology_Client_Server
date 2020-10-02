@@ -18,7 +18,7 @@ export const Navigation = () => {
         <Link to="/contacts" className={style.link} data-cursor-active>
           Как со мной связаться
         </Link>
-        <Link to="/watch" className={style.link} data-cursor-active>
+        <Link to="/watch" className={style.link5} data-cursor-active>
           Посмотреть и почитать
         </Link>
       </nav>
