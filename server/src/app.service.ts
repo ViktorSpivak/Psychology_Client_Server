@@ -8,11 +8,6 @@ export class AppService {
   async findAllPosts(): Promise<any> {
     const posts = await this.services.findAllPosts();
     const postsForAdminList = posts.map(el => ({ ...el, id: el._id }));
-    //  {
-    // const { date, headline, topic, _id } = el;
-    // const post = { date, headline, topic, id: _id };
-    // return post;
-    // });
     return postsForAdminList;
   }
   async findPostById(id: string): Promise<any> {

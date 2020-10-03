@@ -67,3 +67,7 @@ export interface IPost {
   headline: string;
 }
 export type TElementId = { id: string };
+export interface Credentials {
+  username: string;
+  password: string;
+}

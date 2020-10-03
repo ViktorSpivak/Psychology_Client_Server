@@ -1,12 +1,12 @@
 import * as React from "react";
 import { List, Datagrid, TextField } from "react-admin";
 
-export const PostsList = (props: any) => (
+export const RequestsList = (props: any) => (
   <List {...props}>
-    <Datagrid rowClick="edit">
-      <TextField source="topic" />
-      <TextField source="headline" />
+    <Datagrid>
       <TextField source="date" />
+      <TextField source="name" />
+      <TextField source="text" />
     </Datagrid>
   </List>
 );

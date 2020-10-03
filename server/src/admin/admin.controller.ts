@@ -17,7 +17,7 @@ import {
 } from '../../../common/interfaces';
 import { AdminService } from './admin.service';
 
-@Controller('admin')
+@Controller()
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
   // @UseGuards(JwtAuthGuard)
@@ -26,12 +26,12 @@ export class AdminController {
     return await this.adminService.createUser(user);
   }
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Get('/users')
   async findAllUsers(@Res() res: Response): Promise<any> {
     const users = await this.adminService.findAllUsers();
 
-    res.setHeader('Content-Range', 'admin/users 0-3/10');
+    res.setHeader('Content-Range', 'users 0-3/10');
     res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
 
     res.json(users);
@@ -52,8 +52,13 @@ export class AdminController {
   }
   @UseGuards(JwtAuthGuard)
   @Get('/requests')
-  async findAllRequest(): Promise<IUserRequest[]> {
-    return this.adminService.findAllRequests();
+  async findAllRequest(@Res() res: Response): Promise<IUserRequest[]> {
+    const requests = await this.adminService.findAllRequests();
+    res.setHeader('Content-Range', 'requests 0-10/10');
+    res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
+
+    res.json(requests);
+    return;
   }
 
   // @UseGuards(JwtAuthGuard)
@@ -64,11 +69,11 @@ export class AdminController {
 
   // @UseGuards(JwtAuthGuard)
 
-  // @UseGuards(JwtAuthGuard)
-  // @Get('/post/:id')
-  // async findPost(@Request() req: any): Promise<IUserRequest[]> {
-  //   return this.adminService.findPost();
-  // }
+  @UseGuards(JwtAuthGuard)
+  @Get('/posts/:id')
+  async findPost(@Param() params: TElementId): Promise<IPost> {
+    return this.adminService.findPostById(params.id);
+  }
   // @UseGuards(JwtAuthGuard)
   // @Post('/post_edit/:id')
   // async editPost(@Request() req: any): Promise<IUserRequest[]> {

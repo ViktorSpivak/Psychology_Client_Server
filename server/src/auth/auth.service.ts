@@ -14,19 +14,18 @@ export class AuthService {
 
   async validateUser(username: string, pass: string): Promise<any> {
     const user = await this.services.findUserByName(username);
-    // console.log(user);
-    const validPass = bcrypt.compare(pass, user.password);
-    if (validPass) {
-      user.password = null;
-      // const { password, ...x } = user;
-      // console.log('result', x);
-      return user;
+    if (user) {
+      const validPass = await bcrypt.compare(pass, user.password);
+
+      if (validPass) {
+        user.password = null;
+        return user;
+      }
     }
     return null;
   }
   async login(user: IUser): Promise<any> {
     const payload = { username: user.name, sub: user.id };
-    // console.log(payload);
     const token = this.jwtService.sign(payload);
     await this.services.findAndUpdateUser(user.id, { token });
     return {

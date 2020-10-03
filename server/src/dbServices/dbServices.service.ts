@@ -55,8 +55,11 @@ export class dbServices {
     return createdRequest.save();
   }
 
-  async findAllRequests(): Promise<IUserRequest[]> {
-    return this.modelRequest.find().exec();
+  async findAllRequests(): Promise<any> {
+    return this.modelRequest
+      .find()
+      .lean()
+      .exec();
   }
 
   async findRequestById(id: string): Promise<any> {

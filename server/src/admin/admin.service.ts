@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { IPost, IUser } from '../../../common/interfaces';
+import { IPost, IUser, TElementId } from '../../../common/interfaces';
 import { dbServices } from '../dbServices/dbServices.service';
 import * as bcrypt from 'bcryptjs';
-import * as shortid from 'shortid';
 require('dotenv').config();
 const COUNT_FACTOR = process.env.COUNT_FACTOR;
 
@@ -10,7 +9,7 @@ const COUNT_FACTOR = process.env.COUNT_FACTOR;
 export class AdminService {
   constructor(private services: dbServices) {}
   async createUser(user: IUser): Promise<any> {
-    user.password = await bcrypt.hash(shortid.generate(), +COUNT_FACTOR);
+    user.password = await bcrypt.hash(user.password, +COUNT_FACTOR);
     return this.services.createUser(user);
   }
   async findAllUsers(): Promise<any> {
@@ -32,10 +31,15 @@ export class AdminService {
   }
 
   async findAllRequests(): Promise<any> {
-    return this.services.findAllRequests();
+    const requests = await this.services.findAllRequests();
+    const requestsForAdminList = requests.map(el => ({ ...el, id: el._id }));
+    return requestsForAdminList;
   }
 
   async createPost(post: IPost): Promise<any> {
     return this.services.createPost(post);
+  }
+  async findPostById(post: string): Promise<any> {
+    return this.services.findPostById(post);
   }
 }
