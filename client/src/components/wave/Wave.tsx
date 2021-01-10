@@ -4,6 +4,19 @@ import style from "./wave.module.css";
 const NUM_PARTICLES: number = 170;
 const PARTICLE_SIZE: number = 1.5;
 const SPEED: number = 20000;
+const color: string = "rgba(235,127,33,191)";
+// color = "#d5ac5f";
+// {
+//   r: 235,
+//   g: 127,
+//   b: 33,
+//   a: 191,
+
+//   // r: 235,
+//   // g: 226,
+//   // b: 255,
+//   // a: this.rand(0, 1),
+// };
 type TParam = {
   mean: number;
   dev: number;
@@ -46,17 +59,7 @@ export const Wave: FunctionComponent<{
     return Math.random() * (high - low) + low;
   };
   const createParticle = (): TParticle => {
-    const color = {
-      r: 235,
-      g: 127,
-      b: 33,
-      a: 191,
-
-      // r: 235,
-      // g: 226,
-      // b: 255,
-      // a: this.rand(0, 1),
-    };
+    
     return {
       x: -2,
       y: -2,
@@ -69,16 +72,16 @@ export const Wave: FunctionComponent<{
       offsetY: randomNormal({ mean: 0, dev: 10 }),
       arc: Math.PI * 2,
       startTime: performance.now() - rand(0, SPEED),
-      color:
-        "rgba(" +
-        color.r +
-        ", " +
-        color.g +
-        ", " +
-        color.b +
-        ", " +
-        color.a +
-        ")",
+      color,
+      // "rgba(" +
+      // color.r +
+      // ", " +
+      // color.g +
+      // ", " +
+      // color.b +
+      // ", " +
+      // color.a +
+      // ")",
     };
   };
   const moveParticle = (particle: TParticle, time: number) => {
@@ -111,6 +114,7 @@ export const Wave: FunctionComponent<{
     );
     ctx.fill();
     // ctx.stroke();
+    ctx.strokeStyle = "#d5ac5f";
   };
   const draw = (
     time: number,

@@ -11,7 +11,7 @@ import style from "./app.module.css";
 import { MyStory } from "../mystory/MyStory";
 import { Specialization } from "../specialization/Specialization";
 import { Contacts } from "../contacts/Contacts";
-import HowItWorks from "../howItWorks/HowItWorks";
+import { WorkStages } from "../workStages/WorkStages";
 import { Watch } from "../watch/Watch";
 import "../../fonts/fonts.css";
 import { Cursor } from "../cursor/Cursor";
@@ -47,9 +47,9 @@ export const App: React.FC = () => {
           <MiddlePage />
           <Contacts />
         </Route>
-        <Route path={"/howItWorks"}>
+        <Route path={"/workStages"}>
           <MiddlePage />
-          <HowItWorks />
+          <WorkStages />
         </Route>
         <Route path={"/watch"}>
           <MiddlePage />

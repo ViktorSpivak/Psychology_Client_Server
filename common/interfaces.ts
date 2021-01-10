@@ -61,10 +61,10 @@ export interface INewPropertiesRequest {
 
 export interface IPost {
   photo?: string;
-  date: string;
-  description: string;
-  topic: string;
-  headline: string;
+  date?: string;
+  description?: string;
+  topic?: string;
+  headline?: string;
 }
 export type TElementId = { id: string };
 export interface Credentials {

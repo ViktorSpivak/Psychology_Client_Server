@@ -6,6 +6,8 @@ import {
   UseGuards,
   Param,
   Res,
+  Put,
+  Delete,
 } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/auth-guards/jwt-auth.guard';
 import { Response } from 'express';
@@ -38,7 +40,7 @@ export class AdminController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('/user/:id')
+  @Get('/users/:id')
   async findUser(@Param() params: TElementId): Promise<IUser> {
     return this.adminService.findUserById(params.id);
   }
@@ -61,22 +63,27 @@ export class AdminController {
     return;
   }
 
-  // @UseGuards(JwtAuthGuard)
-  @Post('/create_post')
+  @UseGuards(JwtAuthGuard)
+  @Post('/posts')
   async createPost(@Body() post: IPost): Promise<any> {
     return await this.adminService.createPost(post);
   }
 
   // @UseGuards(JwtAuthGuard)
 
-  @UseGuards(JwtAuthGuard)
-  @Get('/posts/:id')
-  async findPost(@Param() params: TElementId): Promise<IPost> {
-    return this.adminService.findPostById(params.id);
-  }
   // @UseGuards(JwtAuthGuard)
-  // @Post('/post_edit/:id')
-  // async editPost(@Request() req: any): Promise<IUserRequest[]> {
-  //   return this.adminService.editPost();
+  // @Get('/posts/:id')
+  // async findPost(@Param() params:TElementId): Promise<IPost> {
+  //   return this.adminService.findPostById(params.id);
   // }
+  @UseGuards(JwtAuthGuard)
+  @Put('/posts/:id')
+  async editPost(@Param() params: TElementId,@Body() post: IPost ): Promise<IUserRequest[]> {
+    return this.adminService.editPost(params.id,post);
+  }
+  @UseGuards(JwtAuthGuard)
+  @Delete('/posts/:id')
+  async deletePost(@Param() params: TElementId,): Promise<IUserRequest[]> {
+    return this.adminService.deletePost(params.id);
+  }
 }

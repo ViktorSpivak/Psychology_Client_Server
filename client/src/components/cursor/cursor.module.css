@@ -9,10 +9,7 @@
   transform: translate(-50%, -50%);
   pointer-events: none;
 
-  background-color: rgba(235,
-      127,
-      33,
-      191);
+  background-color: var(--customOrange);
   transition-property: width height background-color transform mix-blend-mode border-radius;
 
   will-change: transform;
@@ -30,12 +27,16 @@
   transition: 0.3s width cubic-bezier(0.39, 0.575, 0.565, 1),
     0.3s height cubic-bezier(0.39, 0.575, 0.565, 1),
 }
-
+.wrapper{
+  display: none;
+}
+@media (min-width: 768px) {
 .wrapper {
+  display: block;
   position: fixed;
   z-index: 99999;
 }
-
+}
 @keyframes scaleIn {
   from {
     transform: scale(0.8, 0.8);

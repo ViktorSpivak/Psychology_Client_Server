@@ -16,8 +16,8 @@ import { Scissors } from "../../svgcomponents/scissors";
 import { ScoreHistory } from "./ScoreHistory";
 import { Logo } from "../logo/Logo";
 // import { Logo } from "../../svgcomponents/Logo";
-// type TPhoto = { [key: string]: string };
 
+const handsColor="#FAF9F8"
 export const Game: FunctionComponent = () => {
   type TResults = {
     winner: string;
@@ -109,7 +109,7 @@ export const Game: FunctionComponent = () => {
                   onClick={startRound}
                   data-cursor-active
                 >
-                  <Stone isButton={true} color={"#FAF9F8"} />
+                  <Stone isButton={true} color={handsColor} />
                 </button>
               </li>
               <li>
@@ -120,7 +120,7 @@ export const Game: FunctionComponent = () => {
                   onClick={startRound}
                   data-cursor-active
                 >
-                  <Paper isButton={true} color={"#FAF9F8"} />
+                  <Paper isButton={true} color={handsColor} />
                 </button>
               </li>
               <li>
@@ -131,7 +131,7 @@ export const Game: FunctionComponent = () => {
                   onClick={startRound}
                   data-cursor-active
                 >
-                  <Scissors isButton={true} color={"#FAF9F8"} />
+                  <Scissors isButton={true} color={handsColor} />
                 </button>
               </li>
             </ul>

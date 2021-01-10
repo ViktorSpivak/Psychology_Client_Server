@@ -14,7 +14,7 @@ export class AppControllers {
 
     res.json(posts);
   }
-  @Get('/post/:id')
+  @Get('/posts/:id')
   async findPostById(@Param() params: TElementId): Promise<any> {
     return this.appService.findPostById(params.id);
   }

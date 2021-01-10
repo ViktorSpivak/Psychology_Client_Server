@@ -19,7 +19,7 @@ export const SocialLinks = () => {
   };
 
   return (
-    <div>
+    <div className={style.container}>
       {/* <IconContext.Provider value={{ size: "50px" }}>
         <AiOutlineFacebook onClick={face} />
         <AiOutlineLinkedin onClick={face} />

@@ -37,9 +37,19 @@ export class AdminService {
   }
 
   async createPost(post: IPost): Promise<any> {
-    return this.services.createPost(post);
+const newPost=await this.services.createPost(post);
+const newPostForAdmin = { ...newPost, id: newPost._id };
+    return newPostForAdmin;
+
+    // return this.services.createPost(post);
   }
-  async findPostById(post: string): Promise<any> {
-    return this.services.findPostById(post);
+  // async findPostById(post: string): Promise<any> {
+  //   return this.services.findPostById(post);
+  // }
+  async editPost(id:string,newProperties:IPost): Promise<any> {
+    return this.services.editPost(id,newProperties);
+  }
+  async deletePost(id:string): Promise<any> {
+    return this.services.deletePost(id);
   }
 }

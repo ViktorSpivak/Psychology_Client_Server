@@ -8,6 +8,7 @@ import {
   INewPropertiesRequest,
   INewPropertiesUser,
   INewPropertiesPost,
+  TElementId,
 } from '../../../common/interfaces';
 import { Post } from './models/post.schema';
 import { User } from './models/user.schema';
@@ -85,6 +86,9 @@ export class dbServices {
     const createdRequest = new this.modelPost(post);
     return createdRequest.save();
   }
+  async deletePost(id: string): Promise<any> {
+    return this.modelPost.deleteOne({_id:id});
+  }
   async findAllPosts(): Promise<any> {
     return this.modelPost
       .find()
@@ -93,14 +97,14 @@ export class dbServices {
   }
 
   async findPostById(id: string): Promise<any> {
-    return this.modelPost.findById(id).exec();
+    return this.modelPost.findById(id).lean().exec();
   }
 
-  async findAndUpdatePost(
+  async editPost(
     id: string,
     newProperties: INewPropertiesPost,
   ): Promise<any> {
-    await this.modelPost.findByIdAndUpdate(
+   return await this.modelPost.findByIdAndUpdate(
       id,
       { $set: newProperties },
       { new: true },

@@ -1,6 +1,12 @@
 :root {
+  /* --customOrange: #886c06; */
   --customOrange: rgba(235,
+  127,
+  33,
+  191);
+  /* --textColor: #886c06; */
+    /* rgba(235,
       127,
       33,
-      191);
+      191); */
 }

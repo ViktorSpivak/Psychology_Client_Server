@@ -4,50 +4,47 @@ import {
   BooleanInput,
   ImageInput,
   DateField,
-  Edit,
+  Create,
   ImageField,
   SelectInput,
   SimpleForm,
   TextInput,
-  
 } from "react-admin";
 import { makeStyles } from "@material-ui/core/styles";
-import { IPost } from "../../../common/interfaces";
 // import { Order, Customer } from '../types';
 
 // import Basket from "./Basket";
 
-interface PostTitleProps {
-  record?: IPost;
-}
+// interface OrderTitleProps {
+//   record?: Order;
+// }
 
-const PostTitle: FC<PostTitleProps> = ({ record }) => {
-  // const translate = useTranslate();
-  return record 
-  ? (
-    <span>
-      {record.headline}
-    </span>
-  ) : null;
-};
+// const OrderTitle: FC<OrderTitleProps> = ({ record }) => {
+//   const translate = useTranslate();
+//   return record ? (
+//     <span>
+//       {translate("resources.commands.title", {
+//         reference: record.reference,
+//       })}
+//     </span>
+//   ) : null;
+// };
 
-const useEditStyles = makeStyles({
+const useCreateStyles = makeStyles({
   root: { width: "100%" },
-  // title: { width: "50%" },
 });
 // const Text: FC<any> = (props) => {
 //   return <TextInput multiline source="text" />;
 // };
 
-const PostEdit: FC<any> = (props) => {
-  const classes = useEditStyles();
+const PostCreate: FC<any> = (props) => {
+  const classes = useCreateStyles();
   return (
-    <Edit
-      title={<PostTitle />}
+    <Create
+      // title={<OrderTitle />}
       // aside={<Text />}
       classes={classes}
       {...props}
-      // undoable={false}
     >
       <SimpleForm>
         <DateField source="date" />
@@ -65,15 +62,15 @@ const PostEdit: FC<any> = (props) => {
               name: "unknown",
             },
           ]}
-          // className={classes.root}
+          className={classes.root}
         />
 
-        <TextInput multiline source="headline" fullWidth />
-        <TextInput multiline source="text" fullWidth />
+        <TextInput multiline source="headline" className={classes.root} />
+        <TextInput multiline source="text" className={classes.root} />
         <BooleanInput source="returned" />
       </SimpleForm>
-    </Edit>
+    </Create>
   );
 };
 
-export default PostEdit;
+export default PostCreate;

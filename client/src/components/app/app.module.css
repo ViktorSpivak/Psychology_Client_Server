@@ -23,7 +23,7 @@ a {
 }
 
 img {
-  display: block;
+  display: inline-block;
 }
 
 .container {

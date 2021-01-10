@@ -2,7 +2,11 @@
   width: 100%;
   position: fixed;
   font-size: 0;
+
+
 }
+
+
 
 .link {
   writing-mode: vertical-lr;
@@ -10,7 +14,7 @@
   transform: rotate(180deg);
   height: 100%;
   overflow: hidden;
-  border-left: solid 0.1px rgba(0, 0, 0, 0.1);
+  border-left: solid 0.1px rgba(0, 0, 0, 0.3);
   display: none;
   font-size: 20px;
   width: 40px;
@@ -26,7 +30,7 @@
 
 .openLink {
   width: calc(100% - 160px);
-  border-right: solid 0.1px rgba(0, 0, 0, 0.1);
+  border-right: solid 0.1px rgba(0, 0, 0, 0.3);
   background: white;
 }
 

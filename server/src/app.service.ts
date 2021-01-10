@@ -11,7 +11,8 @@ export class AppService {
     return postsForAdminList;
   }
   async findPostById(id: string): Promise<any> {
-    return this.services.findPostById(id);
+    
+  return this.services.findPostById(id)
   }
   // async create(createUserRequest: IUserRequest): Promise<any> {
   //   const createdRequest = new this.model(createUserRequest);

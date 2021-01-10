@@ -46,8 +46,8 @@ export const Watch: FunctionComponent = () => {
 
   return (
     <div className={style.container}>
-      <header className={style.header}>
-        <Logo />
+      <header className={style.header}><div className={style.logo}><Logo /></div>
+        
         <p className={style.text}>Watch </p>
         <h1 data-cursor-active>
           Lorem ipsum dolor, sit amet elit. Eius, repellendus?

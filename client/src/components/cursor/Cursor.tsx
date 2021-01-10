@@ -6,21 +6,26 @@ export const Cursor: FunctionComponent = () => {
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [linkHovered, setLinkHovered] = useState<boolean>(false);
   const [hidden, setHidden] = useState<boolean>(false);
-
   let location = useLocation();
   let cursorStyle = linkHovered ? style.linkHovered : style.cursor;
   // let cursorFollower = linkHovered ? style.linkHovered : style.cursor;
+
   useEffect(() => {
-    const pageElementsCollection = document
+    
+    const pageElementsCollection:any = document
       .getElementById("root")
-      ?.getElementsByTagName("*");
-    const pageElementsArr = Array.prototype.slice.call(pageElementsCollection);
+      ?.querySelectorAll("*");
+      // ?.getElementsByTagName("*");
+    // const pageElementsArr = Array.prototype.slice.call(pageElementsCollection);
+    const pageElementsArr = [...pageElementsCollection];
     addEventListeners();
     handleLinkHoverEvents(pageElementsArr);
     setLinkHovered(false);
+    
     return () => {
       removeEventListeners();
       removeHandleLinkHoverEvents(pageElementsArr);
+
     };
   }, [location]);
 

@@ -17,7 +17,7 @@ export const MiddlePage: FunctionComponent<any> = ({ post }) => {
   const matchMystory = useRouteMatch("/myStory");
   const matchContacts = useRouteMatch("/contacts");
   const matchSpecialization = useRouteMatch("/specialization");
-  const matchHowItWorks = useRouteMatch("/howItWorks");
+  const matchWorkStages = useRouteMatch("/workStages");
   const matchWatch = useRouteMatch("/watch");
 
   return (
@@ -43,17 +43,17 @@ export const MiddlePage: FunctionComponent<any> = ({ post }) => {
         ) : (
           <Link to="/specialization" className={style.link} data-cursor-active>
             <span className={style.linkText}>
-              Ситуации, когда ко мне обращаются
+              Программы
             </span>
           </Link>
         )}
         {/* </CSSTransition> */}
         {/* <CSSTransition timeout={daleyLeafOver} classNames={style}> */}
-        {matchHowItWorks ? (
+        {matchWorkStages ? (
           <div className={style.openLink}></div>
         ) : (
-          <Link to="/howItWorks" className={style.link} data-cursor-active>
-            <span className={style.linkText}>Как это работает</span>
+          <Link to="/workStages" className={style.link} data-cursor-active>
+            <span className={style.linkText}>Форматы работы</span>
           </Link>
         )}
         {/* </CSSTransition> */}
@@ -62,7 +62,7 @@ export const MiddlePage: FunctionComponent<any> = ({ post }) => {
           <div className={style.openLink}></div>
         ) : (
           <Link to="/contacts" className={style.link} data-cursor-active>
-            <span className={style.linkText}>Как со мной связаться</span>
+            <span className={style.linkText}>Спросить</span>
           </Link>
         )}
         {/* </CSSTransition> */}
@@ -71,7 +71,7 @@ export const MiddlePage: FunctionComponent<any> = ({ post }) => {
           <div className={style.openLink}>{/* <Watch /> */}</div>
         ) : (
           <Link to="/watch" className={style.link} data-cursor-active>
-            <span className={style.linkText}>Посмотреть и почитать</span>
+            <span className={style.linkText}>Интересное</span>
           </Link>
         )}
         {/* </CSSTransition> */}

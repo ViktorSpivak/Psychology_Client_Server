@@ -1,5 +1,5 @@
 import React from "react";
-import { Admin, Resource, fetchUtils, EditGuesser } from "react-admin";
+import { Admin, Resource, fetchUtils } from "react-admin";
 // import i18nProvider from "./i18n/i18nProvider";
 // import ukrainianMessages from "ra-language-ukrainian";
 import { UsersList } from "./components/UsersList";
@@ -11,6 +11,9 @@ import UsersIcon from "@material-ui/icons/Group";
 import PostsIcon from "@material-ui/icons/Book";
 import MessagesIcon from "@material-ui/icons/Message";
 import PostEdit from "./components/PostEdit";
+import { Dashboard } from "./components/Dashboard";
+import PostCreate from "./components/PostCreate";
+// import PostCreate from "./components/PostCreate";
 
 const httpClient = (url: any, options: { headers?: Headers | any } = {}) => {
   if (!options.headers) {
@@ -26,6 +29,7 @@ export const App = () => {
   return (
     <div>
       <Admin
+      dashboard={Dashboard}
         dataProvider={dataProvider}
         authProvider={authProvider}
         // i18nProvider={i18nProvider}
@@ -41,7 +45,7 @@ export const App = () => {
           name="posts"
           list={PostsList}
           edit={PostEdit}
-          // create={PostCreate}
+          create={PostCreate}
           icon={PostsIcon}
         />
         <Resource

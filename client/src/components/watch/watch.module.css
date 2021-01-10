@@ -11,7 +11,9 @@
   text-align: center;
   /* background-color: rgb(126, 77, 77); */
 }
-
+.logo{
+  display: inline-block;
+}
 .text {
   width: inherit;
   text-align: center;
