@@ -1,0 +1,132 @@
+.container {
+  position: relative;
+  animation: Show 1s linear;
+  text-align: center;
+}
+.border {
+  border: solid 1px black;
+}
+.myPhoto {
+  width: 100%;
+}
+.title {
+  font-size: 40px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.title::before,
+.title::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #000;
+}
+.title::before {
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
+.title::after {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.topic {
+  composes: title;
+  /* font-size: 40px; */
+}
+
+.list {
+  padding-left: 0;
+}
+.card {
+  margin: 10px auto;
+  width: 300px;
+  height: 300px;
+  border: solid 1px black;
+  text-align: center;
+  /* padding: 10px; */
+}
+.card1 {
+  width: 25%;
+  height: 300px;
+  border: solid 1px black;
+  text-align: center;
+  /* padding: 10px; */
+}
+.image {
+  width: 80px;
+  height: 80px;
+}
+.text {
+  margin-left: 10px;
+  margin-right: 10px;
+  border: solid 1px black;
+  /* text-align: center; */
+  font-size: 26px;
+}
+.description {
+  font-size: 26px;
+}
+.diplomas {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.diploma {
+  margin: 10px;
+  width: 200px;
+  height: 300px;
+  border: solid 1px black;
+}
+.programs {
+  font-size: 30px;
+  /* padding: 0; */
+  /* display: flex;
+
+  justify-content: space-around; */
+}
+.program {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 60%;
+  height: 60px;
+  composes: border;
+}
+.consultations {
+}
+.consultation {
+  height: 30px;
+  composes: border;
+}
+@media (min-width: 768px) {
+  .container {
+    left: 80px;
+    width: calc(100% - 160px);
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    justify-content: space-around;
+  }
+}
+/* .story {
+  font-size: 100px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+} */
+
+@keyframes Show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

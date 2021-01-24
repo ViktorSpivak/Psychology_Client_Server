@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { CSSTransition } from "react-transition-group";
-import { Logo } from "../logo/Logo";
+// import { CSSTransition } from "react-transition-group";
+// import { Logo } from "../logo/Logo";
 // import { Logo } from "../../svgcomponents/Logo";
 import style from "./specialization.module.css";
 

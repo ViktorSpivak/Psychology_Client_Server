@@ -15,9 +15,9 @@ export const MiddlePage: FunctionComponent<any> = ({ post }) => {
   // };
   // const daleyLeafOver = 500;
   const matchMystory = useRouteMatch("/myStory");
-  const matchContacts = useRouteMatch("/contacts");
-  const matchSpecialization = useRouteMatch("/specialization");
-  const matchWorkStages = useRouteMatch("/workStages");
+  const matchAskMe = useRouteMatch("/askMe");
+  const matchPrograms = useRouteMatch("/programs");
+  const matchFormats = useRouteMatch("/formats");
   const matchWatch = useRouteMatch("/watch");
 
   return (
@@ -38,30 +38,28 @@ export const MiddlePage: FunctionComponent<any> = ({ post }) => {
         )}
         {/* </CSSTransition> */}
         {/* <CSSTransition timeout={daleyLeafOver} classNames={style}> */}
-        {matchSpecialization ? (
+        {matchPrograms ? (
           <div className={style.openLink}></div>
         ) : (
-          <Link to="/specialization" className={style.link} data-cursor-active>
-            <span className={style.linkText}>
-              Программы
-            </span>
+          <Link to="/programs" className={style.link} data-cursor-active>
+            <span className={style.linkText}>Программы</span>
           </Link>
         )}
         {/* </CSSTransition> */}
         {/* <CSSTransition timeout={daleyLeafOver} classNames={style}> */}
-        {matchWorkStages ? (
+        {matchFormats ? (
           <div className={style.openLink}></div>
         ) : (
-          <Link to="/workStages" className={style.link} data-cursor-active>
+          <Link to="/formats" className={style.link} data-cursor-active>
             <span className={style.linkText}>Форматы работы</span>
           </Link>
         )}
         {/* </CSSTransition> */}
         {/* <CSSTransition timeout={daleyLeafOver} classNames={style}> */}
-        {matchContacts ? (
+        {matchAskMe ? (
           <div className={style.openLink}></div>
         ) : (
-          <Link to="/contacts" className={style.link} data-cursor-active>
+          <Link to="/askMe" className={style.link} data-cursor-active>
             <span className={style.linkText}>Спросить</span>
           </Link>
         )}

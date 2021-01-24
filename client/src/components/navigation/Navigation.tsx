@@ -9,19 +9,17 @@ export const Navigation = () => {
         <Link to="/mystory" className={style.link1} data-cursor-active>
           обо мне
         </Link>
-        <Link to="/specialization" className={style.link} data-cursor-active>
+        <Link to="/programs" className={style.link} data-cursor-active>
           программы
         </Link>
-        <Link to="/workStages" className={style.link} data-cursor-active>
+        <Link to="/formats" className={style.link} data-cursor-active>
           форматы &nbsp;работы
         </Link>
-        <Link to="/contacts" className={style.link} data-cursor-active>
+        <Link to="/askMe" className={style.link} data-cursor-active>
           спросить
         </Link>
         <Link to="/watch" className={style.link5} data-cursor-active>
-          <p>
-            интересное
-          </p>
+          <p>интересное</p>
         </Link>
       </nav>
     </div>

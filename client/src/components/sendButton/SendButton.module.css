@@ -36,10 +36,10 @@
   z-index: -10;
 }
 .text {
+  margin: 0 auto;
   color: var(--customOrange);
   text-transform: uppercase;
-  font-size: 10px;
-  line-height: 13px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
 }
@@ -48,23 +48,22 @@
     right: 0;
   }
   .container {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
   }
   .textWrapper {
-    width: 110px;
-    height: 110px;
+    width: 96px;
+    height: 96px;
   }
 
   .circle {
-      width: 150px;
-      height: 150px;
-      animation: scaleIn 3s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
-    }
-    .text {
-      font-size: 14px;
-      line-height: 16px;
-    }
+    width: 120px;
+    height: 120px;
+    animation: scaleIn 3s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+  }
+  .text {
+    font-size: 16px;
+  }
 }
 .enter {
   opacity: 0;

@@ -26,7 +26,7 @@ export const SendButton: FunctionComponent = () => {
         <div className={style.container}>
           <div className={style.circle}></div>
           <div className={style.textWrapper} data-cursor-active>
-            <p className={style.text}>бесплатная консультация</p>
+            <p className={style.text}>записаться</p>
           </div>
           {/* <Massage /> */}
         </div>

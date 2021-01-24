@@ -9,13 +9,15 @@ import { MiddlePage } from "../middlepage/Middlepage";
 import { SocialLinks } from "../socialLinks/SocialLinks";
 import style from "./app.module.css";
 import { MyStory } from "../mystory/MyStory";
-import { Specialization } from "../specialization/Specialization";
-import { Contacts } from "../contacts/Contacts";
-import { WorkStages } from "../workStages/WorkStages";
+// import { Programs } from "../programs/programs";
+// import { Specialization } from "../specialization/Specialization";
+// import { Contacts } from "../contacts/Contacts";
+import { Formats } from "../formats/Formats";
 import { Watch } from "../watch/Watch";
 import "../../fonts/fonts.css";
 import { Cursor } from "../cursor/Cursor";
 import { SendButton } from "../sendButton/SendButton";
+import { Programs } from "../programs/Programs";
 
 export const App: React.FC = () => {
   return (
@@ -39,17 +41,17 @@ export const App: React.FC = () => {
           <MiddlePage />
           <MyStory />
         </Route>
-        <Route path={"/specialization"}>
+        <Route path={"/programs"}>
           <MiddlePage />
-          <Specialization />
+          <Programs />
         </Route>
-        <Route path={"/contacts"}>
+        <Route path={"/askMe"}>
           <MiddlePage />
-          <Contacts />
+          <AskMe />
         </Route>
-        <Route path={"/workStages"}>
+        <Route path={"/formats"}>
           <MiddlePage />
-          <WorkStages />
+          <Formats />
         </Route>
         <Route path={"/watch"}>
           <MiddlePage />
