@@ -16,7 +16,7 @@ export const SendButton: FunctionComponent = () => {
   return (
     <>
       {/* {matchHome || ( */}
-      <Link to="/askMe" className={style.outerContainer}>
+      <Link to="/signupProgram" className={style.outerContainer}>
         {/* <CSSTransition
         in={homepage}
         timeout={{ enter: 2000, exit: 2000 }}
@@ -32,8 +32,6 @@ export const SendButton: FunctionComponent = () => {
         </div>
         {/* </CSSTransition> */}
       </Link>
-      {/* )} */}
-      {/* )} */}
     </>
   );
 };

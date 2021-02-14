@@ -15,13 +15,13 @@ export const Formats = () => {
   return (
     <main className={style.container}>
       <Logo />
-      <section>
+      <section className={style.sections}>
         <img src={MyPhoto} alt="photo" className={style.myPhoto} />
         <h1 className={style.title}>форматы работы</h1>
         <p className={style.text}>видео</p>
         <video src=""></video>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>когда коучинг лучшее решение</h2>
         <ul className={style.list}>
           <li className={style.card}>
@@ -75,7 +75,7 @@ export const Formats = () => {
           </li>
         </ul>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>коучинг vs менторинг</h2>
         <p className={style.text}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quaerat
@@ -88,7 +88,7 @@ export const Formats = () => {
           quia cumque nisi fugit rem.
         </p>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>психологическое консультирование</h2>
         <ul className={style.diplomas}>
           <li className={style.diploma}></li>
@@ -96,7 +96,7 @@ export const Formats = () => {
           <li className={style.diploma}></li>
         </ul>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>как выбрать специалиста</h2>
         <ul className={style.list}>
           <li className={style.card1}>
@@ -149,7 +149,7 @@ export const Formats = () => {
           </li>
         </ul>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>этапы работы</h2>
         <ol className={style.programs}>
           <li className={style.program}></li>
@@ -157,21 +157,36 @@ export const Formats = () => {
           <li className={style.program}></li>
         </ol>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>стандарты работы</h2>
-        <p className={style.text}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-          dolores provident vero reiciendis similique dolor soluta nemo officiis
-          suscipit quasi. Ducimus labore repudiandae maxime, sequi illum
-          voluptate suscipit cum, dolore nostrum totam ad quaerat aliquam? Nisi
-          asperiores quam dolore adipisci voluptates amet, similique fuga
-          quaerat temporibus odio, voluptate molestiae doloribus excepturi
-          beatae repellendus soluta perferendis quidem quibusdam iste quasi?
-          Maiores consequuntur ab labore odio! Velit consectetur magni quis
-          reprehenderit ratione.
-        </p>
+        <ul className={style.list}>
+          <li className={style.card}>
+            <img src={icon1} alt="horse" className={style.image} />
+            <p className={style.description}>ценность</p>
+          </li>
+          <li className={style.card}>
+            <img src={icon1} alt="horse" className={style.image} />
+            <p className={style.description}>ценность</p>
+          </li>
+          <li className={style.card}>
+            <img src={icon1} alt="horse" className={style.image} />
+            <p className={style.description}>ценность</p>
+          </li>
+          <li className={style.card}>
+            <img src={icon1} alt="horse" className={style.image} />
+            <p className={style.description}>ценность</p>
+          </li>
+          <li className={style.card}>
+            <img src={icon1} alt="horse" className={style.image} />
+            <p className={style.description}>ценность</p>
+          </li>
+          <li className={style.card}>
+            <img src={icon1} alt="horse" className={style.image} />
+            <p className={style.description}>ценность</p>
+          </li>
+        </ul>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>записатся на бесплатную консультацию</h2>
         <ul className={style.consultations}>
           <li className={style.consultation}></li>
@@ -179,7 +194,7 @@ export const Formats = () => {
           <li className={style.consultation}></li>
         </ul>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>записатся на программу</h2>
         <ul className={style.programs}>
           <li className={style.program}></li>

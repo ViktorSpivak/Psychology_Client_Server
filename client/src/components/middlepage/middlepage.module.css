@@ -2,12 +2,7 @@
   width: 100%;
   position: fixed;
   font-size: 0;
-
-
 }
-
-
-
 .link {
   writing-mode: vertical-lr;
   text-align: center;
@@ -53,7 +48,11 @@
     visibility: visible;
   }
 }
-
+@media (min-width: 1200px) {
+  .container {
+    width: var(--widthContainer);
+  }
+}
 .appearDone {
   /* flex-basis: calc(100% - 100px); */
   /* width: 100%; */

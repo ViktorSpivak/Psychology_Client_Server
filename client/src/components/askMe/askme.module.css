@@ -1,11 +1,4 @@
 .container {
-  /* font-size: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; */
-}
-.container {
   position: relative;
   left: 120px;
   width: calc(100% - 160px);
@@ -14,6 +7,12 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+.containerSingupFormat {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .line {
   margin: 0;

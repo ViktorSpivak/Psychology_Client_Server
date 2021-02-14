@@ -6,10 +6,11 @@ import * as Yup from "yup";
 import { Logo } from "../logo/Logo";
 import style from "./askme.module.css";
 import { IFormValues } from "../../../../common/interfaces";
-import { Link } from "react-router-dom";
+import { Link, match, useRouteMatch } from "react-router-dom";
 
 export const AskMe: React.FC = () => {
   const [accept, setAccept] = useState<boolean>(false);
+  const matchSignupProgram: match<{}> | null = useRouteMatch("/signupProgram");
   const phoneRegExp = /^[0-9]+$/;
   const initialValues: IFormValues = {
     name: "",
@@ -18,7 +19,11 @@ export const AskMe: React.FC = () => {
     text: "",
   };
   return (
-    <div className={style.container}>
+    <div
+      className={
+        matchSignupProgram ? style.containerSingupFormat : style.container
+      }
+    >
       <main>
         <Formik
           initialValues={initialValues}
@@ -138,7 +143,7 @@ export const AskMe: React.FC = () => {
         </Formik>
       </main>
       <footer className={style.footer}>
-        <Logo />
+        {!matchSignupProgram && <Logo />}
       </footer>
     </div>
   );

@@ -18,6 +18,7 @@ import "../../fonts/fonts.css";
 import { Cursor } from "../cursor/Cursor";
 import { SendButton } from "../sendButton/SendButton";
 import { Programs } from "../programs/Programs";
+import { SignupProgram } from "../signupProgram/SignupProgram";
 
 export const App: React.FC = () => {
   return (
@@ -81,9 +82,13 @@ export const App: React.FC = () => {
         <Route path="/logout">
           <AskMe />
         </Route>
+        <Route path="/signupProgram">
+          <SignupProgram />
+        </Route>
         <Route path="/signup">
           <SignupForm />
         </Route>
+
         <Route>
           <HomePage />
         </Route>

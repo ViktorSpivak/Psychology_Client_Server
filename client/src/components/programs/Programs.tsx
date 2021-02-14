@@ -11,18 +11,20 @@ import { Logo } from "../logo/Logo";
 import MyPhoto from "../../images/handsPhoto/баннер сайт блог.png";
 import style from "./programs.module.css";
 import { ProgramCard } from "../programCard/ProgramCard";
+import { Link } from "react-router-dom";
 
 export const Programs: FunctionComponent = () => {
   useEffect(() => {}, []);
   return (
     <main className={style.container}>
       <Logo />
-      <section>
-        <img src={MyPhoto} alt="photo" className={style.myPhoto} />
+      <img src={MyPhoto} alt="photo" className={style.myPhoto} />
+
+      <section className={style.sections}>
         <h1 className={style.title}>о программах</h1>
         <video src=""></video>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>программы для бизнеса</h2>
         <ul className={style.businessPrograms}>
           <ProgramCard />
@@ -38,12 +40,12 @@ export const Programs: FunctionComponent = () => {
           <ProgramCard />
         </ul>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>программы для жизни</h2>
         <ProgramCard />
         <ProgramCard />
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>форматы работы</h2>
         <ul className={style.formats}>
           <li className={style.format}>
@@ -64,7 +66,7 @@ export const Programs: FunctionComponent = () => {
           </li>
         </ul>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>отзывы</h2>
         <ul className={style.list}>
           <li className={style.card}>
@@ -93,7 +95,7 @@ export const Programs: FunctionComponent = () => {
           </li>
         </ul>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>стандарты работы</h2>
         <ul className={style.programs}>
           <li className={style.program}></li>
@@ -112,7 +114,7 @@ export const Programs: FunctionComponent = () => {
           <li className={style.program}></li>
         </ul>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>ценности</h2>
         <p className={style.text}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
@@ -126,9 +128,11 @@ export const Programs: FunctionComponent = () => {
           reprehenderit ratione.
         </p>
       </section>
-      <section>
+      <section className={style.sections}>
         <h2 className={style.topic}>задать вопрос</h2>
-        <p className={style.text}>записатся на встречу</p>
+        <Link to="/askMe" className={style.link} data-cursor-active>
+          <span className={style.text}>Спросить</span>
+        </Link>
       </section>
       {/* <p className={style.story} data-cursor-active>
       My story

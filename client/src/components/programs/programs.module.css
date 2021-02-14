@@ -6,6 +6,10 @@
 .border {
   border: solid 1px black;
 }
+.sections {
+  width: calc(100% - 10%);
+  margin: 0 auto;
+}
 .myPhoto {
   width: 100%;
 }
@@ -22,18 +26,9 @@
   flex: 1;
   border-bottom: 1px solid #000;
 }
-.title::before {
-  margin-right: 0.5em;
-  margin-left: 0.5em;
-}
-.title::after {
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-}
 
 .topic {
   composes: title;
-  /* font-size: 40px; */
 }
 .businessPrograms {
   padding-left: 0;
@@ -68,17 +63,13 @@
   height: 300px;
   border: solid 1px black;
   text-align: center;
-  /* padding: 10px; */
 }
 .image {
   width: 80px;
   height: 80px;
 }
 .text {
-  margin-left: 10px;
-  margin-right: 10px;
   border: solid 1px black;
-  /* text-align: center; */
   font-size: 26px;
 }
 .description {
@@ -122,7 +113,9 @@
     justify-content: space-around;
   }
 }
-
+.link {
+  color: #000;
+}
 @keyframes Show {
   from {
     opacity: 0;
