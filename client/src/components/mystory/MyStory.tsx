@@ -11,6 +11,7 @@ import icon8 from "../../images/icons/light.png";
 import style from "./myStory.module.css";
 import { Logo } from "../logo/Logo";
 import MyPhoto from "../../images/handsPhoto/баннер сайт блог.png";
+import { SimpleSlider } from "../slider/Slider";
 
 export const MyStory = () => {
   return (
@@ -148,17 +149,7 @@ export const MyStory = () => {
       </section>
       <section>
         <h2 className={style.topic}>отзывы</h2>
-        <p className={style.text}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-          dolores provident vero reiciendis similique dolor soluta nemo officiis
-          suscipit quasi. Ducimus labore repudiandae maxime, sequi illum
-          voluptate suscipit cum, dolore nostrum totam ad quaerat aliquam? Nisi
-          asperiores quam dolore adipisci voluptates amet, similique fuga
-          quaerat temporibus odio, voluptate molestiae doloribus excepturi
-          beatae repellendus soluta perferendis quidem quibusdam iste quasi?
-          Maiores consequuntur ab labore odio! Velit consectetur magni quis
-          reprehenderit ratione.
-        </p>
+        <SimpleSlider />
       </section>
       <section>
         <h2 className={style.topic}>первая бесплатная консультация</h2>

@@ -39,3 +39,15 @@ export const signupRequest = async (values: ISignInData) =>
       return res.data;
     })
     .catch((err) => console.log(err));
+
+export const feedbackRequest = async () =>
+  await Axios({
+    method: "get",
+    url: "feedback",
+  })
+    // .then((res) => JSON.parse(res.config.data))
+    .then((res) => {
+      console.log("Response from server:", res.data);
+      return res.data;
+    })
+    .catch((err) => console.log(err));

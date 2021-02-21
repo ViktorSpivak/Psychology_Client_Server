@@ -35,7 +35,25 @@ export const signupRequest = createAsyncThunk<
     if (isLoading !== true || requestId !== currentRequestId) {
       return;
     }
-    const response = await api.signupRequest(credentials);
+    const response = await api.feedbackRequest();
     return response;
   }
 );
+// export const feedbackRequest = createAsyncThunk<
+//   ILoginResponseData,
+//   ISignInData,
+//   {
+//     state: RootState;
+//   }
+// >(
+//   "feedback/reqStatus",
+//   async (credentials, { getState, requestId }): Promise<any> => {
+//     const { currentRequestId, isLoading } = getState();
+//     // console.log(currentRequestId, isLoading);
+//     if (isLoading !== true || requestId !== currentRequestId) {
+//       return;
+//     }
+//     const response = await api.feedbackRequest();
+//     return response;
+//   }
+// );
