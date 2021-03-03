@@ -9,37 +9,23 @@ import {
   SelectInput,
   SimpleForm,
   TextInput,
-  
 } from "react-admin";
 import { makeStyles } from "@material-ui/core/styles";
-import { IPost } from "../../../common/interfaces";
-// import { Order, Customer } from '../types';
-
-// import Basket from "./Basket";
+import { IPost } from "../../../../common/interfaces";
 
 interface PostTitleProps {
   record?: IPost;
 }
 
 const PostTitle: FC<PostTitleProps> = ({ record }) => {
-  // const translate = useTranslate();
-  return record 
-  ? (
-    <span>
-      {record.headline}
-    </span>
-  ) : null;
+  return record ? <span>{record.headline}</span> : null;
 };
 
 const useEditStyles = makeStyles({
-  root: { width: "100%" },
-  // title: { width: "50%" },
+  // root: { width: "100%" },
 });
-// const Text: FC<any> = (props) => {
-//   return <TextInput multiline source="text" />;
-// };
 
-const PostEdit: FC<any> = (props) => {
+export const PostEdit: FC<any> = (props) => {
   const classes = useEditStyles();
   return (
     <Edit
@@ -75,5 +61,3 @@ const PostEdit: FC<any> = (props) => {
     </Edit>
   );
 };
-
-export default PostEdit;

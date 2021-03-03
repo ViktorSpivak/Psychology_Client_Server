@@ -24,7 +24,7 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
 
-  client:
+  admin:
     build:
       context: ./admin
     ports:

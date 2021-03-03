@@ -58,13 +58,32 @@ export interface INewPropertiesRequest {
   email?: string;
   text?: string;
 }
-
+export interface INewPropertiesFeedback {
+  // date?: string;
+  description?: string;
+  name?: string;
+}
+export interface INewPropertiesDiploma {
+  photo?: string; 
+  name?: string; 
+  text?: string;
+}
 export interface IPost {
   photo?: string;
   date?: string;
   description?: string;
   topic?: string;
   headline?: string;
+}
+export interface IDiploma {
+  photo?: string; 
+  name?: string; 
+  text?: string;
+}
+export interface IFeedback {
+  date?: string;
+  description?: string;
+  name?: string;
 }
 export type TElementId = { id: string };
 export interface Credentials {

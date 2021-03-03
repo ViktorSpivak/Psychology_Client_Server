@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { IPost, IUser, TElementId } from '../../../common/interfaces';
+import { IDiploma, IFeedback, IPost, IUser, TElementId } from '../../../common/interfaces';
 import { dbServices } from '../dbServices/dbServices.service';
 import * as bcrypt from 'bcryptjs';
 require('dotenv').config();
@@ -52,4 +52,34 @@ const newPostForAdmin = { ...newPost, id: newPost._id };
   async deletePost(id:string): Promise<any> {
     return this.services.deletePost(id);
   }
+  
+
+  async createFeedback(feedback: IFeedback): Promise<any> {
+    const newFeedback=await this.services.createFeedback(feedback);
+    const newFeedbackForAdmin = { ...newFeedback, id: newFeedback._id };
+        return newFeedbackForAdmin;
+}
+async deleteFeedback(id:string): Promise<any> {
+  return this.services.deleteFeedback(id);
+}
+async editFeedback(id:string,newProperties:IFeedback): Promise<any> {
+  const newFeedback=await this.services.editFeedback(id,newProperties);
+  const newFeedbackForAdmin = { ...newFeedback, id: newFeedback._id };
+  return newFeedbackForAdmin;
+}
+
+
+  async createDiploma(diploma: IDiploma): Promise<any> {
+    const newDiploma=await this.services.createDiploma(diploma);
+    const newDiplomaForAdmin = { ...newDiploma, id: newDiploma._id };
+        return newDiplomaForAdmin;
+}
+async deleteDiploma(id:string): Promise<any> {
+  return this.services.deleteDiploma(id);
+}
+async editDiploma(id:string,newProperties:IDiploma): Promise<any> {
+  const newDiploma=await this.services.editDiploma(id,newProperties)
+  const newDiplomaForAdmin = { ...newDiploma, id: newDiploma._id };
+  return newDiplomaForAdmin;
+}
 }

@@ -9,7 +9,13 @@ import {
   INewPropertiesUser,
   INewPropertiesPost,
   TElementId,
+  IFeedback,
+  IDiploma,
+  INewPropertiesFeedback,
+  INewPropertiesDiploma,
 } from '../../../common/interfaces';
+import { Diploma } from './models/diploma.schema';
+import { Feedback } from './models/feedback.schema';
 import { Post } from './models/post.schema';
 import { User } from './models/user.schema';
 import { User_Request } from './models/userRequest.schema';
@@ -20,6 +26,8 @@ export class dbServices {
     @InjectModel(User_Request.name) private modelRequest: Model<User_Request>,
     @InjectModel(User.name) private modelUser: Model<User>,
     @InjectModel(Post.name) private modelPost: Model<Post>,
+    @InjectModel(Feedback.name) private modelFeedback: Model<Feedback>,
+    @InjectModel(Diploma.name) private modelDiploma: Model<Diploma>,
   ) {}
   async createUser(user: IUser): Promise<any> {
     const createdUser = new this.modelUser(user);
@@ -71,7 +79,7 @@ export class dbServices {
     id: string,
     newProperties: INewPropertiesRequest,
   ): Promise<any> {
-    await this.modelUser.findByIdAndUpdate(
+    await this.modelRequest.findByIdAndUpdate(
       id,
       { $set: newProperties },
       { new: true },
@@ -99,6 +107,12 @@ export class dbServices {
   async findPostById(id: string): Promise<any> {
     return this.modelPost.findById(id).lean().exec();
   }
+  async findFeedbackById(id: string): Promise<any> {
+    return this.modelFeedback.findById(id).lean().exec();
+  }
+  async findDiplomaById(id: string): Promise<any> {
+    return this.modelDiploma.findById(id).lean().exec();
+  }
 
   async editPost(
     id: string,
@@ -109,5 +123,52 @@ export class dbServices {
       { $set: newProperties },
       { new: true },
     );
+  }
+  
+  async findAllFeedback(): Promise<any> {
+    return this.modelFeedback
+      .find()
+      .lean()
+      .exec();
+  }
+  async createFeedback(feedback: IFeedback): Promise<any> {
+    const createdFeedback = new this.modelFeedback(feedback);
+    return createdFeedback.save();
+  }
+  async editFeedback(
+    id: string,
+    newProperties: INewPropertiesFeedback,
+  ): Promise<any> {
+   return await this.modelFeedback.findByIdAndUpdate(
+      id,
+      { $set: newProperties },
+      { new: true },
+    );
+  }
+  async deleteFeedback(id: string): Promise<any> {
+    return this.modelFeedback.deleteOne({_id:id});
+  }
+  async findAllDiploma(): Promise<any> {
+    return this.modelDiploma
+      .find()
+      .lean()
+      .exec();
+  }
+  async createDiploma(diploma: IDiploma): Promise<any> {
+    const createdDiploma = new this.modelDiploma(diploma);
+    return createdDiploma.save();
+  }
+  async editDiploma(
+    id: string,
+    newProperties: INewPropertiesDiploma,
+  ): Promise<any> {
+   return await this.modelDiploma.findByIdAndUpdate(
+      id,
+      { $set: newProperties },
+      { new: true },
+    );
+  }
+  async deleteDiploma(id: string): Promise<any> {
+    return this.modelDiploma.deleteOne({_id:id});
   }
 }
