@@ -4,7 +4,14 @@ import style from "./slider.module.css";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-export const SimpleSlider: FC = () => {
+import { IFeedback, IListProps } from "../../../../common/interfaces";
+
+export const SimpleSlider: FC<IListProps> = ({ list }) => {
+  const sliderList: JSX.Element[] = list.map((el: IFeedback, idx: number) => (
+    <div key={idx}>
+      <p className={style.card}>{el.description}</p>
+    </div>
+  ));
   var settings = {
     dots: true,
     infinite: true,
@@ -19,7 +26,8 @@ export const SimpleSlider: FC = () => {
   return (
     <div>
       <Slider {...settings}>
-        <div>
+        {sliderList}
+        {/* <div>
           <h3 className={style.card}>1</h3>
         </div>
         <div>
@@ -36,7 +44,7 @@ export const SimpleSlider: FC = () => {
         </div>
         <div>
           <h3 className={style.card}>6</h3>
-        </div>
+        </div> */}
       </Slider>
     </div>
   );

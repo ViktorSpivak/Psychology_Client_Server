@@ -1,9 +1,12 @@
 .container {
-  width: var(--widthContainer);
   overflow: hidden;
   /* color: rgb(151, 24, 88); */
 }
-
+@media (min-width: 1200px) {
+  .container {
+    width: var(--widthContainer);
+  }
+}
 .canvasArea {
   width: 110%;
   margin-left: -5%;

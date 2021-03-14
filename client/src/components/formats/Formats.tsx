@@ -16,7 +16,7 @@ export const Formats = () => {
     <main className={style.container}>
       <Logo />
       <section className={style.sections}>
-        <img src={MyPhoto} alt="photo" className={style.myPhoto} />
+        <img src={MyPhoto} alt="myPhoto" className={style.myPhoto} />
         <h1 className={style.title}>форматы работы</h1>
         <p className={style.text}>видео</p>
         <video src=""></video>

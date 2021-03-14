@@ -11,23 +11,21 @@ export const Cursor: FunctionComponent = () => {
   // let cursorFollower = linkHovered ? style.linkHovered : style.cursor;
 
   useEffect(() => {
-    
-    const pageElementsCollection:any = document
+    const pageElementsCollection: any = document
       .getElementById("root")
       ?.querySelectorAll("*");
-      // ?.getElementsByTagName("*");
+    // ?.getElementsByTagName("*");
     // const pageElementsArr = Array.prototype.slice.call(pageElementsCollection);
     const pageElementsArr = [...pageElementsCollection];
     addEventListeners();
     handleLinkHoverEvents(pageElementsArr);
     setLinkHovered(false);
-    
+
     return () => {
       removeEventListeners();
       removeHandleLinkHoverEvents(pageElementsArr);
-
     };
-  }, [location]);
+  }, [location]); // eslint-disable-line
 
   const addEventListeners = () => {
     document.addEventListener("mousemove", onMouseMove);

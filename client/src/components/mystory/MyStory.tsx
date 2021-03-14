@@ -11,14 +11,15 @@ import icon8 from "../../images/icons/light.png";
 import style from "./myStory.module.css";
 import { Logo } from "../logo/Logo";
 import MyPhoto from "../../images/handsPhoto/баннер сайт блог.png";
-import { SimpleSlider } from "../slider/Slider";
+import { Feedback } from "../feedback/Feedback";
+import { Diploma } from "../diploma/Diploma";
 
 export const MyStory = () => {
   return (
     <main className={style.container}>
       <Logo />
       <section>
-        <img src={MyPhoto} alt="photo" className={style.myPhoto} />
+        <img src={MyPhoto} alt="myPhoto" className={style.myPhoto} />
         <h1 className={style.title}>обо мне</h1>
         <p className={style.text}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quaerat
@@ -90,14 +91,7 @@ export const MyStory = () => {
         </ul>
       </section>
       <section>
-        <h2 className={style.topic}>дипломы</h2>
-        <ul className={style.diplomas}>
-          <li className={style.diploma}></li>
-          <li className={style.diploma}></li>
-          <li className={style.diploma}></li>
-          <li className={style.diploma}></li>
-          <li className={style.diploma}></li>
-        </ul>
+        <Diploma />
       </section>
       <section>
         <h2 className={style.topic}>ценности</h2>
@@ -148,8 +142,7 @@ export const MyStory = () => {
         </ul>
       </section>
       <section>
-        <h2 className={style.topic}>отзывы</h2>
-        <SimpleSlider />
+        <Feedback />
       </section>
       <section>
         <h2 className={style.topic}>первая бесплатная консультация</h2>

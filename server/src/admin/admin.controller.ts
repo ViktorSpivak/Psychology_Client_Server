@@ -12,7 +12,7 @@ import {
 import { JwtAuthGuard } from '../auth/auth-guards/jwt-auth.guard';
 import { Response } from 'express';
 import { AdminService } from './admin.service';
-import { IUser, TElementId, IUserRequest, IPost, IFeedback, IDiploma } from '../../../common/interfaces';
+import { IUser, TElementId,IPost, IFeedback, IDiploma, IUserMessage } from '../../../common/interfaces';
 
 @Controller()
 export class AdminController {
@@ -41,16 +41,16 @@ export class AdminController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('/request/:id')
+  @Get('/message/:id')
   async findUserRequestById(
     @Param() params: TElementId,
-  ): Promise<IUserRequest> {
+  ): Promise<IUserMessage> {
     return this.adminService.findUserRequestById(params.id);
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('/requests')
-  async findAllRequest(@Res() res: Response): Promise<IUserRequest[]> {
+  @Get('/message')
+  async findAllRequest(@Res() res: Response): Promise<IUserMessage[]> {
     const requests = await this.adminService.findAllRequests();
     res.setHeader('Content-Range', 'requests 0-10/10');
     res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
@@ -60,55 +60,55 @@ export class AdminController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('/posts')
+  @Post('/post')
   async createPost(@Body() post: IPost): Promise<any> {
     return await this.adminService.createPost(post);
   }
 
   
   @UseGuards(JwtAuthGuard)
-  @Put('/posts/:id')
-  async editPost(@Param() params: TElementId,@Body() post: IPost ): Promise<IUserRequest[]> {
+  @Put('/post/:id')
+  async editPost(@Param() params: TElementId,@Body() post: IPost ): Promise<IUserMessage[]> {
     return this.adminService.editPost(params.id,post);
   }
 
   @UseGuards(JwtAuthGuard)
-  @Delete('/posts/:id')
+  @Delete('/post/:id')
   async deletePost(@Param() params: TElementId,): Promise<IPost[]> {
     return this.adminService.deletePost(params.id);
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('/feedbacks')
+  @Post('/feedback')
   async creatFeedback(@Body() feedback: IFeedback): Promise<any> {
     return await this.adminService.createFeedback(feedback);
   }
   @UseGuards(JwtAuthGuard)
-  @Delete('/feedbacks/:id')
+  @Delete('/feedback/:id')
   async deleteFeedback(@Param() params: TElementId,): Promise<IFeedback> {
     return this.adminService.deleteFeedback(params.id);
   }
 
 @UseGuards(JwtAuthGuard)
-@Put('/feedbacks/:id')
+@Put('/feedback/:id')
 async editFeedback(@Param() params: TElementId,@Body() feedback: IFeedback ): Promise<IFeedback[]> {
   return this.adminService.editFeedback(params.id,feedback);
 }
 
   @UseGuards(JwtAuthGuard)
-  @Post('/diplomas')
+  @Post('/diploma')
   async creatDiploma(@Body() diploma: IDiploma): Promise<any> {
     return await this.adminService.createDiploma(diploma);
   }
 
   @UseGuards(JwtAuthGuard)
-  @Put('/diplomas/:id')
+  @Put('/diploma/:id')
 async editDiploma(@Param() params: TElementId,@Body() diploma: IDiploma ): Promise<IDiploma[]> {
   return this.adminService.editDiploma(params.id,diploma);
 }
 
   @UseGuards(JwtAuthGuard)
-  @Delete('/diplomas/:id')
+  @Delete('/diploma/:id')
   async deleteDiploma(@Param() params: TElementId,): Promise<IFeedback> {
     return this.adminService.deleteDiploma(params.id);
   }

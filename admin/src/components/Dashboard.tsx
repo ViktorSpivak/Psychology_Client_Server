@@ -1,10 +1,9 @@
-import React, { FC, useEffect, useState } from "react";
-import { useGetList } from "react-admin";
+import React, { FC } from "react";
+// import { useGetList } from "react-admin";
 import { Card, CardContent, CardHeader } from "@material-ui/core";
-import { useDataProvider } from "react-admin";
-import { useQuery, Loading } from "react-admin";
-import { List, TextField } from "react-admin";
-import { log } from "console";
+// import { useDataProvider } from "react-admin";
+// import { useQuery, Loading } from "react-admin";
+// import { List, TextField } from "react-admin";
 
 interface State {
   users?: number;
@@ -17,14 +16,14 @@ export const Dashboard: FC = () => {
   // const { data, loading, error } = useGetList("posts", {});
   // console.log(dataProvider);
 
-  const dataProvider = useDataProvider();
-  const [users, setUser] = useState();
-  const [posts, setPosts] = useState();
-  const [feedbacks, setFeedbacks] = useState();
-  const [diplomas, setDiplomas] = useState();
-  const [requests, setRequests] = useState();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState();
+  // const dataProvider = useDataProvider();
+  // const [users, setUser] = useState();
+  // const [posts, setPosts] = useState();
+  // const [feedbacks, setFeedbacks] = useState();
+  // const [diplomas, setDiplomas] = useState();
+  // const [requests, setRequests] = useState();
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState();
   // useEffect(() => {
   //   dataProvider
   //     .getList("users", {

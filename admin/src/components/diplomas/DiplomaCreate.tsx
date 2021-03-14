@@ -1,13 +1,6 @@
 import * as React from "react";
 import { FC } from "react";
-import {
-  BooleanInput,
-  ImageInput,
-  DateField,
-  Create,
-  ImageField,
-  SimpleForm,
-} from "react-admin";
+import { BooleanInput, DateField, Create, SimpleForm } from "react-admin";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextInput } from "react-admin";
 const useCreateStyles = makeStyles({

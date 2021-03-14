@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 // import { Logo } from "../../svgcomponents/Logo";
 import { Logo } from "../logo/Logo";
@@ -8,16 +8,16 @@ import { Wave } from "../wave/Wave";
 import style from "./homepage.module.css";
 
 export const HomePage: FunctionComponent = () => {
-  const initSize = () => document.body.clientWidth;
-  const [size, setSize] = useState<Number>(initSize());
-  useEffect(() => {
-    const actualWidth = () => setSize(initSize());
-    actualWidth();
-    window.addEventListener("resize", actualWidth);
-    return () => {
-      window.removeEventListener("resize", actualWidth);
-    };
-  }, []);
+  // const initSize = () => document.body.clientWidth;
+  // const [size, setSize] = useState<Number>(initSize());
+  // useEffect(() => {
+  //   const actualWidth = () => setSize(initSize());
+  //   actualWidth();
+  //   window.addEventListener("resize", actualWidth);
+  //   return () => {
+  //     window.removeEventListener("resize", actualWidth);
+  //   };
+  // }, []);
 
   return (
     <div className={style.container}>

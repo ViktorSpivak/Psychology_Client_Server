@@ -5,7 +5,7 @@ import { AppControllers } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { DbServicesModule } from './dbServices/dbServices.module';
-import { UserRequestsModule } from './userRequests/userRequests.module';
+import { UserMessageModule } from './userMessage/userMessage.module';
 require('dotenv').config();
 const URLdb = process.env.URLdb;
 const URLusersdb = process.env.URLusersdb;
@@ -13,7 +13,7 @@ const URLusersdb = process.env.URLusersdb;
 @Module({
   imports: [
     MongooseModule.forRoot(URLdb, {
-      connectionName: 'userRequests',
+      connectionName: 'userMessages',
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
@@ -42,7 +42,7 @@ const URLusersdb = process.env.URLusersdb;
       useUnifiedTopology: true,
       useFindAndModify: false,
     }),
-    UserRequestsModule,
+    UserMessageModule,
     AdminModule,
     AuthModule,
     DbServicesModule,

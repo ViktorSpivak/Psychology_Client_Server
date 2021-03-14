@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { dbServices } from './dbServices.service';
 import { User, UserSchema } from './models/user.schema';
-import { User_Request, UserRequestSchema } from './models/userRequest.schema';
+import { User_Message, UserMessageSchema } from './models/userMessage.schema';
 import { Post, PostSchema } from './models/post.schema';
 import { Feedback, FeedbackSchema } from './models/feedback.schema';
 import { Diploma, DiplomaSchema } from './models/diploma.schema';
@@ -10,8 +10,8 @@ import { Diploma, DiplomaSchema } from './models/diploma.schema';
 @Module({
   imports: [
     MongooseModule.forFeature(
-      [{ name: User_Request.name, schema: UserRequestSchema }],
-      'userRequests',
+      [{ name: User_Message.name, schema: UserMessageSchema }],
+      'userMessages',
     ),
     MongooseModule.forFeature(
       [{ name: User.name, schema: UserSchema }],

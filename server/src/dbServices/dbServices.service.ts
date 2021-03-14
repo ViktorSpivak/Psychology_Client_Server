@@ -4,7 +4,7 @@ import { Model } from 'mongoose';
 import {
   IPost,
   IUser,
-  IUserRequest,
+  IUserMessage,
   INewPropertiesRequest,
   INewPropertiesUser,
   INewPropertiesPost,
@@ -18,12 +18,12 @@ import { Diploma } from './models/diploma.schema';
 import { Feedback } from './models/feedback.schema';
 import { Post } from './models/post.schema';
 import { User } from './models/user.schema';
-import { User_Request } from './models/userRequest.schema';
+import { User_Message } from './models/userMessage.schema';
 
 @Injectable()
 export class dbServices {
   constructor(
-    @InjectModel(User_Request.name) private modelRequest: Model<User_Request>,
+    @InjectModel(User_Message.name) private modelMessage: Model<User_Message>,
     @InjectModel(User.name) private modelUser: Model<User>,
     @InjectModel(Post.name) private modelPost: Model<Post>,
     @InjectModel(Feedback.name) private modelFeedback: Model<Feedback>,
@@ -59,27 +59,27 @@ export class dbServices {
     );
   }
 
-  async createRequest(createUserRequest: IUserRequest): Promise<any> {
-    const createdRequest = new this.modelRequest(createUserRequest);
-    return createdRequest.save();
+  async createMessage(createUserMessage: IUserMessage): Promise<any> {
+    const createdMessage = new this.modelMessage(createUserMessage);
+    return createdMessage.save();
   }
 
   async findAllRequests(): Promise<any> {
-    return this.modelRequest
+    return this.modelMessage
       .find()
       .lean()
       .exec();
   }
 
   async findRequestById(id: string): Promise<any> {
-    return this.modelRequest.findById(id).exec();
+    return this.modelMessage.findById(id).exec();
   }
 
   async findAndUpdateRequest(
     id: string,
     newProperties: INewPropertiesRequest,
   ): Promise<any> {
-    await this.modelRequest.findByIdAndUpdate(
+    await this.modelMessage.findByIdAndUpdate(
       id,
       { $set: newProperties },
       { new: true },

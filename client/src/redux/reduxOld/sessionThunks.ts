@@ -1,7 +1,7 @@
 import { RootState } from "./store";
-import { ISignInData, ILoginResponseData } from "./../../../common/interfaces";
+import { ISignInData, ILoginResponseData } from "./../../../../common/interfaces";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import * as api from "../services/api";
+import * as api from "../../services/api";
 
 export const loginRequest = createAsyncThunk<
   ILoginResponseData,
@@ -17,8 +17,8 @@ export const loginRequest = createAsyncThunk<
     if (isLoading !== true || requestId !== currentRequestId) {
       return;
     }
-    const response = await api.loginRequest(credentials);
-    return response;
+    // const response = await api.loginRequest(credentials);
+    // return response;
   }
 );
 export const signupRequest = createAsyncThunk<
@@ -35,8 +35,8 @@ export const signupRequest = createAsyncThunk<
     if (isLoading !== true || requestId !== currentRequestId) {
       return;
     }
-    const response = await api.feedbackRequest();
-    return response;
+    // const response = await api.feedbackRequest();
+    // return response;
   }
 );
 export const feedbackRequest = createAsyncThunk<
@@ -53,7 +53,7 @@ export const feedbackRequest = createAsyncThunk<
     if (isLoading !== true || requestId !== currentRequestId) {
       return;
     }
-    const response = await api.feedbackRequest();
-    return response;
+    // const response = await api.feedbackRequest();
+    // return response;
   }
 );

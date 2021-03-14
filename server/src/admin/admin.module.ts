@@ -2,19 +2,19 @@ import { Module } from '@nestjs/common';
 import { AuthModule } from '../auth/auth.module';
 import { DbServicesModule } from 'src/dbServices/dbServices.module';
 // import { AppModule } from 'src/app.module';
-import { UserRequestsModule } from '../userRequests/userRequests.module';
+// import { UserMessageModule } from '../userMessage/userMessage.module';
 // import { MongooseModule } from '@nestjs/mongoose';
 import { AdminController } from './admin.controller';
 import { AdminService } from './admin.service';
-import { JwtService } from '@nestjs/jwt';
-// import { User_Requests, UserRequestSchema } from '../models/userRequest.schema';
+// import { JwtService } from '@nestjs/jwt';
+// import { User_Message, UserMessageSchema } from '../models/userRequest.schema';
 
 @Module({
   imports: [DbServicesModule, AuthModule],
   // AppModule,
-  // UserRequestsModule,
+  // UserMessageModule,
   // MongooseModule.forFeature([
-  //   { name: User_Requests.name, schema: UserRequestSchema },
+  //   { name: User_Message.name, schema: UserMessageSchema },
   // ]),
   controllers: [AdminController],
   providers: [AdminService],

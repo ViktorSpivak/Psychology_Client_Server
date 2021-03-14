@@ -2,23 +2,28 @@ version: "3"
 services:
   server:
     build:
-      context: ./server
+      context: ./
+      dockerfile: ./server/Dockerfile
     ports:
       - "3080:3080"
     container_name: server
     volumes:
       - ./server:/usr/src/app/server
+      - ./common:/usr/src/app/common
       - /usr/src/app/server/node_modules
 
   client:
     build:
-      context: ./client
+      context: ./
+      dockerfile: ./client/Dockerfile
     ports:
       - "3000:3000"
+    depends_on: [server]
     container_name: client
     stdin_open: true
     volumes:
       - ./client:/usr/src/app/client
+      - ./common:/usr/src/app/common
       - /usr/src/app/client/node_modules
     restart: always
     environment:
@@ -26,13 +31,16 @@ services:
 
   admin:
     build:
-      context: ./admin
+      context: ./
+      dockerfile: ./admin/Dockerfile
     ports:
-      - "3030:3030"
+      - "3030:3000"
+    depends_on: [server]
     container_name: admin
     stdin_open: true
     volumes:
       - ./admin:/usr/src/app/admin
+      - ./common:/usr/src/app/common
       - /usr/src/app/admin/node_modules
     restart: always
     environment:

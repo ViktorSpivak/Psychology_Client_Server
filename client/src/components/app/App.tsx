@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { SignupForm } from "../../admin/signupForm/SignupForm";
+// import { SignupForm } from "../../admin/signupForm/SignupForm";
 import { AskMe } from "../askMe/AskMe";
 import { Game } from "../game/Game";
 import { HomePage } from "../homepage/HomePage";
@@ -85,9 +85,9 @@ export const App: React.FC = () => {
         <Route path="/signupProgram">
           <SignupProgram />
         </Route>
-        <Route path="/signup">
+        {/* <Route path="/signup">
           <SignupForm />
-        </Route>
+        </Route> */}
 
         <Route>
           <HomePage />

@@ -2,11 +2,8 @@ import * as React from "react";
 import { FC } from "react";
 import {
   BooleanInput,
-  ImageInput,
   DateField,
   Edit,
-  ImageField,
-  SelectInput,
   SimpleForm,
   TextInput,
 } from "react-admin";

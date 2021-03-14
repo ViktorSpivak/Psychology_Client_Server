@@ -1,11 +1,15 @@
 FROM node:12-alpine
 
-WORKDIR /usr/src/app/admin
+WORKDIR /usr/src/app/ 
 
-COPY package*.json ./
+COPY admin/package*.json ./admin/
 
-RUN npm install
+COPY /common/interfaces.ts ./common/
 
-EXPOSE 3030
+WORKDIR /usr/src/app/admin/
+
+RUN npm install 
+
+EXPOSE 3000
 
 CMD ["npm", "start"]

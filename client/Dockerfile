@@ -1,8 +1,12 @@
 FROM node:12-alpine
 
-WORKDIR /usr/src/app/client
+WORKDIR /usr/src/app/
 
-COPY package*.json ./
+COPY /client/package*.json ./client/ 
+
+COPY /common/interfaces.ts ./common/ 
+
+WORKDIR /usr/src/app/client/
 
 RUN npm install
 

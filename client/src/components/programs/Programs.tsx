@@ -1,12 +1,12 @@
 import React, { FunctionComponent, useEffect } from "react";
 import icon1 from "../../images/icons/unicorn.png";
-import icon2 from "../../images/icons/people.png";
-import icon3 from "../../images/icons/timer.png";
-import icon4 from "../../images/icons/books.png";
-import icon5 from "../../images/icons/years_sales.png";
-import icon6 from "../../images/icons/heads.png";
-import icon7 from "../../images/icons/ЕМВА.png";
-import icon8 from "../../images/icons/light.png";
+// import icon2 from "../../images/icons/people.png";
+// import icon3 from "../../images/icons/timer.png";
+// import icon4 from "../../images/icons/books.png";
+// import icon5 from "../../images/icons/years_sales.png";
+// import icon6 from "../../images/icons/heads.png";
+// import icon7 from "../../images/icons/ЕМВА.png";
+// import icon8 from "../../images/icons/light.png";
 import { Logo } from "../logo/Logo";
 import MyPhoto from "../../images/handsPhoto/баннер сайт блог.png";
 import style from "./programs.module.css";
@@ -18,7 +18,7 @@ export const Programs: FunctionComponent = () => {
   return (
     <main className={style.container}>
       <Logo />
-      <img src={MyPhoto} alt="photo" className={style.myPhoto} />
+      <img src={MyPhoto} alt="myPhoto" className={style.myPhoto} />
 
       <section className={style.sections}>
         <h1 className={style.title}>о программах</h1>

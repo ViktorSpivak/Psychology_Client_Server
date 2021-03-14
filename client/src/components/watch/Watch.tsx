@@ -8,7 +8,7 @@ import { IPosterList } from "../../../../common/interfaces";
 import { Logo } from "../logo/Logo";
 
 const apiKey = "3f3d3dc7a4319cc8bb935aa9323bdeea";
-axios.defaults.baseURL = "https://api.themoviedb.org/3/movie/";
+// axios.defaults.baseURL = "https://api.themoviedb.org/3/movie/";
 
 export const Watch: FunctionComponent = () => {
   const loader = useRef<HTMLElement>(null);
@@ -35,7 +35,9 @@ export const Watch: FunctionComponent = () => {
 
   const fetchTrendMovies = (page: number): void => {
     axios
-      .get(`top_rated?api_key=${apiKey}&language=en-US&page=${page}`)
+      .get(
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=${page}`
+      )
       .then((res) => {
         setList((state) => [...state, ...res.data.results]);
         return res.data.results;
@@ -46,8 +48,11 @@ export const Watch: FunctionComponent = () => {
 
   return (
     <div className={style.container}>
-      <header className={style.header}><div className={style.logo}><Logo /></div>
-        
+      <header className={style.header}>
+        <div className={style.logo}>
+          <Logo />
+        </div>
+
         <p className={style.text}>Watch </p>
         <h1 data-cursor-active>
           Lorem ipsum dolor, sit amet elit. Eius, repellendus?

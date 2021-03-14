@@ -7,7 +7,7 @@ import { PostsList } from "./components/posts/PostsList";
 import { RequestsList } from "./components/RequestsList";
 import { FeedbackList } from "./components/feedbacks/FeedbackList";
 import { DiplomaList } from "./components/diplomas/DiplomaList";
-import authProvider from "./providers/authProvider";
+import { authProvider } from "./providers/authProvider";
 import simpleRestProvider from "ra-data-simple-rest";
 import UsersIcon from "@material-ui/icons/Group";
 import FeedbackIcon from "@material-ui/icons/Feedback";
@@ -30,7 +30,11 @@ const httpClient = (url: any, options: { headers?: Headers | any } = {}) => {
   options!.headers.set("Authorization", `Bearer ${token}`);
   return fetchUtils.fetchJson(url, options);
 };
-const dataProvider = simpleRestProvider("http://localhost:3080", httpClient);
+// const dataProvider = simpleRestProvider("http://localhost:3080", httpClient);
+const dataProvider = simpleRestProvider(
+  "http://192.168.99.100:3080",
+  httpClient
+);
 
 export const App = () => {
   return (
@@ -43,28 +47,28 @@ export const App = () => {
       >
         <Resource name="users" list={UsersList} icon={UsersIcon} />
         <Resource
-          name="posts"
+          name="post"
           list={PostsList}
           edit={PostEdit}
-          // create={PostCreate}
+          create={PostCreate}
           icon={PostAddIcon}
         />
         <Resource
-          name="requests"
+          name="message"
           list={RequestsList}
           // edit={PostEdit}
           // create={PostCreate}
           icon={MessagesIcon}
         />
         <Resource
-          name="feedbacks"
+          name="feedback"
           list={FeedbackList}
           create={FeedbackCreate}
           edit={FeedbackEdit}
           icon={FeedbackIcon}
         />
         <Resource
-          name="diplomas"
+          name="diploma"
           list={DiplomaList}
           edit={DiplomaEdit}
           create={DiplomaCreate}

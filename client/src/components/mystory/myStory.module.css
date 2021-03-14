@@ -61,18 +61,7 @@
 .description {
   font-size: 26px;
 }
-.diplomas {
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.diploma {
-  margin: 10px;
-  width: 200px;
-  height: 300px;
-  border: solid 1px black;
-}
+
 .programs {
   padding: 0;
   display: flex;
