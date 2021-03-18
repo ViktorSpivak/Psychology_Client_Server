@@ -2,8 +2,9 @@
   width: 100%;
   position: fixed;
   font-size: 0;
-  border-left: solid 0.1px rgba(0, 0, 0, 0.3);
+  /* border-left: solid 0.1px rgba(0, 0, 0, 0.3); */
   overflow-x: hidden;
+  margin-left: 1px;
 }
 ::-webkit-scrollbar {
   width: 0px;
@@ -36,8 +37,8 @@
 
 .wrapper {
   position: fixed;
-  width: 100%;
   visibility: hidden;
+  border-left: solid 0.1px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 768px) {
@@ -57,43 +58,4 @@
   .container {
     width: var(--widthContainer);
   }
-}
-.appearDone {
-  /* flex-basis: calc(100% - 100px); */
-  /* width: 100%; */
-  /* width: calc(100vw - 102px); */
-}
-
-.enter {
-  /* flex-basis: 50%; */
-
-  /* width: 0; */
-}
-
-.enterActive {
-  /* flex-basis: 70%; */
-  /* width: 100%; */
-  /* transition: flex-basis 500ms linear; */
-}
-
-.enterDone {
-  /* flex-basis: calc(100% - 160px); */
-  /* width: 100%; */
-  /* width: 500px; */
-}
-
-.exit {
-  /* flex-basis: calc(100% - 160px); */
-  /* display: none; */
-  /* overflow: hidden; */
-}
-
-.exitActive {
-  /* display: none; */
-  /* overflow: hidden; */
-}
-
-.exitDone {
-  /* display: none; */
-  /* overflow: hidden; */
 }
