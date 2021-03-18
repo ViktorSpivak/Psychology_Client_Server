@@ -23,6 +23,6 @@ export class UserMessageController {
       .catch(err => console.log('SendGrid error: ', err));
 
  await this.userMessageService.createMessage(userMessage);
- return "Запрос создан"
+ return `Запрос от ${userMessage.name} создан`
   }
 }

@@ -20,11 +20,11 @@ export const Feedback: FC = () => {
   error && console.log('Компонент "Feedback" не отрисован ', error.message);
   return (
     <>
-      {!error && !!feedbackList.length && (
-        <>
+      {feedbackList && (
+        <div>
           <h2 className={style.title}>отзывы</h2>
           <SimpleSlider list={feedbackList} />
-        </>
+        </div>
       )}
     </>
   );

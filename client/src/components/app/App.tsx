@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { AskMe } from "../askMe/AskMe";
 import { Game } from "../game/Game";
 import { HomePage } from "../homepage/HomePage";
-import Menu from "../menu/Menu";
+// import Menu from "../menu/Menu";
 import { MiddlePage } from "../middlepage/Middlepage";
 import { SocialLinks } from "../socialLinks/SocialLinks";
 import style from "./app.module.css";
@@ -20,21 +20,18 @@ import { SendButton } from "../sendButton/SendButton";
 import { Programs } from "../programs/Programs";
 import { SignupProgram } from "../signupProgram/SignupProgram";
 
-export const App: React.FC = () => {
+export const App = () => {
   return (
     <div className={style.container}>
       <SendButton />
       <Cursor />
       <Switch>
-        {/* <Route path="/" exact>
-          <HomePage />
-        </Route> */}
         <Route path="/socialLinks">
           <SocialLinks />
         </Route>
-        <Route path="/menu">
+        {/* <Route path="/menu">
           <Menu />
-        </Route>
+        </Route> */}
         <Route path="/game">
           <Game />
         </Route>
@@ -58,37 +55,12 @@ export const App: React.FC = () => {
           <MiddlePage />
           <Watch />
         </Route>
-        {/* <Route
-          path={[
-            "/mystory",
-            "/specialization",
-            "/contacts",
-            "/howItWorks",
-            "/watch",
-          ]}
-        >
-          <MiddlePage />
-          {/* <MiddlePage post={<SendButton />} /> */}
-        {/* </Route> */}
         <Route path="/askMe">
-          <AskMe />
-        </Route>
-        <Route path="/admin">
-          <AskMe />
-        </Route>
-        <Route path="/login">
-          <AskMe />
-        </Route>
-        <Route path="/logout">
           <AskMe />
         </Route>
         <Route path="/signupProgram">
           <SignupProgram />
         </Route>
-        {/* <Route path="/signup">
-          <SignupForm />
-        </Route> */}
-
         <Route>
           <HomePage />
         </Route>

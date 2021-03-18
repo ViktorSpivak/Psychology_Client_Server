@@ -103,9 +103,7 @@ export interface ICredentials {
   username: string
   password: string
 }
-export interface IListProps {
-  list:[IFeedback]
-}
+
 export interface ValidationErrors {
   errorMessage: string
   field_errors: Record<string, string>
@@ -120,13 +118,14 @@ error:null|{
   code?: string
 };
 }
-export interface IUserMessageState extends IState {userData: {}|IUserMessage}
+export interface IUserData {name:string; response:string}
+export interface IUserMessageState extends IState {userData: null |IUserData}
 
-export interface IFeedbackState extends IState {feedbackList:[] | [IFeedback]}
+export interface IFeedbackState extends IState {feedbackList:null | [IFeedback]}
 
-export interface IDiplomaState extends IState {diplomaList:[] | [IDiploma]}
+export interface IDiplomaState extends IState {diplomaList:null | [IDiploma]}
 
-export interface IPostState extends IState {postList:[] | [IPost]}
+export interface IPostState extends IState {postList:null | [IPost]}
 
 export interface IUserResServer{
   data:string

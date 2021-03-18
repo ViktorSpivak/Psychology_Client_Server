@@ -26,6 +26,7 @@
   position: relative;
   width: 90%;
   margin: 0 auto;
+  cursor: none;
 }
 
 .input {
@@ -36,6 +37,7 @@
   outline: none;
   font-size: 30px;
   margin-top: 1px;
+  cursor: none;
 }
 
 .acceptBlock {
@@ -50,6 +52,7 @@
 .acceptInput {
   transform: scale(1.5);
   margin: 0;
+  cursor: none;
 }
 
 .acceptInput:checked:after {

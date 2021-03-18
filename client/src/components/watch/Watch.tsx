@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useRef, FunctionComponent } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 // import { Logo } from "../../svgcomponents/Logo";
 import axios from "axios";
 import style from "./watch.module.css";
-import { Loader } from "../loader/Loader";
+import { TuneLoader } from "../tuneLoader/TuneLoader";
 import { IPosterList } from "../../../../common/interfaces";
 import { Logo } from "../logo/Logo";
 
 const apiKey = "3f3d3dc7a4319cc8bb935aa9323bdeea";
 // axios.defaults.baseURL = "https://api.themoviedb.org/3/movie/";
 
-export const Watch: FunctionComponent = () => {
+export const Watch = () => {
   const loader = useRef<HTMLElement>(null);
   const [list, setList] = useState<IPosterList[]>([]);
   const [count, setCount] = useState<number>(1);
@@ -63,27 +63,24 @@ export const Watch: FunctionComponent = () => {
           {list &&
             list.map((el, idx) => (
               <li key={idx} className={style.card} data-cursor-active>
-                <Link to="/" data-cursor-active>
+                <Link to="/">
                   <img
                     className={style.img}
                     src={`https://image.tmdb.org/t/p/w500${el.poster_path}`}
                     alt="poster"
-                    data-cursor-active
                   />
                   <div className={style.cardDescription}>
                     <div>
                       <span>Date</span>
                       <span>Theme</span>
                     </div>
-                    <h3 data-cursor-active>Headline</h3>
-                    <p className={style.cardText} data-cursor-active>
+                    <h3>Headline</h3>
+                    <p className={style.cardText}>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Praesentium, nisi illo sequi soluta officia saepe quis
                       rerum molestiae quaerat aliquid.
                     </p>
-                    <Link to="/" data-cursor-active>
-                      <p>Continue Reading</p>
-                    </Link>
+                    <p>Continue Reading</p>
                   </div>
                 </Link>
               </li>
@@ -91,7 +88,7 @@ export const Watch: FunctionComponent = () => {
         </ul>
       </main>
       <footer ref={loader} className={style.footer}>
-        <Loader />
+        <TuneLoader />
       </footer>
     </div>
   );

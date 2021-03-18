@@ -11,16 +11,20 @@ import { RootState } from "../../redux/rootReducer";
 import { AppDispatch } from "../../redux/store";
 import { userMessageThunk } from "../../redux/slices/userMessageSlice";
 import { ModalWindow } from "../modalWindow/ModalWindow";
+import { TuneLoader } from "../tuneLoader/TuneLoader";
 
 export const AskMe: FC = () => {
   const [accept, setAccept] = useState<boolean>(false);
+
   const matchSignupProgram: match<{}> | null = useRouteMatch("/signupProgram");
 
-  const { userData, error } = useSelector(
+  const { userData, isLoading, error } = useSelector(
     (state: RootState) => state.userMessage
   );
   const dispatch: AppDispatch = useDispatch();
-
+  // const text: string|null = error
+  //   ? "Что-то пошло не так, попробуйте ещё раз позже:( "
+  //   : {userData.name};
   // useEffect(() => {
   //   const promise = dispatch(userMessageThunk({ page: 1 }));
   //   return () => {
@@ -46,10 +50,23 @@ export const AskMe: FC = () => {
     setSubmitting(false);
     dispatch(userMessageThunk(values));
   };
+  const validationMessage = Yup.object({
+    name: Yup.string()
+      .max(30, "Must be 30 characters or less")
+      .required("Required"),
+    phone: Yup.string()
+      .matches(phoneRegExp, "только цифры")
+      .min(10, "мин 10 символов ")
+      .max(10, "макс 10 символов")
+      .required("Required"),
+    email: Yup.string().email("Invalid email address").required("Required"),
+    text: Yup.string()
+      .max(200, "Must be 200 characters or less")
+      .required("Required"),
+  });
 
   return (
     <>
-      <ModalWindow text={"vvvvvv"} />
       <div
         className={
           matchSignupProgram ? style.containerSingupFormat : style.container
@@ -58,22 +75,7 @@ export const AskMe: FC = () => {
         <main>
           <Formik
             initialValues={initialValues}
-            validationSchema={Yup.object({
-              name: Yup.string()
-                .max(30, "Must be 30 characters or less")
-                .required("Required"),
-              phone: Yup.string()
-                .matches(phoneRegExp, "только цифры")
-                .min(10, "мин 10 символов ")
-                .max(10, "макс 10 символов")
-                .required("Required"),
-              email: Yup.string()
-                .email("Invalid email address")
-                .required("Required"),
-              text: Yup.string()
-                .max(200, "Must be 200 characters or less")
-                .required("Required"),
-            })}
+            validationSchema={validationMessage}
             onSubmit={handleSubmit}
           >
             <Form className={style.form}>
@@ -88,7 +90,6 @@ export const AskMe: FC = () => {
                 component="div"
                 className={style.errorStyle}
               />
-
               <div className={style.line}></div>
               <Field
                 name="phone"
@@ -101,7 +102,6 @@ export const AskMe: FC = () => {
                 component="div"
                 className={style.errorStyle}
               />
-
               <div className={style.line}></div>
               <Field
                 name="email"
@@ -129,19 +129,20 @@ export const AskMe: FC = () => {
               />
               <div className={style.line}></div>
               <div className={style.acceptBlock}>
-                <div className={style.acceptCheckBox} data-cursor-active>
+                <div className={style.acceptCheckBox}>
                   <input
                     type="radio"
                     checked={accept}
                     onClick={() => setAccept(!accept)}
                     readOnly
                     className={style.acceptInput}
+                    data-cursor-active
                   ></input>
                   <p
                     className={
                       accept ? style.acceptTextActive : style.acceptText
                     }
-                    // data-cursor-active
+                    data-cursor-active
                   >
                     <Link
                       to="/"
@@ -168,6 +169,9 @@ export const AskMe: FC = () => {
           {!matchSignupProgram && <Logo />}
         </footer>
       </div>
+      {isLoading && <TuneLoader overlay />}
+      {userData && <ModalWindow props={userData} />}
+      {error && <ModalWindow props={error} />}
     </>
   );
 };

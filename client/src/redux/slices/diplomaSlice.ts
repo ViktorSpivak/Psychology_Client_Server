@@ -1,19 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IDiplomaState, IPage, ValidationErrors } from "../../../../common/interfaces";
+import { IDiploma, IDiplomaState, IPage, ValidationErrors } from "../../../../common/interfaces";
 import { RootState } from "../rootReducer";
 import * as api from "../../services/api";
 import { AxiosError } from "axios";
 import { ErrorHandler } from "../../services/errorHandler";
 
 const initialState:IDiplomaState = {
-  diplomaList:[],
+  diplomaList:null,
   currentRequestId:null,
   isLoading: false,
   error:null,
 } 
 
 export const diplomaThunk = createAsyncThunk<
-  [],
+  null|[IDiploma],
   IPage,
   {
     state: RootState;

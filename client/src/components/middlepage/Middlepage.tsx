@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useRouteMatch } from "react-router-dom";
 // import { TransitionGroup } from "react-transition-group";
@@ -6,7 +6,7 @@ import { useRouteMatch } from "react-router-dom";
 import style from "./middlepage.module.css";
 import { Wave } from "../wave/Wave";
 
-export const MiddlePage: FunctionComponent<any> = ({ post }) => {
+export const MiddlePage = () => {
   // const [linkHovered, setLinkHovered] = useState<boolean>(false);
 
   // const [state, setState] = useState(false);
@@ -75,7 +75,6 @@ export const MiddlePage: FunctionComponent<any> = ({ post }) => {
         {/* </CSSTransition> */}
       </div>
       {/* </TransitionGroup> */}
-      {post}
     </div>
   );
 };

@@ -1,19 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IPage, IPostState, ValidationErrors } from "../../../../common/interfaces";
+import { IPage, IPost, IPostState, ValidationErrors } from "../../../../common/interfaces";
 import { RootState } from "../rootReducer";
 import * as api from "../../services/api";
 import { ErrorHandler } from "../../services/errorHandler";
 import { AxiosError } from "axios";
 
 const initialState:IPostState = {
-  postList: [],
+  postList: null,
   currentRequestId:null,
   isLoading: false,
   error:null,
 } 
 
 export const postThunk = createAsyncThunk<
-  [],
+  null|[IPost],
   IPage,
   {
     state: RootState;

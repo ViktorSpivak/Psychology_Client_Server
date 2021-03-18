@@ -1,5 +1,11 @@
-import React, { FunctionComponent } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "../../redux/hooks";
+import {
+  noActiveSendButton,
+  activeSendButton,
+} from "../../redux/slices/isActiveSendButtonSlice";
+import { AppDispatch } from "../../redux/store";
 // import { Logo } from "../../svgcomponents/Logo";
 import { Logo } from "../logo/Logo";
 import { Navigation } from "../navigation/Navigation";
@@ -7,7 +13,14 @@ import { SocialLinks } from "../socialLinks/SocialLinks";
 import { Wave } from "../wave/Wave";
 import style from "./homepage.module.css";
 
-export const HomePage: FunctionComponent = () => {
+export const HomePage = () => {
+  const dispatch: AppDispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(noActiveSendButton());
+    return () => {
+      dispatch(activeSendButton());
+    };
+  });
   // const initSize = () => document.body.clientWidth;
   // const [size, setSize] = useState<Number>(initSize());
   // useEffect(() => {

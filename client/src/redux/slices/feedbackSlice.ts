@@ -1,19 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IFeedbackState, IPage, ValidationErrors } from "../../../../common/interfaces";
+import { IFeedback, IFeedbackState, IPage, ValidationErrors } from "../../../../common/interfaces";
 import { RootState } from "../rootReducer";
 import * as api from "../../services/api";
 import { AxiosError } from "axios";
 import { ErrorHandler } from "../../services/errorHandler";
 
 const initialFState:IFeedbackState = {
-  feedbackList:[],
+  feedbackList:null,
   currentRequestId:null,
   isLoading: false,
   error:null,
 } 
 
 export const feedbackThunk = createAsyncThunk<
-  [],
+  null|[IFeedback],
   IPage,
   {
     state: RootState;

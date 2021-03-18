@@ -22,8 +22,8 @@ export const Diploma = () => {
 
   return (
     <>
-      {!error && !!diplomaList.length && (
-        <>
+      {diplomaList && (
+        <div>
           <h2 className={style.topic}>дипломы</h2>
           <ul className={style.diplomas}>
             {diplomaList.map((el: IDiploma, idx: number) => (
@@ -32,7 +32,7 @@ export const Diploma = () => {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       )}
     </>
   );

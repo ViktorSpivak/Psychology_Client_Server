@@ -1,22 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IUserMessage, IUserMessageState, ValidationErrors } from "../../../../common/interfaces";
+import { IUserData, IUserMessage, IUserMessageState, ValidationErrors } from "../../../../common/interfaces";
 import { RootState } from "../rootReducer";
 import * as api from "../../services/api";
 import { ErrorHandler } from "../../services/errorHandler";
 import { AxiosError } from "axios";
 
 const initialState:IUserMessageState = {
-  userData : {name: "",
-  phone: "",
-  email: "",
-  text: "",},
+  userData : null,
   currentRequestId:null,
   isLoading: false,
   error:null,
 } 
 
 export const userMessageThunk = createAsyncThunk<
-  [],
+  IUserData,
   IUserMessage,
   {
     state: RootState;
@@ -27,12 +24,13 @@ export const userMessageThunk = createAsyncThunk<
     const { currentRequestId, isLoading } = getState().userMessage;
     if (isLoading !== true || requestId !== currentRequestId) {
       return;
-    }try {
+    } try {
     const response = await api.userMessageRequest(message);
-    if( (typeof response)==='number'){
+    if((typeof response)==='number'){
       throw new Error(ErrorHandler(response));
     }
-    return response;} catch (err) {
+    return response;} 
+    catch (err) {
       let error: AxiosError<ValidationErrors> = err 
       if (!error.response) {
         throw err

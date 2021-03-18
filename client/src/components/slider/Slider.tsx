@@ -1,12 +1,12 @@
-import React, { FC } from "react";
+import React from "react";
 import Slider from "react-slick";
 import style from "./slider.module.css";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { IFeedback, IListProps } from "../../../../common/interfaces";
+import { IFeedback } from "../../../../common/interfaces";
 
-export const SimpleSlider: FC<IListProps> = ({ list }) => {
+export const SimpleSlider = ({ list }: { list: [IFeedback] }) => {
   const sliderList: JSX.Element[] = list.map((el: IFeedback, idx: number) => (
     <div key={idx}>
       <p className={style.card}>{el.description}</p>
