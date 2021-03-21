@@ -8,7 +8,7 @@ import { AxiosError } from "axios";
 const initialState:IPostState = {
   postList: null,
   currentRequestId:null,
-  isLoading: false,
+  isLoading: false,response:null,
   error:null,
 } 
 

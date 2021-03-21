@@ -4,7 +4,7 @@ import { useAppDispatch } from "../../redux/hooks";
 import {
   noActiveSendButton,
   activeSendButton,
-} from "../../redux/slices/isActiveSendButtonSlice";
+} from "../../redux/slices/sendButtonSlice";
 import { AppDispatch } from "../../redux/store";
 // import { Logo } from "../../svgcomponents/Logo";
 import { Logo } from "../logo/Logo";
@@ -62,7 +62,6 @@ export const HomePage = () => {
         <Link to="/game" className={style.gameClick} data-cursor-active>
           don`t click it
         </Link>
-        {/* <div className={style.social}>{size < 768 && <SocialLinks />}</div>  */}
       </footer>
     </div>
   );

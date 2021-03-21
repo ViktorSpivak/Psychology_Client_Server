@@ -1,8 +1,14 @@
 // import React from "react";
 import React, { Component } from "react";
-
-export class spriteComponents extends Component {
-  paper = ({ isButton, color }) => {
+type TProps = {
+  isButton?: boolean;
+  color: string;
+};
+export class spriteComponents extends Component<TProps | undefined> {
+  constructor(props: TProps | undefined) {
+    super(props);
+  }
+  paper = ({ isButton, color }: TProps) => {
     const circle = <circle fill="#e62649" cx="30" cy="30" r="30"></circle>;
     return (
       <svg aria-hidden="true" viewBox="0 0 60 60">
@@ -18,7 +24,7 @@ export class spriteComponents extends Component {
       </svg>
     );
   };
-  scissors = ({ isButton, color }) => {
+  scissors = ({ isButton, color }: TProps) => {
     const circle = <circle fill="#e62649" cx="30" cy="30" r="30"></circle>;
     return (
       <svg aria-hidden="true" viewBox="0 0 60 60">
@@ -34,7 +40,7 @@ export class spriteComponents extends Component {
       </svg>
     );
   };
-  stone = ({ isButton, color }) => {
+  stone = ({ isButton, color }: TProps) => {
     const circle = <circle fill="#e62649" cx="30" cy="30" r="30"></circle>;
     console.log(isButton, color);
     return (
@@ -53,4 +59,4 @@ export class spriteComponents extends Component {
   };
 }
 
-export default new spriteComponents();
+// export const spriteComponent = new spriteComponents();

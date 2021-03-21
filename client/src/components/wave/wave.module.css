@@ -1,6 +1,6 @@
 .container {
   overflow: hidden;
-  /* color: rgb(151, 24, 88); */
+  width: 100%;
 }
 @media (min-width: 1200px) {
   .container {

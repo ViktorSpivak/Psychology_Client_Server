@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from "react";
-
-export const Massage: FunctionComponent<any> = ({ color }) => {
+type TProps = {
+  color: string;
+};
+export const Massage = ({ color }: TProps) => {
   color = color || "#eb7f21";
   return (
     <svg aria-hidden="true" width="90" height="90">

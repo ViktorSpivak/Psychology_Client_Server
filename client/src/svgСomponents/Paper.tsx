@@ -1,10 +1,10 @@
-import React, { FunctionComponent, ReactElement } from "react";
-import { IProps } from "./svg.interfaces";
+import React from "react";
 
-export const Paper: FunctionComponent<IProps> = ({
-  isButton,
-  color,
-}): ReactElement => {
+type TProps = {
+  isButton?: boolean;
+  color: string;
+};
+export const Paper = ({ isButton, color }: TProps) => {
   const circle = <circle fill="#eb7f21" cx="30" cy="30" r="30"></circle>;
   return (
     <svg aria-hidden="true" viewBox="0 0 60 60">

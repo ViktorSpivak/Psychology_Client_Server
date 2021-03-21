@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IUserData, IUserMessage, IUserMessageState, ValidationErrors } from "../../../../common/interfaces";
+import { IResponse, IUserMessageState, ValidationErrors } from "../../../../common/interfaces";
 import { RootState } from "../rootReducer";
 import * as api from "../../services/api";
 import { ErrorHandler } from "../../services/errorHandler";
@@ -9,23 +9,24 @@ const initialState:IUserMessageState = {
   userData : null,
   currentRequestId:null,
   isLoading: false,
+  response:null,
   error:null,
 } 
 
 export const userMessageThunk = createAsyncThunk<
-  IUserData,
-  IUserMessage,
+  IResponse,
+  undefined,
   {
     state: RootState;
   }
 >(
   "userMassage/reqStatus",
   async (message, { getState, requestId,rejectWithValue }): Promise<any> => {
-    const { currentRequestId, isLoading } = getState().userMessage;
+    const {userData, currentRequestId, isLoading } = getState().userMessage;
     if (isLoading !== true || requestId !== currentRequestId) {
       return;
     } try {
-    const response = await api.userMessageRequest(message);
+    const response = await api.userMessageRequest(userData!);
     if((typeof response)==='number'){
       throw new Error(ErrorHandler(response));
     }
@@ -43,7 +44,12 @@ export const userMessageThunk = createAsyncThunk<
 const userMessageSlice = createSlice({
   name: "userMassage",
   initialState,
-  reducers: {},
+  reducers: {
+    setUserMassage : (state,action) => { state.userData =action.payload
+    },
+    resetUserMassage : state => { state.userData = null; state.currentRequestId=null; state.isLoading= false; state.error=null;
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(userMessageThunk.pending,(state, action) => {
       if (state.isLoading === false) {
@@ -55,7 +61,7 @@ const userMessageSlice = createSlice({
         const {requestId} = action.meta;
         if (state.isLoading === true && state.currentRequestId === requestId) {
           state.isLoading = false;
-          state.userData = action.payload;
+          state.response = action.payload;
           state.currentRequestId = null;
         }
       });
@@ -69,4 +75,5 @@ const userMessageSlice = createSlice({
     });
   },
 });
+export const {setUserMassage,resetUserMassage}=userMessageSlice.actions;
 export const userMessageReducer = userMessageSlice.reducer;

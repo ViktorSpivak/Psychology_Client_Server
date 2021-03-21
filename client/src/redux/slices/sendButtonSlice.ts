@@ -4,7 +4,7 @@ type IIsActive={isActive:boolean}
 const initialState :IIsActive= {
   isActive: true,
 } 
-const isActiveSendButtonSlice = createSlice({
+const sendButtonSlice = createSlice({
   name: "isActiveSendButton",
   initialState,
   reducers: {
@@ -17,7 +17,7 @@ const isActiveSendButtonSlice = createSlice({
   },
 });
 
-export const { activeSendButton,noActiveSendButton } = isActiveSendButtonSlice.actions;
+export const { activeSendButton,noActiveSendButton } = sendButtonSlice.actions;
 // Other code such as selectors can use the imported `RootState` type
 // export const isActive = (state: RootState) => state.isActiveSendButton.isActive;
-export const isActiveSendButtonReducer = isActiveSendButtonSlice.reducer;
+export const sendButtonReducer = sendButtonSlice.reducer;

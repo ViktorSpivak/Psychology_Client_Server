@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
-// import { Massage } from "../../svgcomponents/massage";
 import style from "./SendButton.module.css";
 
 export const SendButton = () => {

@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 // import { Logo } from "../../svgcomponents/Logo";
@@ -6,22 +6,29 @@ import { Logo } from "../logo/Logo";
 import style from "./askme.module.css";
 import { IUserMessage } from "../../../../common/interfaces";
 import { Link, match, useRouteMatch } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../redux/rootReducer";
-import { AppDispatch } from "../../redux/store";
-import { userMessageThunk } from "../../redux/slices/userMessageSlice";
+import {
+  setUserMassage,
+  userMessageThunk,
+} from "../../redux/slices/userMessageSlice";
 import { ModalWindow } from "../modalWindow/ModalWindow";
 import { TuneLoader } from "../tuneLoader/TuneLoader";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { activeModalWindow } from "../../redux/slices/modalWindowSlice";
 
-export const AskMe: FC = () => {
+export const AskMe = () => {
   const [accept, setAccept] = useState<boolean>(false);
-
+  const dispatch = useAppDispatch();
+  const { isLoading, error, response } = useAppSelector(
+    (state) => state.userMessage
+  );
+  const isActiveModalWindow = useAppSelector(
+    (state) => state.isActiveModalWindowSlice.isActive
+  );
+  if (response || error) {
+    dispatch(activeModalWindow());
+  }
   const matchSignupProgram: match<{}> | null = useRouteMatch("/signupProgram");
 
-  const { userData, isLoading, error } = useSelector(
-    (state: RootState) => state.userMessage
-  );
-  const dispatch: AppDispatch = useDispatch();
   // const text: string|null = error
   //   ? "Что-то пошло не так, попробуйте ещё раз позже:( "
   //   : {userData.name};
@@ -48,7 +55,8 @@ export const AskMe: FC = () => {
     }
   ): void => {
     setSubmitting(false);
-    dispatch(userMessageThunk(values));
+    dispatch(setUserMassage(values));
+    dispatch(userMessageThunk());
   };
   const validationMessage = Yup.object({
     name: Yup.string()
@@ -170,8 +178,7 @@ export const AskMe: FC = () => {
         </footer>
       </div>
       {isLoading && <TuneLoader overlay />}
-      {userData && <ModalWindow props={userData} />}
-      {error && <ModalWindow props={error} />}
+      {isActiveModalWindow && <ModalWindow />}
     </>
   );
 };

@@ -5,7 +5,7 @@ import { AppDispatch } from "../../redux/reduxOld/store";
 import {
   activeSendButton,
   noActiveSendButton,
-} from "../../redux/slices/isActiveSendButtonSlice";
+} from "../../redux/slices/sendButtonSlice";
 import style from "./tuneLoader.module.css";
 
 export const TuneLoader = ({ overlay }: { overlay?: boolean }) => {

@@ -1,24 +1,19 @@
-import React, {
-  useState,
-  useEffect,
-  FunctionComponent,
-  MouseEvent,
-} from "react";
+import React, { useState, useEffect, MouseEvent } from "react";
 import style from "./game.module.css";
 import stone from "../../images/handsPhoto/stone.png";
 import rock from "../../images/handsPhoto/rock.png";
 import scissors from "../../images/handsPhoto/scissors.png";
 import paper from "../../images/handsPhoto/paper.png";
 import AI from "../../images/handsPhoto/ai.png";
-import { Paper } from "../../svgcomponents/paper";
-import { Stone } from "../../svgcomponents/stone";
-import { Scissors } from "../../svgcomponents/scissors";
+import { Paper } from "../../svgСomponents/Paper";
+import { Stone } from "../../svgСomponents/Stone";
+import { Scissors } from "../../svgСomponents/Scissors";
 import { ScoreHistory } from "./ScoreHistory";
 import { Logo } from "../logo/Logo";
 // import { Logo } from "../../svgcomponents/Logo";
 
-const handsColor="#FAF9F8"
-export const Game: FunctionComponent = () => {
+const handsColor = "#FAF9F8";
+export const Game = () => {
   type TResults = {
     winner: string;
     aiChoice: string;
@@ -72,7 +67,7 @@ export const Game: FunctionComponent = () => {
     setRound(round + 1);
   };
   return (
-    <div>
+    <>
       <main className={style.container}>
         <h2 className={style.round}>
           <span>ROUND</span> <span>{round + 1}</span>
@@ -157,6 +152,6 @@ export const Game: FunctionComponent = () => {
       <footer className={style.footer}>
         <Logo />
       </footer>
-    </div>
+    </>
   );
 };

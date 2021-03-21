@@ -21,7 +21,7 @@ export const MiddlePage = () => {
   const matchWatch = useRouteMatch("/watch");
 
   return (
-    <div>
+    <main className={style.main}>
       {/* <TransitionGroup appear={true} className={style.container}> */}
       <div className={style.wrapper}>
         <Wave canvasHeight={1000} />
@@ -75,6 +75,6 @@ export const MiddlePage = () => {
         {/* </CSSTransition> */}
       </div>
       {/* </TransitionGroup> */}
-    </div>
+    </main>
   );
 };

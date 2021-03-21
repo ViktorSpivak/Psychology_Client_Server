@@ -1,5 +1,5 @@
 import Axios from "axios";
-import {IDiploma, IFeedback, IPage, IPost, IUserMessage, IUserResServer} from "../../../common/interfaces";
+import {IDiploma, IFeedback, IPage, IPost, IResponse, IUserMessage} from "../../../common/interfaces";
 
 // Axios.defaults.baseURL = "https://psychology-server.herokuapp.com";
 // Axios.defaults.baseURL = "http://localhost:3080";
@@ -36,9 +36,8 @@ export const feedbackRequest = async (page: IPage):Promise<IFeedback[]|Number> =
       console.log("Response from server:", res.data);
       return res.data;
     })
-    .catch((error)=> {console.log(error);
+    .catch((error)=> {
     if (error.response) {
-    // return error.status
     return error.request.status
     } else if (error.request) {
     return error.request.status
@@ -65,11 +64,11 @@ export const diplomaRequest = async (page: IPage):Promise<IDiploma[]|Number> =>
         console.log('Error:', error.message)
       }
     });
-export const userMessageRequest = async (page: IUserMessage):Promise<IUserResServer|Number> =>
+export const userMessageRequest = async (message: IUserMessage):Promise<IResponse|Number> =>
   await Axios({
     method: "post",
     url: "message",
-    data: page,
+    data: message,
   })
     // .then((res) => JSON.parse(res.config.data))
     .then((res) => {

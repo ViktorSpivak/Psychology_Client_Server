@@ -108,25 +108,28 @@ export interface ValidationErrors {
   errorMessage: string
   field_errors: Record<string, string>
 }
-export interface IState {
-isLoading: boolean;
-currentRequestId:string|null;
-error:null|{
-  name?: string
+
+export interface IError {name?: string
   message?: string
   stack?: string
   code?: string
-};
 }
-export interface IUserData {name:string; response:string}
-export interface IUserMessageState extends IState {userData: null |IUserData}
+
+export interface IResponse {data:string
+}
+export interface IState {
+isLoading: boolean;
+currentRequestId:string|null;
+response:IResponse|null;
+error:null|IError;
+}
+
+// export interface IUserData {name:string; response:string}
+
+export interface IUserMessageState extends IState {userData: null |IUserMessage}
 
 export interface IFeedbackState extends IState {feedbackList:null | [IFeedback]}
 
 export interface IDiplomaState extends IState {diplomaList:null | [IDiploma]}
 
 export interface IPostState extends IState {postList:null | [IPost]}
-
-export interface IUserResServer{
-  data:string
-}

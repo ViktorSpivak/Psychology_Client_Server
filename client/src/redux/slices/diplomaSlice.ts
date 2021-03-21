@@ -9,6 +9,7 @@ const initialState:IDiplomaState = {
   diplomaList:null,
   currentRequestId:null,
   isLoading: false,
+  response:null,
   error:null,
 } 
 

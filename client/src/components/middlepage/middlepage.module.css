@@ -1,8 +1,10 @@
+.main {
+  position: fixed;
+  width: 100%;
+}
 .container {
   width: 100%;
-  position: fixed;
   font-size: 0;
-  /* border-left: solid 0.1px rgba(0, 0, 0, 0.3); */
   overflow-x: hidden;
   margin-left: 1px;
 }
@@ -36,7 +38,9 @@
 }
 
 .wrapper {
-  position: fixed;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
   visibility: hidden;
   border-left: solid 0.1px rgba(0, 0, 0, 0.3);
 }

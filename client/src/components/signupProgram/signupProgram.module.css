@@ -1,9 +1,6 @@
 .container {
   width: var(--widthContainer);
   text-align: center;
-  /* position: relative;
-  animation: Show 1s linear;
-  text-align: center; */
 }
 .border {
   border: solid 1px black;

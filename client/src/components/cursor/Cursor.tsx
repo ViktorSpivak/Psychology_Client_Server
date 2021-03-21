@@ -1,8 +1,15 @@
-import React, { useState, useEffect, FunctionComponent } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./cursor.module.css";
 import { useLocation } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
 
-export const Cursor: FunctionComponent = () => {
+export const Cursor = () => {
+  const isActiveSendButton = useAppSelector(
+    (state) => state.isActiveSendButton.isActive
+  );
+  const isActiveModalWindow = useAppSelector(
+    (state) => state.isActiveModalWindowSlice.isActive
+  );
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [linkHovered, setLinkHovered] = useState<boolean>(false);
   const [hidden, setHidden] = useState<boolean>(false);
@@ -11,12 +18,12 @@ export const Cursor: FunctionComponent = () => {
   // let cursorFollower = linkHovered ? style.linkHovered : style.cursor;
 
   useEffect(() => {
-    const pageElementsCollection: any = document
-      .getElementById("root")
-      ?.querySelectorAll("*");
+    const pageElementsCollection:
+      | NodeListOf<HTMLElement>
+      | undefined = document.getElementById("root")?.querySelectorAll("*");
     // ?.getElementsByTagName("*");
     // const pageElementsArr = Array.prototype.slice.call(pageElementsCollection);
-    const pageElementsArr = [...pageElementsCollection];
+    const pageElementsArr = [...pageElementsCollection!];
     addEventListeners();
     handleLinkHoverEvents(pageElementsArr);
     setLinkHovered(false);
@@ -25,7 +32,7 @@ export const Cursor: FunctionComponent = () => {
       removeEventListeners();
       removeHandleLinkHoverEvents(pageElementsArr);
     };
-  }, [location]); // eslint-disable-line
+  }, [location, isActiveSendButton, isActiveModalWindow]); // eslint-disable-line
 
   const addEventListeners = () => {
     document.addEventListener("mousemove", onMouseMove);

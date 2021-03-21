@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from "react";
+import React, { useEffect } from "react";
 import style from "./wave.module.css";
 
 const NUM_PARTICLES: number = 170;
@@ -34,10 +34,13 @@ type TParticle = {
   color: string;
 };
 
-export const Wave: FunctionComponent<{
+export const Wave = ({
+  canvasWidth,
+  canvasHeight,
+}: {
   canvasWidth?: number;
   canvasHeight?: number;
-}> = ({ canvasWidth, canvasHeight }) => {
+}) => {
   const canvasRef = React.createRef<HTMLCanvasElement>();
   const particles: TParticle[] = [];
   const randomNormal = (o: TParam): number => {
@@ -59,7 +62,6 @@ export const Wave: FunctionComponent<{
     return Math.random() * (high - low) + low;
   };
   const createParticle = (): TParticle => {
-    
     return {
       x: -2,
       y: -2,

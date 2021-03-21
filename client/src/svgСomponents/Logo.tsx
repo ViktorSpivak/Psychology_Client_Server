@@ -1,6 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-export const Logo = ({ color = "#4d4040", width = "150", height = "150" }) => {
+type TProps = {
+  color: string;
+  width: string;
+  height: string;
+};
+export const Logo = ({
+  color = "#4d4040",
+  width = "150",
+  height = "150",
+}: TProps) => {
   return (
     <Link to="/">
       <svg

@@ -8,7 +8,7 @@ import { ErrorHandler } from "../../services/errorHandler";
 const initialFState:IFeedbackState = {
   feedbackList:null,
   currentRequestId:null,
-  isLoading: false,
+  isLoading: false,response:null,
   error:null,
 } 
 
