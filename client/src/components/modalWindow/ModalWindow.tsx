@@ -27,7 +27,7 @@ export const ModalWindow = () => {
     return () => {
       dispatch(activeSendButton());
     };
-  });
+  }, [dispatch]);
   const turnoffModalWindow = () => {
     dispatch(noActiveModalWindow());
     dispatch(resetUserMassage());

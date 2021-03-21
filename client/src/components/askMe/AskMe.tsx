@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 // import { Logo } from "../../svgcomponents/Logo";
@@ -24,9 +24,12 @@ export const AskMe = () => {
   const isActiveModalWindow = useAppSelector(
     (state) => state.isActiveModalWindowSlice.isActive
   );
-  if (response || error) {
-    dispatch(activeModalWindow());
-  }
+  useEffect(() => {
+    if (response || error) {
+      dispatch(activeModalWindow());
+    }
+  }, [response, error, dispatch]);
+
   const matchSignupProgram: match<{}> | null = useRouteMatch("/signupProgram");
 
   // const text: string|null = error

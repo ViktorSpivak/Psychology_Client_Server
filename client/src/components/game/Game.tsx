@@ -12,8 +12,8 @@ import { ScoreHistory } from "./ScoreHistory";
 import { Logo } from "../logo/Logo";
 // import { Logo } from "../../svgcomponents/Logo";
 
-const handsColor = "#FAF9F8";
 export const Game = () => {
+  const handsColor = "#FAF9F8";
   type TResults = {
     winner: string;
     aiChoice: string;
