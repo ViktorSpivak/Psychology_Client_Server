@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import DotLoader from "react-spinners/DotLoader";
 import { useAppDispatch } from "../../redux/hooks";
-import { AppDispatch } from "../../redux/reduxOld/store";
 import {
   activeSendButton,
   noActiveSendButton,
@@ -9,7 +8,7 @@ import {
 import style from "./tuneLoader.module.css";
 
 export const TuneLoader = ({ overlay }: { overlay?: boolean }) => {
-  const dispatch: AppDispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   useEffect(() => {
     overlay && dispatch(noActiveSendButton());
     return () => {
