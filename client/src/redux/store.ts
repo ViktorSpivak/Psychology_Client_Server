@@ -6,9 +6,5 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV !== "production",
 })
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-// type RootState = ReturnType<typeof rootReducer>
-
-// export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 export type AppThunk = ThunkAction<void, RootState, null, Action<string>>;

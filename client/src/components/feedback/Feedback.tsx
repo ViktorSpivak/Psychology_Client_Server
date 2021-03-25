@@ -1,15 +1,13 @@
 import React, { FC, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../redux/rootReducer";
 import { AppDispatch } from "../../redux/store";
 import { SimpleSlider } from "../slider/Slider";
 import { feedbackThunk } from "../../redux/slices/feedbackSlice";
 import style from "./feedback.module.css";
+import { selectFeedback } from "../../redux/selectors";
 
 export const Feedback: FC = () => {
-  const { feedbackList, error } = useSelector(
-    (state: RootState) => state.feedbacks
-  );
+  const { feedbackList, error } = useSelector(selectFeedback);
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
     const promise = dispatch(feedbackThunk({ page: 1 }));

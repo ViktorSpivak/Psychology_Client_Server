@@ -14,16 +14,13 @@ import { ModalWindow } from "../modalWindow/ModalWindow";
 import { TuneLoader } from "../tuneLoader/TuneLoader";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { activeModalWindow } from "../../redux/slices/modalWindowSlice";
+import { selectUserMessage } from "../../redux/selectors";
 
 export const AskMe = () => {
   const [accept, setAccept] = useState<boolean>(false);
   const dispatch = useAppDispatch();
-  const { isLoading, error, response } = useAppSelector(
-    (state) => state.userMessage
-  );
-  const isActiveModalWindow = useAppSelector(
-    (state) => state.isActiveModalWindowSlice.isActive
-  );
+  const { isLoading, error, response } = useAppSelector(selectUserMessage);
+
   useEffect(() => {
     if (response || error) {
       dispatch(activeModalWindow());
@@ -181,7 +178,7 @@ export const AskMe = () => {
         </footer>
       </div>
       {isLoading && <TuneLoader overlay />}
-      {isActiveModalWindow && <ModalWindow />}
+      <ModalWindow />
     </>
   );
 };

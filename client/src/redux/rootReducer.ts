@@ -12,6 +12,6 @@ export const rootReducer = combineReducers({
   feedbacks: feedbackReducer,
   userMessage:userMessageReducer,
   isActiveSendButton:sendButtonReducer,
-  isActiveModalWindowSlice:modalWindowReducer,
+  isActiveModalWindow:modalWindowReducer,
   })
 export type RootState = ReturnType<typeof rootReducer>

@@ -2,14 +2,12 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { IDiploma } from "../../../../common/interfaces";
 import { diplomaThunk } from "../../redux/slices/diplomaSlice";
-import { RootState } from "../../redux/rootReducer";
 import { AppDispatch } from "../../redux/store";
 import style from "./diploma.module.css";
+import { selectDiploma } from "../../redux/selectors";
 
 export const Diploma = () => {
-  const { diplomaList, error } = useSelector(
-    (state: RootState) => state.diplomas
-  );
+  const { diplomaList, error } = useSelector(selectDiploma);
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {

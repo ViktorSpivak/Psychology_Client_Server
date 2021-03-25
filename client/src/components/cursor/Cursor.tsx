@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import style from "./cursor.module.css";
 import { useLocation } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
+import {
+  selectIsActiveModalWindow,
+  selectIsActiveSendButton,
+} from "../../redux/selectors";
 
 export const Cursor = () => {
-  const isActiveSendButton = useAppSelector(
-    (state) => state.isActiveSendButton.isActive
-  );
-  const isActiveModalWindow = useAppSelector(
-    (state) => state.isActiveModalWindowSlice.isActive
-  );
+  const isActiveSendButton = useAppSelector(selectIsActiveSendButton);
+  const isActiveModalWindow = useAppSelector(selectIsActiveModalWindow);
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [linkHovered, setLinkHovered] = useState<boolean>(false);
   const [hidden, setHidden] = useState<boolean>(false);

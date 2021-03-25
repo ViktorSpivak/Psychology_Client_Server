@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
+import { selectIsActiveSendButton } from "../../redux/selectors";
 import style from "./SendButton.module.css";
 
 export const SendButton = () => {
-  const isActive = useAppSelector((state) => state.isActiveSendButton.isActive);
+  const isActive = useAppSelector(selectIsActiveSendButton);
   // const [show, setShow] = useState(false);
 
   // useEffect(() => {

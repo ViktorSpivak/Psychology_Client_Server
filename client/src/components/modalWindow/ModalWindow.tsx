@@ -9,12 +9,15 @@ import { noActiveModalWindow } from "../../redux/slices/modalWindowSlice";
 import style from "./modalWindow.module.css";
 import { resetUserMassage } from "../../redux/slices/userMessageSlice";
 import { Cross } from "../../svgСomponents/Cross";
+import {
+  selectIsActiveModalWindow,
+  selectUserMessage,
+} from "../../redux/selectors";
 
 export const ModalWindow = () => {
   const dispatch = useAppDispatch();
-  const { userData, error, response } = useAppSelector(
-    (state) => state.userMessage
-  );
+  const isActiveModalWindow = useAppSelector(selectIsActiveModalWindow);
+  const { userData, error, response } = useAppSelector(selectUserMessage);
   let text: string | undefined = response?.data;
   if (error) {
     text = `${
@@ -33,20 +36,24 @@ export const ModalWindow = () => {
     dispatch(resetUserMassage());
   };
   return (
-    <div className={style.container}>
-      <div className={style.overlay} onClick={turnoffModalWindow}></div>
-      <div className={style.card}>
-        <button
-          type="button"
-          className={style.button}
-          onClick={turnoffModalWindow}
-          data-cursor-active
-        >
-          <Cross />
-        </button>
-        <img src={photo} alt="MyPhoto" className={style.myPhoto} />
-        <p className={style.text}>{text}</p>
-      </div>
-    </div>
+    <>
+      {isActiveModalWindow && (
+        <div className={style.container}>
+          <div className={style.overlay} onClick={turnoffModalWindow}></div>
+          <div className={style.card}>
+            <button
+              type="button"
+              className={style.button}
+              onClick={turnoffModalWindow}
+              data-cursor-active
+            >
+              <Cross />
+            </button>
+            <img src={photo} alt="MyPhoto" className={style.myPhoto} />
+            <p className={style.text}>{text}</p>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
