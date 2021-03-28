@@ -1,16 +1,12 @@
-@import "../../helpers/varsColors.css";
-
 .container {
   text-align: center;
 }
-
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 10vh;
 }
-
 .main {
   font-size: 0;
   display: flex;
@@ -18,7 +14,6 @@
   justify-content: space-evenly;
   height: 80vh;
 }
-
 .title {
   font-size: 40px;
   font-weight: lighter;
@@ -26,37 +21,30 @@
   margin: 0;
   text-transform: uppercase;
 }
-
 .prophesy {
   list-style: none;
-  display:inline-flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-top: 5px;
   padding: 0;
   font-size: 18px;
 }
-
 .link {
   margin-right: 5px;
   margin-left: 5px;
   color: black;
   text-transform: uppercase;
 }
-
 .wave {
   display: none;
 }
-
-
-
 .gameClick {
   color: black;
   font-size: 16px;
   margin: 0 auto;
   text-transform: uppercase;
 }
-
 .gameClick_link {
   color: black;
 }
@@ -65,7 +53,6 @@
   .container {
     height: 100vh;
   }
-
   .header {
     width: 90%;
     margin: 0 auto;
@@ -73,47 +60,37 @@
     align-items: center;
     height: 10vh;
   }
-
   .main {
     height: 80vh;
   }
   .title {
     font-size: 100px;
   }
-
   .prophesy {
     flex-direction: row;
     justify-content: center;
     font-size: 26px;
   }
-
-  .link {
-    /* padding-left: 5px;
-    padding-right: 5px; */
-  }
-
-  .wave {
-    display: block;
-  }
-
   .gameClick_link {
     color: black;
   }
-
   .gameClick {
     font-size: 26px;
     margin-bottom: 20px;
   }
-
   .footer {
     margin-top: 0;
     height: 10vh;
   }
-  .social{
+  .social {
     margin: 0;
   }
 }
-
+@media (min-width: 1200px) {
+  .wave {
+    display: block;
+  }
+}
 @media (orientation: landscape) and (max-height: 520px) {
   .wave {
     display: none;

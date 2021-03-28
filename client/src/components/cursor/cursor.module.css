@@ -1,21 +1,19 @@
-@import "../../helpers/varsColors.css";
-
 .cursor {
   position: fixed;
   width: 8px;
   height: 8px;
-  ;
   border-radius: 100%;
   transform: translate(-50%, -50%);
   pointer-events: none;
 
   background-color: var(--customOrange);
-  transition-property: width height background-color transform mix-blend-mode border-radius;
+  transition-property: width height background-color transform mix-blend-mode
+    border-radius;
 
   will-change: transform;
   mix-blend-mode: difference;
   transition: 0.1s width cubic-bezier(0.39, 0.575, 0.565, 1),
-    0.1s height cubic-bezier(0.39, 0.575, 0.565, 1),
+    0.1s height cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 .linkHovered {
@@ -25,17 +23,17 @@
   opacity: 0.5;
   background-color: var(--customOrange);
   transition: 0.3s width cubic-bezier(0.39, 0.575, 0.565, 1),
-    0.3s height cubic-bezier(0.39, 0.575, 0.565, 1),
+    0.3s height cubic-bezier(0.39, 0.575, 0.565, 1);
 }
-.wrapper{
+.wrapper {
   display: none;
 }
 @media (min-width: 768px) {
-.wrapper {
-  display: block;
-  position: fixed;
-  z-index: 99999;
-}
+  .wrapper {
+    display: block;
+    position: fixed;
+    z-index: 99999;
+  }
 }
 @keyframes scaleIn {
   from {

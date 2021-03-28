@@ -5,12 +5,7 @@ export interface IUser {
   password?: string
   id?: string
 }
-// export interface IFormValues {
-//   name: string;
-//   phone: string;
-//   email: string;
-//   text: string;
-// }
+
 export interface IPosterList {
   poster_path: string
 }
@@ -35,16 +30,6 @@ export interface IUserMessage {
   email: string
   text: string
 }
-// export interface IUserRequestState {
-//   userRequest : {name: "",
-//   phone: "",
-//   email: "",
-//   text: "",},
-//   currentRequestId:string| null,
-//   isLoading: boolean,
-//   error:ErrorConstructor| null,
-
-// }
 export interface IMailMassage {
   to: string
   from: string
@@ -70,7 +55,6 @@ export interface INewPropertiesRequest {
   text?: string
 }
 export interface INewPropertiesFeedback {
-  // date?: string;
   description?: string
   name?: string
 }
@@ -123,8 +107,6 @@ currentRequestId:string|null;
 response:IResponse|null;
 error:null|IError;
 }
-
-// export interface IUserData {name:string; response:string}
 
 export interface IUserMessageState extends IState {userData: null |IUserMessage}
 

@@ -80,99 +80,95 @@ export const AskMe = () => {
           matchSignupProgram ? style.containerSingupFormat : style.container
         }
       >
-        <main>
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationMessage}
-            onSubmit={handleSubmit}
-          >
-            <Form className={style.form}>
-              <Field
-                name="name"
-                type="text"
-                className={style.input}
-                placeholder="Имя"
-              />
-              <ErrorMessage
-                name="name"
-                component="div"
-                className={style.errorStyle}
-              />
-              <div className={style.line}></div>
-              <Field
-                name="phone"
-                type="text"
-                className={style.input}
-                placeholder="Телефон"
-              />
-              <ErrorMessage
-                name="phone"
-                component="div"
-                className={style.errorStyle}
-              />
-              <div className={style.line}></div>
-              <Field
-                name="email"
-                type="text"
-                className={style.input}
-                placeholder="Email"
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                className={style.errorStyle}
-              />
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationMessage}
+          onSubmit={handleSubmit}
+        >
+          <Form className={style.form}>
+            <Field
+              name="name"
+              type="text"
+              className={style.input}
+              placeholder="Имя"
+            />
+            <ErrorMessage
+              name="name"
+              component="div"
+              className={style.errorStyle}
+            />
+            <div className={style.line}></div>
+            <Field
+              name="phone"
+              type="text"
+              className={style.input}
+              placeholder="Телефон"
+            />
+            <ErrorMessage
+              name="phone"
+              component="div"
+              className={style.errorStyle}
+            />
+            <div className={style.line}></div>
+            <Field
+              name="email"
+              type="text"
+              className={style.input}
+              placeholder="Email"
+            />
+            <ErrorMessage
+              name="email"
+              component="div"
+              className={style.errorStyle}
+            />
 
-              <div className={style.line}></div>
-              <Field
-                name="text"
-                type="text"
-                className={style.input}
-                placeholder="Текст"
-              />
-              <ErrorMessage
-                name="text"
-                component="div"
-                className={style.errorStyle}
-              />
-              <div className={style.line}></div>
-              <div className={style.acceptBlock}>
-                <div className={style.acceptCheckBox}>
-                  <input
-                    type="radio"
-                    checked={accept}
-                    onClick={() => setAccept(!accept)}
-                    readOnly
-                    className={style.acceptInput}
-                    data-cursor-active
-                  ></input>
-                  <p
-                    className={
-                      accept ? style.acceptTextActive : style.acceptText
-                    }
-                    data-cursor-active
-                  >
-                    <Link
-                      to="/"
-                      // target="blank"
-                      // rel="noopener noreferrer"
-                      className={style.acceptLink}
-                    >
-                      I accept the terms as laid out in the privacy policy
-                    </Link>
-                  </p>
-                </div>
-                <button
-                  type="submit"
-                  className={accept ? style.submitBtnActive : style.submitBtn}
+            <div className={style.line}></div>
+            <Field
+              name="text"
+              type="text"
+              className={style.input}
+              placeholder="Текст"
+            />
+            <ErrorMessage
+              name="text"
+              component="div"
+              className={style.errorStyle}
+            />
+            <div className={style.line}></div>
+            <div className={style.acceptBlock}>
+              <div className={style.acceptCheckBox}>
+                <input
+                  type="radio"
+                  checked={accept}
+                  onClick={() => setAccept(!accept)}
+                  readOnly
+                  className={style.acceptInput}
+                  data-cursor-active
+                ></input>
+                <p
+                  className={accept ? style.acceptTextActive : style.acceptText}
                   data-cursor-active
                 >
-                  Подтверждаю<span>&#10230;</span>
-                </button>
+                  <Link
+                    to="/"
+                    // target="blank"
+                    // rel="noopener noreferrer"
+                    className={style.acceptLink}
+                  >
+                    I accept the terms as laid out in the privacy policy
+                  </Link>
+                </p>
               </div>
-            </Form>
-          </Formik>
-        </main>
+              <button
+                type="submit"
+                className={accept ? style.submitBtnActive : style.submitBtn}
+                data-cursor-active
+              >
+                Подтверждаю<span>&#10230;</span>
+              </button>
+            </div>
+          </Form>
+        </Formik>
         <footer className={style.footer}>
           {!matchSignupProgram && <Logo />}
         </footer>

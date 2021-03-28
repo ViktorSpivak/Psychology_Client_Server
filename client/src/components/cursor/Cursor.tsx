@@ -3,6 +3,7 @@ import style from "./cursor.module.css";
 import { useLocation } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import {
+  selectIsActiveLoader,
   selectIsActiveModalWindow,
   selectIsActiveSendButton,
 } from "../../redux/selectors";
@@ -15,8 +16,7 @@ export const Cursor = () => {
   const [hidden, setHidden] = useState<boolean>(false);
   let location = useLocation();
   let cursorStyle = linkHovered ? style.linkHovered : style.cursor;
-  // let cursorFollower = linkHovered ? style.linkHovered : style.cursor;
-
+  const isActiveLoader = useAppSelector(selectIsActiveLoader);
   useEffect(() => {
     const pageElementsCollection:
       | NodeListOf<HTMLElement>
@@ -32,7 +32,7 @@ export const Cursor = () => {
       removeEventListeners();
       removeHandleLinkHoverEvents(pageElementsArr);
     };
-  }, [location, isActiveSendButton, isActiveModalWindow]); // eslint-disable-line
+  }, [location, isActiveSendButton, isActiveModalWindow, isActiveLoader]); // eslint-disable-line
 
   const addEventListeners = () => {
     document.addEventListener("mousemove", onMouseMove);

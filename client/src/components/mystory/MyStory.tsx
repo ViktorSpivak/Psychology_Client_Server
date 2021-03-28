@@ -16,7 +16,7 @@ import { Diploma } from "../diploma/Diploma";
 
 export const MyStory = () => {
   return (
-    <main className={style.container}>
+    <div className={style.container}>
       <Logo />
       <section>
         <img src={MyPhoto} alt="myPhoto" className={style.myPhoto} />
@@ -154,6 +154,6 @@ export const MyStory = () => {
       <footer className={style.footer}>
         <Logo />
       </footer> */}
-    </main>
+    </div>
   );
 };

@@ -13,7 +13,7 @@ import style from "./formats.module.css";
 
 export const Formats = () => {
   return (
-    <main className={style.container}>
+    <div className={style.container}>
       <Logo />
       <section className={style.sections}>
         <img src={MyPhoto} alt="myPhoto" className={style.myPhoto} />
@@ -219,7 +219,7 @@ export const Formats = () => {
     <footer className={style.footer}>
       <Logo />
     </footer> */}
-    </main>
+    </div>
   );
 };
 // <div className={style.how}>

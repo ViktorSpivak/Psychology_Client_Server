@@ -1,12 +1,14 @@
 import React from "react";
 import Slider from "react-slick";
 import style from "./slider.module.css";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { IFeedback } from "../../../../common/interfaces";
 
-export const SimpleSlider = ({ list }: { list: [IFeedback] }) => {
+interface IProps {
+  list: [IFeedback];
+}
+export const SimpleSlider = ({ list }: IProps) => {
   const sliderList: JSX.Element[] = list.map((el: IFeedback, idx: number) => (
     <div key={idx}>
       <p className={style.card}>{el.description}</p>
@@ -25,27 +27,7 @@ export const SimpleSlider = ({ list }: { list: [IFeedback] }) => {
   };
   return (
     <div>
-      <Slider {...settings}>
-        {sliderList}
-        {/* <div>
-          <h3 className={style.card}>1</h3>
-        </div>
-        <div>
-          <h3 className={style.card}>2</h3>
-        </div>
-        <div>
-          <h3 className={style.card}>3</h3>
-        </div>
-        <div>
-          <h3 className={style.card}>4</h3>
-        </div>
-        <div>
-          <h3 className={style.card}>5</h3>
-        </div>
-        <div>
-          <h3 className={style.card}>6</h3>
-        </div> */}
-      </Slider>
+      <Slider {...settings}>{sliderList}</Slider>
     </div>
   );
 };

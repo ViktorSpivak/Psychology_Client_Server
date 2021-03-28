@@ -5,6 +5,7 @@ import { postReducer } from './slices/postSlice'
 import { userMessageReducer } from './slices/userMessageSlice'
 import {sendButtonReducer} from './slices/sendButtonSlice'
 import { modalWindowReducer } from './slices/modalWindowSlice'
+import { loaderReducer } from './slices/loaderSlice'
 
 export const rootReducer = combineReducers({ 
   posts: postReducer,
@@ -13,5 +14,6 @@ export const rootReducer = combineReducers({
   userMessage:userMessageReducer,
   isActiveSendButton:sendButtonReducer,
   isActiveModalWindow:modalWindowReducer,
+  isActiveLoader:loaderReducer,
   })
 export type RootState = ReturnType<typeof rootReducer>

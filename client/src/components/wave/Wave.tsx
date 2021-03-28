@@ -33,14 +33,11 @@ type TParticle = {
   startTime: number;
   color: string;
 };
-
-export const Wave = ({
-  canvasWidth,
-  canvasHeight,
-}: {
+interface IProps {
   canvasWidth?: number;
   canvasHeight?: number;
-}) => {
+}
+export const Wave = ({ canvasWidth, canvasHeight }: IProps) => {
   const canvasRef = React.createRef<HTMLCanvasElement>();
   const particles: TParticle[] = [];
   const randomNormal = (o: TParam): number => {
@@ -135,14 +132,17 @@ export const Wave = ({
     }
   };
   const initializeCanvas = (
-    width: number | undefined,
-    height: number | undefined = 250
+    width: number,
+    height: number
   ): [HTMLCanvasElement, CanvasRenderingContext2D] => {
     const canvas = canvasRef.current!;
-    width = width || canvas.offsetWidth;
+    // width = width || canvas.offsetWidth;
+    // console.log(height, width);
 
     canvas.width = width * window.devicePixelRatio;
+    // console.log(window.devicePixelRatio);
     canvas.height = height * window.devicePixelRatio;
+
     let ctx = canvas.getContext("2d")!;
     window.addEventListener("resize", () => {
       canvas.width = canvas.offsetWidth * window.devicePixelRatio;
@@ -152,6 +152,8 @@ export const Wave = ({
     return [canvas, ctx];
   };
   const startAnimation = () => {
+    canvasHeight || (canvasHeight = window.innerHeight);
+    canvasWidth || (canvasWidth = window.innerWidth);
     const [canvas, ctx] = initializeCanvas(canvasWidth, canvasHeight);
     for (let i = 0; i < NUM_PARTICLES; i++) {
       particles.push(createParticle());

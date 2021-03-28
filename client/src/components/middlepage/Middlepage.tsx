@@ -1,10 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useRouteMatch } from "react-router-dom";
-// import { TransitionGroup } from "react-transition-group";
-
-import style from "./middlepage.module.css";
+import { Link, useRouteMatch } from "react-router-dom";
 import { Wave } from "../wave/Wave";
+import style from "./middlepage.module.css";
 
 export const MiddlePage = () => {
   // const [linkHovered, setLinkHovered] = useState<boolean>(false);
@@ -14,7 +11,7 @@ export const MiddlePage = () => {
   //   setTimeout(() => setState(true), 1000);
   // };
   // const daleyLeafOver = 500;
-  const matchMystory = useRouteMatch("/myStory");
+  const matchMyStory = useRouteMatch("/myStory");
   const matchAskMe = useRouteMatch("/askMe");
   const matchPrograms = useRouteMatch("/programs");
   const matchFormats = useRouteMatch("/formats");
@@ -24,15 +21,15 @@ export const MiddlePage = () => {
     <main className={style.main}>
       {/* <TransitionGroup appear={true} className={style.container}> */}
       <div className={style.wrapper}>
-        <Wave canvasHeight={1000} />
+        <Wave />
       </div>
       <div className={style.container}>
         {/* <CSSTransition timeout={daleyLeafOver} classNames={style}> */}
 
-        {matchMystory ? (
+        {matchMyStory ? (
           <div className={style.openLink}></div>
         ) : (
-          <Link to="/mystory" className={style.link} data-cursor-active>
+          <Link to="/myStory" className={style.link} data-cursor-active>
             <span className={style.linkText}>Обо мне</span>
           </Link>
         )}

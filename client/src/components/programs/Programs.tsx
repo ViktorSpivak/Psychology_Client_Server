@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from "react";
+import React, { useEffect } from "react";
 import icon1 from "../../images/icons/unicorn.png";
 // import icon2 from "../../images/icons/people.png";
 // import icon3 from "../../images/icons/timer.png";
@@ -13,10 +13,10 @@ import style from "./programs.module.css";
 import { ProgramCard } from "../programCard/ProgramCard";
 import { Link } from "react-router-dom";
 
-export const Programs: FunctionComponent = () => {
+export const Programs = () => {
   useEffect(() => {}, []);
   return (
-    <main className={style.container}>
+    <div className={style.container}>
       <Logo />
       <img src={MyPhoto} alt="myPhoto" className={style.myPhoto} />
 
@@ -140,6 +140,6 @@ export const Programs: FunctionComponent = () => {
     <footer className={style.footer}>
       <Logo />
     </footer> */}
-    </main>
+    </div>
   );
 };

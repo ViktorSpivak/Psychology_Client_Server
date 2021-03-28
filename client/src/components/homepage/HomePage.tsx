@@ -55,7 +55,7 @@ export const HomePage = () => {
         </div>
         <Navigation />
         <div className={style.wave}>
-          <Wave />
+          <Wave canvasHeight={250} />
         </div>
       </main>
       <footer className={style.footer}>

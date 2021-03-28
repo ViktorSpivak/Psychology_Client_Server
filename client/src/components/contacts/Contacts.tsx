@@ -1,11 +1,10 @@
-import React, { FC } from "react";
+import React from "react";
 import style from "./contacts.module.css";
 import { SocialLinks } from "../socialLinks/SocialLinks";
 import { Logo } from "../logo/Logo";
 // import { Logo } from "../../svgcomponents/Logo";
-// import Menu from "../menu/Menu";
 
-export const Contacts: FC = () => {
+export const Contacts = () => {
   return (
     <div className={style.container}>
       <div className={style.form}>
