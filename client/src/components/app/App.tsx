@@ -6,6 +6,7 @@ import "../../fonts/fonts.css";
 import { Cursor } from "../cursor/Cursor";
 import { SendButton } from "../sendButton/SendButton";
 import { TuneLoader } from "../tuneLoader/TuneLoader";
+import { ProgramTemplate } from "../programTamplate/ProgramTemplate";
 
 const HomePage = lazy(() =>
   import("../homepage/HomePage").then(({ HomePage }) => ({ default: HomePage }))
@@ -87,6 +88,9 @@ export const App = () => {
           </Route>
           <Route path="/signupProgram">
             <SignupProgram />
+          </Route>
+          <Route path="/program">
+            <ProgramTemplate />
           </Route>
           <Route>
             <HomePage />

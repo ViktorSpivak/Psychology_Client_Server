@@ -1,13 +1,41 @@
-.section {
-  width: calc(100% - 10%);
-  margin: 0 auto;
+.header {
+  text-align: center;
+  font-size: 16px;
 }
-
+.section {
+  margin: 0 auto;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.text {
+  font-size: 24px;
+}
 .myPhoto {
   width: 100%;
 }
 
+.list {
+  padding-left: 0;
+}
+.card {
+  margin: 10px auto;
+  width: 300px;
+  height: 300px;
+  border: solid 1px black;
+  text-align: center;
+  /* padding: 10px; */
+}
+.image {
+  width: 80px;
+  height: 80px;
+}
+.description {
+  font-size: 26px;
+}
 .title {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 40px;
   text-transform: uppercase;
   display: flex;
@@ -24,4 +52,35 @@
 
 .topic {
   composes: title;
+}
+
+.inProgram {
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.listNumber {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+.listText {
+  display: inline-block;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 150px;
+  border: 1px solid #000;
+}
+@media (min-width: 768px) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    justify-content: space-around;
+  }
 }

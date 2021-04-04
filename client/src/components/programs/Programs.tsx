@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import icon1 from "../../images/icons/unicorn.png";
+// import icon1 from "../../images/icons/unicorn.png";
 // import icon2 from "../../images/icons/people.png";
 // import icon3 from "../../images/icons/timer.png";
 // import icon4 from "../../images/icons/books.png";
@@ -12,6 +12,7 @@ import MyPhoto from "../../images/handsPhoto/баннер сайт блог.png"
 import style from "./programs.module.css";
 import { ProgramCard } from "../programCard/ProgramCard";
 import { Link } from "react-router-dom";
+import { Feedback } from "../feedback/Feedback";
 
 export const Programs = () => {
   useEffect(() => {}, []);
@@ -67,33 +68,7 @@ export const Programs = () => {
         </ul>
       </section>
       <section className={style.section}>
-        <h2 className={style.topic}>отзывы</h2>
-        <ul className={style.list}>
-          <li className={style.card}>
-            <img src={icon1} alt="horse" className={style.image} />
-            <p className={style.description}>ценность</p>
-          </li>
-          <li className={style.card}>
-            <img src={icon1} alt="horse" className={style.image} />
-            <p className={style.description}>ценность</p>
-          </li>
-          <li className={style.card}>
-            <img src={icon1} alt="horse" className={style.image} />
-            <p className={style.description}>ценность</p>
-          </li>
-          <li className={style.card}>
-            <img src={icon1} alt="horse" className={style.image} />
-            <p className={style.description}>ценность</p>
-          </li>
-          <li className={style.card}>
-            <img src={icon1} alt="horse" className={style.image} />
-            <p className={style.description}>ценность</p>
-          </li>
-          <li className={style.card}>
-            <img src={icon1} alt="horse" className={style.image} />
-            <p className={style.description}>ценность</p>
-          </li>
-        </ul>
+        <Feedback />
       </section>
       <section className={style.section}>
         <h2 className={style.topic}>стандарты работы</h2>
