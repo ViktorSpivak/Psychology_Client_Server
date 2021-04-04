@@ -69,11 +69,6 @@
 }
 
 @media (min-width: 768px) {
-  .container {
-    left: 160px;
-    width: calc(100% - 160px);
-  }
-
   .list {
     flex-wrap: wrap;
     margin: 0 auto;
@@ -83,6 +78,12 @@
 
   .card {
     margin: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    left: 160px;
+    width: calc(100% - 160px);
   }
 }
 

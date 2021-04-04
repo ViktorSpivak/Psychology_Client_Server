@@ -1,7 +1,6 @@
 .container {
   position: relative;
-  left: 120px;
-  width: calc(100% - 160px);
+
   font-size: 14px;
   display: flex;
   justify-content: center;
@@ -149,7 +148,12 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
+  .container {
+    width: calc(100% - 160px);
+    left: 120px;
+  }
+
   .form {
     width: 700px;
   }

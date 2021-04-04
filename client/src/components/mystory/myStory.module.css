@@ -76,14 +76,16 @@
   composes: border;
 }
 @media (min-width: 768px) {
-  .container {
-    width: calc(100% - 160px);
-  }
   .list {
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
     justify-content: space-around;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: calc(100% - 160px);
   }
 }
 /* .story {

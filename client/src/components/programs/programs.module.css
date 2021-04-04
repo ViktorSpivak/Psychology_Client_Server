@@ -6,7 +6,7 @@
 .border {
   border: solid 1px black;
 }
-.sections {
+.section {
   width: calc(100% - 10%);
   margin: 0 auto;
 }
@@ -100,8 +100,19 @@
   height: 300px;
   composes: border;
 }
-
+.link {
+  color: #000;
+}
 @media (min-width: 768px) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 1200px) {
   .container {
     left: 40px;
     width: calc(100% - 160px);
@@ -113,9 +124,7 @@
     justify-content: space-around;
   }
 }
-.link {
-  color: #000;
-}
+
 @keyframes Show {
   from {
     opacity: 0;

@@ -137,23 +137,24 @@ export const Wave = ({ canvasWidth, canvasHeight }: IProps) => {
   ): [HTMLCanvasElement, CanvasRenderingContext2D] => {
     const canvas = canvasRef.current!;
     // width = width || canvas.offsetWidth;
-    // console.log(height, width);
 
     canvas.width = width * window.devicePixelRatio;
-    // console.log(window.devicePixelRatio);
     canvas.height = height * window.devicePixelRatio;
+    // canvas.width = width;
+    // canvas.height = height;
 
     let ctx = canvas.getContext("2d")!;
-    window.addEventListener("resize", () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx = canvas.getContext("2d")!;
-    });
+    // window.addEventListener("resize", () => {
+    //   canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+    //   canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+    //   ctx = canvas.getContext("2d")!;
+    // });
     return [canvas, ctx];
   };
   const startAnimation = () => {
     canvasHeight || (canvasHeight = window.innerHeight);
-    canvasWidth || (canvasWidth = window.innerWidth);
+    canvasWidth || (canvasWidth = 1200);
+
     const [canvas, ctx] = initializeCanvas(canvasWidth, canvasHeight);
     for (let i = 0; i < NUM_PARTICLES; i++) {
       particles.push(createParticle());

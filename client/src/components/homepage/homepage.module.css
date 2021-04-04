@@ -76,7 +76,6 @@
   }
   .gameClick {
     font-size: 26px;
-    margin-bottom: 20px;
   }
   .footer {
     margin-top: 0;
@@ -89,16 +88,17 @@
 @media (min-width: 1200px) {
   .wave {
     display: block;
+    /* display: contents; */
+  }
+  .main {
+    height: 82vh;
+  }
+  .footer {
+    height: 8vh;
   }
 }
-@media (orientation: landscape) and (max-height: 520px) {
+/* @media (orientation: landscape) and (max-height: 520px) {
   .wave {
     display: none;
   }
-}
-
-.login {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
+} */

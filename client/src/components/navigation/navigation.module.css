@@ -7,8 +7,7 @@
   align-items: center;
   margin: 0;
   padding-left: 0;
-  padding-top: 15px;
-  
+  /* padding-top: 15px; */
 }
 
 .link {
@@ -17,8 +16,6 @@
   padding-bottom: 30px;
   text-transform: uppercase;
 }
-
-
 
 @media (min-width: 768px) {
   .nav {
@@ -31,7 +28,6 @@
 
   .link {
     flex-basis: 33%;
-
   }
 
   .link1 {
@@ -45,9 +41,13 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .nav {
     flex-wrap: nowrap;
+    padding: 0;
+  }
+  .link {
+    padding: 0;
   }
 }
 

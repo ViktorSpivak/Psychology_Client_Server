@@ -3,8 +3,7 @@ import { rootReducer, RootState } from './rootReducer';
 
 export const store = configureStore({
   reducer:rootReducer,
-  devTools: process.env.NODE_ENV !== "production",
-})
+  })
 
 export type AppDispatch = typeof store.dispatch
 export type AppThunk = ThunkAction<void, RootState, null, Action<string>>;

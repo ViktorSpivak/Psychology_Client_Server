@@ -1,5 +1,6 @@
 .main {
   position: fixed;
+  display: none;
   /* width: 100%; */
 }
 .container {
@@ -62,5 +63,8 @@
 @media (min-width: 1200px) {
   .container {
     width: var(--widthContainer);
+  }
+  .main {
+    display: block;
   }
 }

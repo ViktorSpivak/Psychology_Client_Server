@@ -20,11 +20,11 @@ export const Programs = () => {
       <Logo />
       <img src={MyPhoto} alt="myPhoto" className={style.myPhoto} />
 
-      <section className={style.sections}>
+      <section className={style.section}>
         <h1 className={style.title}>о программах</h1>
         <video src=""></video>
       </section>
-      <section className={style.sections}>
+      <section className={style.section}>
         <h2 className={style.topic}>программы для бизнеса</h2>
         <ul className={style.businessPrograms}>
           <ProgramCard />
@@ -40,12 +40,12 @@ export const Programs = () => {
           <ProgramCard />
         </ul>
       </section>
-      <section className={style.sections}>
+      <section className={style.section}>
         <h2 className={style.topic}>программы для жизни</h2>
         <ProgramCard />
         <ProgramCard />
       </section>
-      <section className={style.sections}>
+      <section className={style.section}>
         <h2 className={style.topic}>форматы работы</h2>
         <ul className={style.formats}>
           <li className={style.format}>
@@ -66,7 +66,7 @@ export const Programs = () => {
           </li>
         </ul>
       </section>
-      <section className={style.sections}>
+      <section className={style.section}>
         <h2 className={style.topic}>отзывы</h2>
         <ul className={style.list}>
           <li className={style.card}>
@@ -95,7 +95,7 @@ export const Programs = () => {
           </li>
         </ul>
       </section>
-      <section className={style.sections}>
+      <section className={style.section}>
         <h2 className={style.topic}>стандарты работы</h2>
         <ul className={style.programs}>
           <li className={style.program}></li>
@@ -114,7 +114,7 @@ export const Programs = () => {
           <li className={style.program}></li>
         </ul>
       </section>
-      <section className={style.sections}>
+      <section className={style.section}>
         <h2 className={style.topic}>ценности</h2>
         <p className={style.text}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
@@ -128,7 +128,7 @@ export const Programs = () => {
           reprehenderit ratione.
         </p>
       </section>
-      <section className={style.sections}>
+      <section className={style.section}>
         <h2 className={style.topic}>задать вопрос</h2>
         <Link to="/askMe" className={style.link} data-cursor-active>
           <span className={style.text}>Спросить</span>
