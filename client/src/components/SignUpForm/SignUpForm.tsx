@@ -3,9 +3,9 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 // import { Logo } from "../../svgcomponents/Logo";
 import { Logo } from "../logo/Logo";
-import style from "./askme.module.css";
+import style from "./signUpForm.module.css";
 import { IUserMessage } from "../../../../common/interfaces";
-import { Link, match, useRouteMatch } from "react-router-dom";
+import { Link, match, useParams, useRouteMatch } from "react-router-dom";
 import {
   setUserMassage,
   userMessageThunk,
@@ -16,18 +16,31 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { activeModalWindow } from "../../redux/slices/modalWindowSlice";
 import { selectUserMessage } from "../../redux/selectors";
 
-export const AskMe = () => {
+// interface IProp {
+//   question?: boolean;
+//   program?: boolean;
+//   consultation?: boolean;
+// }
+export const SignUpForm = () => {
   const [accept, setAccept] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const { isLoading, error, response } = useAppSelector(selectUserMessage);
+  const param = useParams();
+  console.log(param);
 
   useEffect(() => {
     if (response || error) {
       dispatch(activeModalWindow());
     }
-  }, [response, error, dispatch]);
+  }, [response, error]); // eslint-disable-line
 
-  const matchSignupProgram: match<{}> | null = useRouteMatch("/signupProgram");
+  const matchRoute: match<{}> | null = useRouteMatch([
+    "/programList",
+    "/programs",
+  ]);
+  console.log(matchRoute);
+
+  // const matchRoute: match<{}> | null = useRouteMatch("/programs");
 
   // const text: string|null = error
   //   ? "Что-то пошло не так, попробуйте ещё раз позже:( "
@@ -76,9 +89,7 @@ export const AskMe = () => {
   return (
     <>
       <div
-        className={
-          matchSignupProgram ? style.containerSingupFormat : style.container
-        }
+        className={matchRoute ? style.containerSingupFormat : style.container}
       >
         <Formik
           initialValues={initialValues}
@@ -169,9 +180,7 @@ export const AskMe = () => {
             </div>
           </Form>
         </Formik>
-        <footer className={style.footer}>
-          {!matchSignupProgram && <Logo />}
-        </footer>
+        <footer className={style.footer}>{!matchRoute && <Logo />}</footer>
       </div>
       {isLoading && <TuneLoader overlay />}
       <ModalWindow />

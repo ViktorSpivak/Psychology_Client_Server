@@ -6,6 +6,7 @@ import { User_Message, UserMessageSchema } from './models/userMessage.schema';
 import { Post, PostSchema } from './models/post.schema';
 import { Feedback, FeedbackSchema } from './models/feedback.schema';
 import { Diploma, DiplomaSchema } from './models/diploma.schema';
+import { Program, ProgramSchema } from './models/program.schema';
 
 @Module({
   imports: [
@@ -28,6 +29,10 @@ import { Diploma, DiplomaSchema } from './models/diploma.schema';
     MongooseModule.forFeature(
       [{ name: Diploma.name, schema: DiplomaSchema }],
       'diplomas',
+    ),
+    MongooseModule.forFeature(
+      [{ name: Program.name, schema: ProgramSchema }],
+      'programs',
     ),
   ],
   providers: [dbServices],

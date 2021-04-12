@@ -22,8 +22,10 @@ const MyStory = lazy(() =>
 const Programs = lazy(() =>
   import("../programs/Programs").then(({ Programs }) => ({ default: Programs }))
 );
-const AskMe = lazy(() =>
-  import("../askMe/AskMe").then(({ AskMe }) => ({ default: AskMe }))
+const SignUpForm = lazy(() =>
+  import("../SignUpForm/SignUpForm").then(({ SignUpForm }) => ({
+    default: SignUpForm,
+  }))
 );
 const Formats = lazy(() =>
   import("../formats/Formats").then(({ Formats }) => ({ default: Formats }))
@@ -32,7 +34,7 @@ const Watch = lazy(() =>
   import("../watch/Watch").then(({ Watch }) => ({ default: Watch }))
 );
 const SignupProgram = lazy(() =>
-  import("../signupProgram/SignupProgram").then(({ SignupProgram }) => ({
+  import("../programList/ProgramList").then(({ SignupProgram }) => ({
     default: SignupProgram,
   }))
 );
@@ -74,9 +76,9 @@ export const App = () => {
             <MiddlePage />
             <Programs />
           </Route>
-          <Route path="/askMe">
+          <Route path="/signUpForm/:param">
             <MiddlePage />
-            <AskMe />
+            <SignUpForm />
           </Route>
           <Route path={"/formats"}>
             <MiddlePage />
@@ -86,10 +88,10 @@ export const App = () => {
             <MiddlePage />
             <Watch />
           </Route>
-          <Route path="/signupProgram">
+          <Route path="/programList">
             <SignupProgram />
           </Route>
-          <Route path="/program">
+          <Route path="/programTemplate">
             <ProgramTemplate />
           </Route>
           <Route>

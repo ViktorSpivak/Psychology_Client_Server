@@ -12,11 +12,12 @@ import {
 import { JwtAuthGuard } from '../auth/auth-guards/jwt-auth.guard';
 import { Response } from 'express';
 import { AdminService } from './admin.service';
-import { IUser, TElementId,IPost, IFeedback, IDiploma, IUserMessage } from '../../../common/interfaces';
+import { IUser, TElementId,IPost, IFeedback, IDiploma, IUserMessage, IProgram } from '../../../common/interfaces';
 
 @Controller()
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
+  // User
   // @UseGuards(JwtAuthGuard)
   @Post('/create_user')
   async createUser(@Body() user: IUser): Promise<any> {
@@ -39,7 +40,7 @@ export class AdminController {
   async findUser(@Param() params: TElementId): Promise<IUser> {
     return this.adminService.findUserById(params.id);
   }
-
+// Massage
   @UseGuards(JwtAuthGuard)
   @Get('/message/:id')
   async findUserRequestById(
@@ -58,7 +59,7 @@ export class AdminController {
     res.json(requests);
     return;
   }
-
+// Post
   @UseGuards(JwtAuthGuard)
   @Post('/post')
   async createPost(@Body() post: IPost): Promise<any> {
@@ -77,7 +78,7 @@ export class AdminController {
   async deletePost(@Param() params: TElementId,): Promise<IPost[]> {
     return this.adminService.deletePost(params.id);
   }
-
+// Feedback
   @UseGuards(JwtAuthGuard)
   @Post('/feedback')
   async creatFeedback(@Body() feedback: IFeedback): Promise<any> {
@@ -94,7 +95,7 @@ export class AdminController {
 async editFeedback(@Param() params: TElementId,@Body() feedback: IFeedback ): Promise<IFeedback[]> {
   return this.adminService.editFeedback(params.id,feedback);
 }
-
+// Diploma
   @UseGuards(JwtAuthGuard)
   @Post('/diploma')
   async creatDiploma(@Body() diploma: IDiploma): Promise<any> {
@@ -109,7 +110,26 @@ async editDiploma(@Param() params: TElementId,@Body() diploma: IDiploma ): Promi
 
   @UseGuards(JwtAuthGuard)
   @Delete('/diploma/:id')
-  async deleteDiploma(@Param() params: TElementId,): Promise<IFeedback> {
+  async deleteDiploma(@Param() params: TElementId,): Promise<IDiploma> {
     return this.adminService.deleteDiploma(params.id);
+  }
+
+  // Program
+  // @UseGuards(JwtAuthGuard)
+  @Post('/program')
+  async creatProgram(@Body() program: IProgram): Promise<any> {
+    return await this.adminService.createProgram(program);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Put('/program/:id')
+async editProgram(@Param() params: TElementId,@Body() program: IProgram ): Promise<IProgram[]> {
+  return this.adminService.editProgram(params.id,program);
+}
+
+  @UseGuards(JwtAuthGuard)
+  @Delete('/program/:id')
+  async deleteProgram(@Param() params: TElementId,): Promise<IProgram> {
+    return this.adminService.deleteProgram(params.id);
   }
 }

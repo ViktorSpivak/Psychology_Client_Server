@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 // import icon1 from "../../images/icons/unicorn.png";
 // import icon2 from "../../images/icons/people.png";
 // import icon3 from "../../images/icons/timer.png";
@@ -11,11 +11,10 @@ import { Logo } from "../logo/Logo";
 import MyPhoto from "../../images/handsPhoto/баннер сайт блог.png";
 import style from "./programs.module.css";
 import { ProgramCard } from "../programCard/ProgramCard";
-import { Link } from "react-router-dom";
 import { Feedback } from "../feedback/Feedback";
+import { SignUpForm } from "../SignUpForm/SignUpForm";
 
 export const Programs = () => {
-  useEffect(() => {}, []);
   return (
     <div className={style.container}>
       <Logo />
@@ -105,9 +104,7 @@ export const Programs = () => {
       </section>
       <section className={style.section}>
         <h2 className={style.topic}>задать вопрос</h2>
-        <Link to="/askMe" className={style.link} data-cursor-active>
-          <span className={style.text}>Спросить</span>
-        </Link>
+        <SignUpForm />
       </section>
       {/* <p className={style.story} data-cursor-active>
       My story

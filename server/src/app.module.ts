@@ -36,6 +36,12 @@ const URLusersdb = process.env.URLusersdb;
       useUnifiedTopology: true,
       useFindAndModify: false,
     }),
+    MongooseModule.forRoot(URLdb, {
+      connectionName: 'programs',
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    }),
     MongooseModule.forRoot(URLusersdb, {
       connectionName: 'users',
       useNewUrlParser: true,

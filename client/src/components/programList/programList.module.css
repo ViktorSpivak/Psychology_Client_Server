@@ -66,7 +66,13 @@
   height: 300px;
   composes: border;
 }
+.consultations {
+  list-style: none;
+  /* padding: 0; */
+}
 .consultation {
+  font-size: 80px;
+  color: var(--customOrange);
   height: 30px;
   composes: border;
 }

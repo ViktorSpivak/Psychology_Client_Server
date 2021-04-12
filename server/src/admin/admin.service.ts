@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { IDiploma, IFeedback, IPost, IUser, TElementId } from '../../../common/interfaces';
+import { IDiploma, IFeedback, IPost, IProgram, IUser, TElementId } from '../../../common/interfaces';
 import { dbServices } from '../dbServices/dbServices.service';
 import * as bcrypt from 'bcryptjs';
 require('dotenv').config();
@@ -8,6 +8,7 @@ const COUNT_FACTOR = process.env.COUNT_FACTOR;
 @Injectable()
 export class AdminService {
   constructor(private services: dbServices) {}
+  // User
   async createUser(user: IUser): Promise<any> {
     user.password = await bcrypt.hash(user.password, +COUNT_FACTOR);
     return this.services.createUser(user);
@@ -35,7 +36,7 @@ export class AdminService {
     const requestsForAdminList = requests.map(el => ({ ...el, id: el._id }));
     return requestsForAdminList;
   }
-
+// Post
   async createPost(post: IPost): Promise<any> {
 const newPost=await this.services.createPost(post);
 const newPostForAdmin = { ...newPost, id: newPost._id };
@@ -53,7 +54,7 @@ const newPostForAdmin = { ...newPost, id: newPost._id };
     return this.services.deletePost(id);
   }
   
-
+// Feedback
   async createFeedback(feedback: IFeedback): Promise<any> {
     const newFeedback=await this.services.createFeedback(feedback);
     const newFeedbackForAdmin = { ...newFeedback, id: newFeedback._id };
@@ -68,7 +69,7 @@ async editFeedback(id:string,newProperties:IFeedback): Promise<any> {
   return newFeedbackForAdmin;
 }
 
-
+// Diploma
   async createDiploma(diploma: IDiploma): Promise<any> {
     const newDiploma=await this.services.createDiploma(diploma);
     const newDiplomaForAdmin = { ...newDiploma, id: newDiploma._id };
@@ -81,5 +82,19 @@ async editDiploma(id:string,newProperties:IDiploma): Promise<any> {
   const newDiploma=await this.services.editDiploma(id,newProperties)
   const newDiplomaForAdmin = { ...newDiploma, id: newDiploma._id };
   return newDiplomaForAdmin;
+}
+// Program
+  async createProgram(program: IProgram): Promise<any> {
+    const newProgram=await this.services.createProgram(program);
+    const newProgramForAdmin = { ...newProgram, id: newProgram._id };
+        return newProgramForAdmin;
+}
+async deleteProgram(id:string): Promise<any> {
+  return this.services.deleteProgram(id);
+}
+async editProgram(id:string,newProperties:IProgram): Promise<any> {
+  const newProgram=await this.services.editProgram(id,newProperties)
+  const newProgramForAdmin = { ...newProgram, id: newProgram._id };
+  return newProgramForAdmin;
 }
 }

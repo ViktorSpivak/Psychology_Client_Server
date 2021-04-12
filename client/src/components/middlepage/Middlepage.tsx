@@ -12,7 +12,7 @@ export const MiddlePage = () => {
   // };
   // const daleyLeafOver = 500;
   const matchMyStory = useRouteMatch("/myStory");
-  const matchAskMe = useRouteMatch("/askMe");
+  const matchAskMe = useRouteMatch("/signUpForm");
   const matchPrograms = useRouteMatch("/programs");
   const matchFormats = useRouteMatch("/formats");
   const matchWatch = useRouteMatch("/watch");
@@ -56,7 +56,11 @@ export const MiddlePage = () => {
         {matchAskMe ? (
           <div className={style.openLink}></div>
         ) : (
-          <Link to="/askMe" className={style.link} data-cursor-active>
+          <Link
+            to="/signUpForm/askMe"
+            className={style.link}
+            data-cursor-active
+          >
             <span className={style.linkText}>Спросить</span>
           </Link>
         )}

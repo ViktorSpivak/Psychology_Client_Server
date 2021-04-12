@@ -4,6 +4,7 @@ import MyPhoto from "../../images/handsPhoto/баннер сайт блог.png"
 import icon1 from "../../images/icons/unicorn.png";
 import { ModuleProgram } from "../programModule/ProgramModule";
 import style from "./programTemplate.module.css";
+import { ParticipationFormats } from "../participationFormats/ParticipationFormats";
 
 export const ProgramTemplate = () => {
   return (
@@ -93,6 +94,7 @@ export const ProgramTemplate = () => {
         </section>
         <section className={style.section}>
           <h2 className={style.topic}>форматы участия</h2>
+          <ParticipationFormats />
         </section>
       </main>
       <footer></footer>

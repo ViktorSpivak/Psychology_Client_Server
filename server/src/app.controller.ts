@@ -44,5 +44,21 @@ export class AppControllers {
     res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
 
     res.json(feedbacks);
+  }
+
+  @Get('/program/:id')
+  async findProgramById(@Param() params: TElementId): Promise<any> {
+    return this.appService.findProgramById(params.id);
+  }
+  
+  @Get('/program')
+  async findAllProgram(@Res() res: Response): Promise<any> {
+    const programs = await this.appService.findAllProgram();
+console.log("hh");
+
+    res.setHeader('Content-Range', 'users 0-3/10');
+    res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
+
+    res.json(programs);
   } 
 }

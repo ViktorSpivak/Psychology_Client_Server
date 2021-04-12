@@ -15,7 +15,7 @@ export const Navigation = () => {
         <Link to="/formats" className={style.link} data-cursor-active>
           форматы &nbsp;работы
         </Link>
-        <Link to="/askMe" className={style.link} data-cursor-active>
+        <Link to="/SignUpForm/askMe" className={style.link} data-cursor-active>
           спросить
         </Link>
         <Link to="/watch" className={style.link5} data-cursor-active>

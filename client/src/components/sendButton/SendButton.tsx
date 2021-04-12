@@ -20,7 +20,7 @@ export const SendButton = () => {
     <>
       {/* {matchHome || ( */}
       {isActive && (
-        <Link to="/signupProgram" className={style.outerContainer}>
+        <Link to="/programList" className={style.outerContainer}>
           {/* <CSSTransition
         in={homepage}
         timeout={{ enter: 2000, exit: 2000 }}

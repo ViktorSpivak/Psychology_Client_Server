@@ -1,0 +1,42 @@
+.conditions {
+  font-size: 26px;
+}
+.row {
+  display: flex;
+  text-align: center;
+}
+.row:nth-child(odd) {
+  background-color: var(--customOrange);
+}
+
+.row:first-child {
+  font-weight: bolder;
+}
+.col1 {
+  flex-basis: 25%;
+}
+.col2 {
+  flex-basis: 25%;
+}
+.row:nth-child(even) > .col2 {
+  border-left: 1px solid #000;
+}
+.row:nth-child(even) > .col3 {
+  border-left: 1px solid #000;
+}
+.row:nth-child(even) > .col4 {
+  border-left: 1px solid #000;
+}
+.col3 {
+  flex-basis: 25%;
+}
+.col4 {
+  flex-basis: 25%;
+}
+.btn {
+  font-size: 24px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: var(--customOrange);
+}

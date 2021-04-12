@@ -25,12 +25,14 @@ export const ModalWindow = () => {
     }, спасибо что оставили отзыв, но что-то пошло не так :( \n
       Попробуйте ещё раз позже `;
   }
+
   useEffect(() => {
-    dispatch(noActiveSendButton());
+    isActiveModalWindow && dispatch(noActiveSendButton());
     return () => {
       dispatch(activeSendButton());
     };
-  }, [dispatch]);
+  }, []); // eslint-disable-line
+
   const turnoffModalWindow = () => {
     dispatch(noActiveModalWindow());
     dispatch(resetUserMassage());

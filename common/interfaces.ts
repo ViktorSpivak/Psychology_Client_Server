@@ -82,6 +82,22 @@ export interface IFeedback {
   description?: string
   name?: string
 }
+export interface IProgram {
+  date: string
+  content: string
+  name: string
+}
+export interface INewPropertiesProgram {
+  name?: string
+  video?: string
+  target?: string
+  needs?: string
+  content?: string
+  practice?: string
+  how?: string
+  formats?: string
+}
+
 export type TElementId = { id: string };
 export interface ICredentials {
   username: string
